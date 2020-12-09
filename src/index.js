@@ -1,4 +1,9 @@
 import columnify from 'columnify';
+import {
+  redText, greenText,
+  orangeText, purpleText,
+  turquoiseText
+} from './formatting'
 
 figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
 figlet.preloadFonts(["Standard", "Slant"], ready);
@@ -12,13 +17,6 @@ const commands = [
 
 var githubProjects = [];
 
-const greenText = (text) => {
-  return `[[;rgba(0,255,0,0.99);]${text}]`
-}
-
-const redText = (text) => {
-  return `[[;rgba(255,00,0.99);]${text}]`
-}
 
 function render(text, font) {
   return figlet.textSync(text, {
@@ -36,9 +34,7 @@ const getGithubProjects = () => {
   ).then(
     (data) => {
       data.map((repo, index) => {
-        // console.log(`${index + 1}.\t${repo.name}`);
-        githubProjects.push({ name: repo.name, lang: repo.language || 'other' });
-        // return `${index + 1}.\t${repo.name}`;
+        githubProjects.push({ 'Sr.No':index+1, name: repo.name, lang: repo.language || 'other' });
       })
     }
   ).catch((error) => {
@@ -73,29 +69,36 @@ const displayHelp = () => {
 }
 
 function ready() {
-  term = $('body').terminal(function (cmd) {
-    this.echo(() => {
-      switch (cmd) {
-        case 'echo':
-          return render('lol');
+  term = $('body').terminal({
 
-        case 'help':
-          return displayHelp();
-
-        case 'show-projects':
-          return columnify(githubProjects)
-        case 'test':
-          return columnify(githubProjects)
-        default:
-          return redText(`unknown command. Type 'help' to get started`);
+    help: () => displayHelp(),
+    'show-projects': () => columnify(githubProjects, {
+      columnSplitter: '|', dataTransform: (data) => {
+        switch (data) {
+          case 'other':
+            return orangeText(data);
+          case 'C':
+          case 'C++':
+            return purpleText(data);
+          case 'Dart':
+            return turquoiseText(data);
+          case 'HTML':
+            return greenText(data);
+          default:
+            return data;
+        }
       }
-    })
+    }),
+    echo: (...text) => text.join(' '),
+
   }, {
     greetings: function () {
       return render('David Velho', 'Slant') +
-        `\n[[;rgba(0,255,0,0.99);]Hey, I'm David]. Type in [[;rgba(0,255,0,0.99);]help] to get started.\n`;
+        `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
     },
-    prompt: `[[;rgba(0,255,0,0.99);]#user > ]`,
-    name: 'name'
+    prompt: `${greenText('#user >')}`,
+    name: 'name',
+    checkArity: false,
+    completion: true,
   });
 }
