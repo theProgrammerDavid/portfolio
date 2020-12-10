@@ -2,10 +2,14 @@ import columnify from 'columnify';
 import {
   redText, greenText,
   orangeText, purpleText,
-  turquoiseText, render
+  turquoiseText, render,
+  renderLink
 } from './formatting'
 
-import { githubProjectOptions, terminalOptions } from './options';
+import {
+  githubProjectOptions, terminalOptions,
+  socialOptions
+} from './options';
 // figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
 // figlet.preloadFonts(["Standard", "Slant"], ready);
 
@@ -22,10 +26,16 @@ const commands = [
   { 'show-resume': 'shows resume in a new tab' },
   { 'show-social': 'follow me on social media' },
   { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
-  {'font-size-up': 'increases terminal font size by 0.2'},
-  {'font-size-down': 'decreases terminal font size by 0.2'},
-  
+  { 'font-size-up': 'increases terminal font size by 0.2' },
+  { 'font-size-down': 'decreases terminal font size by 0.2' },
+
 ];
+
+const socials = [
+  { 'No': 1, website: 'Github', url: 'https://github.com/theProgrammerDavid'},
+  { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia'},
+
+]
 
 var githubProjects = [];
 
@@ -42,7 +52,7 @@ const getGithubProjects = async () => {
         githubProjects.push({
           'Sr.No': index + 1,
           name: repo.name,
-          fork: repo.fork,
+          fork: repo.fork ? `Yes` : `No`,
           description: repo.description,
           lang: repo.language || 'other',
         });
@@ -64,6 +74,7 @@ const helpCommands = () => {
 const aboutMe = () => {
   return `I'm David, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
     I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.
+    ${renderLink('google.co.in', 'google')}
     `
 }
 const displayHelp = () => {
@@ -87,6 +98,12 @@ function ready() {
     'font-size-down': () => {
       fontSize -= 0.2;
       document.documentElement.style.cssText = `--size: ${fontSize}`;
+    },
+    'show-resume': () => {
+      window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
+    },
+    'show-socials': () => {
+      return columnify(socials, socialOptions);
     }
 
   }, terminalOptions);

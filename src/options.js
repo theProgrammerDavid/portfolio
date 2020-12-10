@@ -4,6 +4,16 @@ import {
     turquoiseText, render
 } from './formatting'
 import term from './index'
+export const socialOptions = {
+    minWidth: 10,
+    truncate: true,
+    config: {
+        url: { maxWidth: 50 }
+    },
+    columnSplitter: '|', dataTransform: (data) => {
+        return data;
+    }
+};
 export const githubProjectOptions = {
     minWidth: 10,
     truncate: true,
@@ -32,7 +42,7 @@ export const terminalOptions = {
         return render('David Velho', 'Doom') +
             `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
     },
-    prompt: `${greenText('#user >')}`,
+    prompt: `${greenText('# user >')}`,
     // name: 'name',
     checkArity: false,
     history: true,

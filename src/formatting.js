@@ -22,3 +22,6 @@ export function render(text, font) {
     whitespaceBreak: true
   });
 }
+export function renderLink(link,text){
+    return `[[!;;;;${link}]${text}]`;
+}
