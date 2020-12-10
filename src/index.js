@@ -2,10 +2,10 @@ import columnify from 'columnify';
 import {
   redText, greenText,
   orangeText, purpleText,
-  turquoiseText
+  turquoiseText, render
 } from './formatting'
 
-import {githubProjectOptions} from './options';
+import {githubProjectOptions, terminalOptions} from './options';
 // figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
 // figlet.preloadFonts(["Standard", "Slant"], ready);
 
@@ -26,13 +26,6 @@ const commands = [
 var githubProjects = [];
 
 
-function render(text, font) {
-  return figlet.textSync(text, {
-    font: font || 'Standard',
-    width: !term ? 80 : term.cols(),
-    whitespaceBreak: true
-  });
-}
 
 
 const getGithubProjects = async () => {
@@ -57,13 +50,6 @@ const getGithubProjects = async () => {
 
 }
 getGithubProjects();
-
-const showProjects = () => {
-  console.table(githubProjects)
-  return githubProjects.map((project, index) => {
-    return `\n${index + 1}.\t${project.name}`;
-  })
-}
 
 const helpCommands = () => {
   return `
@@ -90,19 +76,7 @@ function ready() {
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
 
-  }, {
-    greetings: function () {
-      return render('David Velho', 'Slant') +
-        `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
-    },
-    prompt: `${greenText('#user >')}`,
-    // name: 'name',
-    checkArity: false,
-    history: true,
-    exit: true,
-    clear: true,
-    warp: false,
-    completion: true,
-    echoCommand: true
-  });
+  }, terminalOptions);
 }
+
+export default term;

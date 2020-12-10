@@ -1,4 +1,4 @@
-
+import term from './index'
 export const greenText = (text) => {
     return `[[;rgba(0,255,0,0.99);]${text}]`
 }
@@ -13,4 +13,12 @@ export const purpleText=(text)=>{
 }
 export const turquoiseText = (text)=>{
     return `[[;rgba(64,224,208,0.99);]${text}]`
+}
+
+export function render(text, font) {
+  return figlet.textSync(text, {
+    font: font || 'Standard',
+    width: !term ? 80 : term.cols(),
+    whitespaceBreak: true
+  });
 }

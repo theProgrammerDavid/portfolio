@@ -1,8 +1,9 @@
 import {
     redText, greenText,
     orangeText, purpleText,
-    turquoiseText
-  } from './formatting'
+    turquoiseText, render
+} from './formatting'
+import term from './index'
 export const githubProjectOptions = {
     minWidth: 10,
     truncate: true,
@@ -25,3 +26,19 @@ export const githubProjectOptions = {
         }
     }
 }
+
+export const terminalOptions = {
+    greetings: function () {
+        return render('David Velho', 'Slant') +
+            `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
+    },
+    prompt: `${greenText('#user >')}`,
+    // name: 'name',
+    checkArity: false,
+    history: true,
+    exit: true,
+    clear: true,
+    warp: false,
+    completion: true,
+    echoCommand: true
+};
