@@ -5,14 +5,22 @@ import {
   turquoiseText
 } from './formatting'
 
-figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
-figlet.preloadFonts(["Standard", "Slant"], ready);
+import {githubProjectOptions} from './options';
+// figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
+// figlet.preloadFonts(["Standard", "Slant"], ready);
+
+async function loadFonts() {
+  figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
+  figlet.preloadFonts(["Standard", "Slant"], ready);
+}
+loadFonts();
 
 var term;
 const commands = [
   { 'show-projects': 'populates a list of projects from Github' },
   { 'show-resume': 'shows resume in a new tab' },
   { 'show-social': 'follow me on social media' },
+  { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${orangeText('some text with or without spaces')}` }
 ];
 
 var githubProjects = [];
@@ -27,18 +35,24 @@ function render(text, font) {
 }
 
 
-const getGithubProjects = () => {
+const getGithubProjects = async () => {
 
   fetch('https://api.github.com/users/theProgrammerDavid/repos').then(
     (resp) => resp.json()
   ).then(
     (data) => {
       data.map((repo, index) => {
-        githubProjects.push({ 'Sr.No':index+1, name: repo.name, lang: repo.language || 'other' });
+        githubProjects.push({
+          'Sr.No': index + 1, 
+          name: repo.name,
+          fork: repo.fork,
+          description: repo.description,
+          lang: repo.language || 'other', 
+        });
       })
     }
   ).catch((error) => {
-
+    return error.message + '';
   })
 
 }
@@ -59,7 +73,7 @@ const helpCommands = () => {
 }
 const aboutMe = () => {
   return `I'm David, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
-    I am proficient with languages like C,C++, Js, Ts, Flutter.
+    I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.
     `
 }
 const displayHelp = () => {
@@ -72,24 +86,9 @@ function ready() {
   term = $('body').terminal({
 
     help: () => displayHelp(),
-    'show-projects': () => columnify(githubProjects, {
-      columnSplitter: '|', dataTransform: (data) => {
-        switch (data) {
-          case 'other':
-            return orangeText(data);
-          case 'C':
-          case 'C++':
-            return purpleText(data);
-          case 'Dart':
-            return turquoiseText(data);
-          case 'HTML':
-            return greenText(data);
-          default:
-            return data;
-        }
-      }
-    }),
+    'show-projects': () => columnify(githubProjects, githubProjectOptions),
     echo: (...text) => text.join(' '),
+    alert: (...text) => alert(text.join(' ')),
 
   }, {
     greetings: function () {
@@ -97,8 +96,13 @@ function ready() {
         `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
     },
     prompt: `${greenText('#user >')}`,
-    name: 'name',
+    // name: 'name',
     checkArity: false,
+    history: true,
+    exit: true,
+    clear: true,
+    warp: false,
     completion: true,
+    echoCommand: true
   });
 }

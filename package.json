@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "canvas-confetti": "^1.2.0",
-    "columnify": "^1.5.4"
+    "columnify": "^1.5.4",
+    "lolcatjs": "^2.4.0"
   },
   "devDependencies": {
     "prettier": "^2.0.5",
