@@ -29,7 +29,7 @@ export const githubProjectOptions = {
 
 export const terminalOptions = {
     greetings: function () {
-        return render('David Velho', 'Slant') +
+        return render('David Velho', 'Doom') +
             `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
     },
     prompt: `${greenText('#user >')}`,

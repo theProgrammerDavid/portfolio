@@ -11,7 +11,7 @@ import { githubProjectOptions, terminalOptions } from './options';
 
 async function loadFonts() {
   figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
-  figlet.preloadFonts(["Standard", "Slant"], ready);
+  figlet.preloadFonts(["Standard", "Slant", "Doom"], ready);
 }
 loadFonts();
 
@@ -21,7 +21,7 @@ const commands = [
   { 'show-projects': 'populates a list of projects from Github' },
   { 'show-resume': 'shows resume in a new tab' },
   { 'show-social': 'follow me on social media' },
-  { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${orangeText('some text with or without spaces')}` },
+  { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
   {'font-size-up': 'increases terminal font size by 0.2'},
   {'font-size-down': 'decreases terminal font size by 0.2'},
   
@@ -67,9 +67,9 @@ const aboutMe = () => {
     `
 }
 const displayHelp = () => {
-  return `${render('David Velho')}
+  return `${render('David Velho', 'Doom')}
     ${aboutMe()}
-    You can press [TAB] for auto complete, Ctrl+r for reverse search
+    You can press [${orangeText(`TAB`)}] for auto complete, Ctrl+r for reverse search
     ${helpCommands()}`;
 }
 
