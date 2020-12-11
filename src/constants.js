@@ -19,7 +19,7 @@ export const commands = [
 export const achievements = [
     { 'No.': 1, document_url: '', title: '' },
 ];
-const socials = [
+export const socials = [
     { 'No': 1, website: 'Github', url: 'https://github.com/theProgrammerDavid' },
     { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia' },
 
