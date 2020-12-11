@@ -10,6 +10,10 @@ import {
   githubProjectOptions, terminalOptions,
   socialOptions
 } from './options';
+
+import {
+  socials, fontSize, commands
+} from './constants';
 // figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
 // figlet.preloadFonts(["Standard", "Slant"], ready);
 
@@ -20,22 +24,7 @@ async function loadFonts() {
 loadFonts();
 
 var term;
-var fontSize = 1.5;
-const commands = [
-  { 'show-projects': 'populates a list of projects from Github' },
-  { 'show-resume': 'shows resume in a new tab' },
-  { 'show-social': 'follow me on social media' },
-  { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
-  { 'font-size-up': 'increases terminal font size by 0.2' },
-  { 'font-size-down': 'decreases terminal font size by 0.2' },
 
-];
-
-const socials = [
-  { 'No': 1, website: 'Github', url: 'https://github.com/theProgrammerDavid' },
-  { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia' },
-
-]
 
 var githubProjects = [];
 
@@ -98,6 +87,7 @@ function ready() {
       fontSize -= 0.2;
       document.documentElement.style.cssText = `--size: ${fontSize}`;
     },
+    'show-achievements': () => { },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
     },
