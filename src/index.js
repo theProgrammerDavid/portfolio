@@ -5,7 +5,7 @@ import {
   turquoiseText, render,
   renderLink
 } from './formatting'
-
+import './mobile';
 import {
   githubProjectOptions, terminalOptions,
   socialOptions
@@ -32,8 +32,8 @@ const commands = [
 ];
 
 const socials = [
-  { 'No': 1, website: 'Github', url: 'https://github.com/theProgrammerDavid'},
-  { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia'},
+  { 'No': 1, website: 'Github', url: 'https://github.com/theProgrammerDavid' },
+  { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia' },
 
 ]
 
@@ -72,15 +72,14 @@ const helpCommands = () => {
   })}`;
 }
 const aboutMe = () => {
-  return `I'm David, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
+  return `I'm ${renderLink("https://avatars1.githubusercontent.com/u/35698009?s=460&u=988e5ad85edb20cf16aaeeb8ea3e8b44088a582c&v=4", "David")}, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
     I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.
-    ${renderLink('google.co.in', 'google')}
     `
 }
 const displayHelp = () => {
   return `${render('David Velho', 'Doom')}
     ${aboutMe()}
-    You can press [${orangeText(`TAB`)}] for auto complete, Ctrl+r for reverse search
+    You can press [${orangeText(`TAB`)}] for auto complete, ${orangeText('Ctrl+r')} for reverse search and ${orangeText('clear')} to clear the screen 
     ${helpCommands()}`;
 }
 
