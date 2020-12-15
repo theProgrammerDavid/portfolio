@@ -50,5 +50,10 @@ export const terminalOptions = {
     clear: true,
     warp: false,
     completion: true,
-    echoCommand: true
+    echoCommand: true,
+    keymap: {
+        'CTRL+D': (e, original)=>{
+            alert('ho')
+        }
+    }
 };

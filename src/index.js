@@ -12,10 +12,8 @@ import {
 } from './options';
 
 import {
-  socials, fontSize, commands
+  socials, fontSize, commands, myPic, achievements
 } from './constants';
-// figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
-// figlet.preloadFonts(["Standard", "Slant"], ready);
 
 async function loadFonts() {
   figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
@@ -87,10 +85,16 @@ function ready() {
       fontSize -= 0.2;
       document.documentElement.style.cssText = `--size: ${fontSize}`;
     },
-    'show-achievements': () => { },
+    'show-achievements': () => { return columnify(achievements) },
+    'show-achievement': (...ach) => {
+      if (!(ach.length === 1))
+        return redText('Invalid format. Please supply an argument');
+      return 'achieveement';
+    },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
     },
+    me: () => { return myPic(); },
     'show-socials': () => {
       return columnify(socials, socialOptions);
     }
