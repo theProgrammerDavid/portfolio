@@ -42,6 +42,8 @@ const getGithubProjects = async () => {
           fork: repo.fork ? `Yes` : `No`,
           description: repo.description,
           lang: repo.language || 'other',
+          // url: repo.html_url
+          URL: renderLink(repo.html_url, 'Link')
         });
       })
     }

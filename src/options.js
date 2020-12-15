@@ -1,7 +1,7 @@
 import {
     redText, greenText,
     orangeText, purpleText,
-    turquoiseText, render
+    turquoiseText, render, renderLink
 } from './formatting'
 import term from './index'
 export const socialOptions = {
@@ -18,23 +18,12 @@ export const githubProjectOptions = {
     minWidth: 10,
     truncate: true,
     config: {
-        description: { maxWidth: 50 }
+        description: { maxWidth: 50 },
+        lang: { minWidth: 10 },
+        // URL: { maxWidth: 10 }
+
     },
-    columnSplitter: '|', dataTransform: (data) => {
-        switch (data) {
-            case 'other':
-                return orangeText(data);
-            case 'C':
-            case 'C++':
-                return purpleText(data);
-            case 'Dart':
-                return turquoiseText(data);
-            case 'HTML':
-                return greenText(data);
-            default:
-                return data;
-        }
-    }
+    columnSplitter: '|', 
 }
 
 export const terminalOptions = {
@@ -52,7 +41,7 @@ export const terminalOptions = {
     completion: true,
     echoCommand: true,
     keymap: {
-        'CTRL+D': (e, original)=>{
+        'CTRL+D': (e, original) => {
             alert('ho')
         }
     }
