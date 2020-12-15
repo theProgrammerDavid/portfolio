@@ -5,15 +5,13 @@ import {
     renderLink, get_image
 } from './formatting'
 
-export var fontSize = 1.5;
 export const commands = [
     { 'show-projects': 'populates a list of projects from Github' },
     { 'show-resume': 'shows resume in a new tab' },
     { 'show-social': 'follow me on social media' },
     { 'show-achievements': 'List of achievements' },
     { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
-    { 'font-size-up': 'increases terminal font size by 0.2' },
-    { 'font-size-down': 'decreases terminal font size by 0.2' },
+    { 'scale <arg>': `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
     { 'me': `Displays my profile picture` },
 
 ];

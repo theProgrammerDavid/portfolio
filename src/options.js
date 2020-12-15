@@ -23,7 +23,7 @@ export const githubProjectOptions = {
         // URL: { maxWidth: 10 }
 
     },
-    columnSplitter: '|', 
+    columnSplitter: '|',
 }
 
 export const terminalOptions = {
@@ -41,8 +41,8 @@ export const terminalOptions = {
     completion: true,
     echoCommand: true,
     keymap: {
-        'CTRL+D': (e, original) => {
-            alert('ho')
-        }
+        // 'CTRL+D': (e, original) => {
+        //     alert('ho')
+        // }
     }
 };

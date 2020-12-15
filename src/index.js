@@ -12,7 +12,7 @@ import {
 } from './options';
 
 import {
-  socials, fontSize, commands, myPic, achievements
+  socials, commands, myPic, achievements
 } from './constants';
 
 async function loadFonts() {
@@ -21,13 +21,9 @@ async function loadFonts() {
 }
 loadFonts();
 
+var fontSize = 1.5;
 var term;
-
-
 var githubProjects = [];
-
-
-
 
 const getGithubProjects = async () => {
 
@@ -72,6 +68,22 @@ const displayHelp = () => {
     ${helpCommands()}`;
 }
 
+const scale = (arg) => {
+  switch (arg) {
+    case 'up':
+      fontSize += 0.2;
+      document.documentElement.style.cssText = `--size: ${fontSize}`;
+      break;
+    case 'down':
+      fontSize -= 0.2;
+      document.documentElement.style.cssText = `--size: ${fontSize}`;
+      break;
+    default:
+      return redText(`Invalid Usage! scale <'up' or 'down'>`)
+
+  }
+}
+
 function ready() {
   term = $('body').terminal({
 
@@ -79,19 +91,12 @@ function ready() {
     'show-projects': () => columnify(githubProjects, githubProjectOptions),
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
-    'font-size-up': () => {
-      fontSize += 0.2;
-      document.documentElement.style.cssText = `--size: ${fontSize}`;
-    },
-    'font-size-down': () => {
-      fontSize -= 0.2;
-      document.documentElement.style.cssText = `--size: ${fontSize}`;
-    },
+    scale: (arg) => scale(arg),
     'show-achievements': () => { return columnify(achievements) },
     'show-achievement': (...ach) => {
       if (!(ach.length === 1))
         return redText('Invalid format. Please supply an argument');
-      return 'achieveement';
+      return 'achievement';
     },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
