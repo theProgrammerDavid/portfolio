@@ -21,6 +21,7 @@ export const achievements = [
     { 'No.': 1, title: 'LoR Dean SCOPE VIT, TVS Pilot Project', document_url: renderLink('https://static.davidvelho.tech/tvs_cert.jpeg', 'TVS') },
     { 'No.': 2, title: '2nd place Bolt Hack', document_url: renderLink('https://static.davidvelho.tech/bolt_hack.jpeg', 'Bolt Hack') },
     { 'No.': 3, title: 'Freelance - OMR Corrector', document_url: renderLink('https://static.davidvelho.tech/mahss_omr.jpeg', 'Freelance-Mahss') },
+    { 'No.': 4, title: '2nd place Cisco CTF', document_url: renderLink('https://static.davidvelho.tech/CiscoCTF.png', 'Cisco CTF') },
 
 ];
 export const socials = [
