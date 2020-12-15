@@ -22,6 +22,7 @@ export const achievements = [
     { 'No.': 2, title: '2nd place Bolt Hack', document_url: renderLink('https://static.davidvelho.tech/bolt_hack.jpeg', 'Bolt Hack') },
     { 'No.': 3, title: 'Freelance - OMR Corrector', document_url: renderLink('https://static.davidvelho.tech/mahss_omr.jpeg', 'Freelance-Mahss') },
     { 'No.': 4, title: '2nd place Cisco CTF', document_url: renderLink('https://static.davidvelho.tech/CiscoCTF.png', 'Cisco CTF') },
+    { 'No.': 5, title: 'Samsung PRISM Ambient Temp Detection', document_url: renderLink('https://static.davidvelho.tech/OD25VIT_David_.pdf', 'Samsung PRISM') },
 
 ];
 export const socials = [
