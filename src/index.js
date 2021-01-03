@@ -12,7 +12,7 @@ import {
 } from './options';
 
 import {
-  socials, fontSize, commands, myPic, achievements
+  socials, commands, myPic, achievements
 } from './constants';
 
 async function loadFonts() {
@@ -23,7 +23,7 @@ loadFonts();
 
 var term;
 
-
+var fontSize = 1.5;
 var githubProjects = [];
 
 
@@ -77,19 +77,19 @@ function ready() {
     'show-projects': () => columnify(githubProjects, githubProjectOptions),
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
-    'font-size-up': () => {
-      fontSize += 0.2;
-      document.documentElement.style.cssText = `--size: ${fontSize}`;
-    },
-    'font-size-down': () => {
-      fontSize -= 0.2;
+    scale: (arg) => {
+      if (arg === 'up')
+        fontSize += 0.2;
+      else if (arg === 'down')
+        fontSize -= 0.2;
+      else return redText('Error! usage is: scale up/down');
       document.documentElement.style.cssText = `--size: ${fontSize}`;
     },
     'show-achievements': () => { return columnify(achievements) },
     'show-achievement': (...ach) => {
       if (!(ach.length === 1))
         return redText('Invalid format. Please supply an argument');
-      return 'achieveement';
+      return 'This is a work in progress';
     },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
