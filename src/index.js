@@ -91,27 +91,12 @@ function ready() {
     'show-projects': () => columnify(githubProjects, githubProjectOptions),
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
-<<<<<<< HEAD
     scale: (arg) => scale(arg),
-=======
-    scale: (arg) => {
-      if (arg === 'up')
-        fontSize += 0.2;
-      else if (arg === 'down')
-        fontSize -= 0.2;
-      else return redText('Error! usage is: scale up/down');
-      document.documentElement.style.cssText = `--size: ${fontSize}`;
-    },
->>>>>>> dev
     'show-achievements': () => { return columnify(achievements) },
     'show-achievement': (...ach) => {
       if (!(ach.length === 1))
         return redText('Invalid format. Please supply an argument');
-<<<<<<< HEAD
-      return 'achievement';
-=======
       return 'This is a work in progress';
->>>>>>> dev
     },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
