@@ -92,12 +92,7 @@ function ready() {
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
     scale: (arg) => scale(arg),
-    'show-achievements': () => { return columnify(achievements) },
-    'show-achievement': (...ach) => {
-      if (!(ach.length === 1))
-        return redText('Invalid format. Please supply an argument');
-      return 'This is a work in progress';
-    },
+    'show-certs': () => { return columnify(achievements) },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
     },
