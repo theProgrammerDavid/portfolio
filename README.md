@@ -1,24 +1,22 @@
 # My Portfolio Website
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+I wanted my own portfolio website but didn't wanna use a template. So i made my own. 
 
-## Available Scripts
+> Yes, i know that storing PDFs on Github feels illegal
 
-### npm start
+My original idea involved the use of blender and UE4 and no definite timeline but was quickly scrapped since the initial download size of code + assets would be in the hundreds of MBs. 
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+So i settled for this. I heard Snowpack was quite good and i had found this really cool library called ``JQuery Terminal`` .
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+> Note: By Default, Snowpack does not enable the experimental feature to minifying builds. Hence, you will have to enable it yourself
 
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+Add these to your `snowpack.config.js` file
+```json
+"experiments": {
+    "optimize": {
+      "bundle": true,
+      "minify": true,
+      "target": 'es2018'
+    }
+  }
+```
