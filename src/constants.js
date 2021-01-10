@@ -9,7 +9,7 @@ export var fontSize = 1.5;
 export const commands = [
     { 'show-projects': 'populates a list of projects from Github' },
     { 'show-resume': 'shows resume in a new tab' },
-    { 'show-social': 'follow me on social media' },
+    { 'show-socials': 'follow me on social media' },
     { 'show-certs': 'List of certificates/achievements' },
     { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
     { 'font-size-up': 'increases terminal font size by 0.2' },
