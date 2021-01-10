@@ -12,7 +12,7 @@ import {
 } from './options';
 
 import {
-  socials, commands, myPic, achievements
+  socials, commands, myPic, achievements, scaleLimits
 } from './constants';
 
 async function loadFonts() {
@@ -71,10 +71,17 @@ const displayHelp = () => {
 const scale = (arg) => {
   switch (arg) {
     case 'up':
+      if(fontSize >= scaleLimits.scaleUp){
+        return orangeText("You are probably sitting far from your screen, pull your seat closer.");
+      }
       fontSize += 0.2;
       document.documentElement.style.cssText = `--size: ${fontSize}`;
       break;
     case 'down':
+      console.log(fontSize, scaleLimits.scaleDown);
+      if(fontSize <= scaleLimits.scaleDown){
+        return orangeText("You won't be able to see anything if you scale down further, watcha tryin to do?");
+      }
       fontSize -= 0.2;
       document.documentElement.style.cssText = `--size: ${fontSize}`;
       break;

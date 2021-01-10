@@ -1,9 +1,6 @@
 import {
-    redText, greenText,
-    orangeText, purpleText,
-    turquoiseText, render, renderLink
+    greenText,render
 } from './formatting'
-import term from './index'
 export const socialOptions = {
     minWidth: 10,
     truncate: true,
@@ -20,7 +17,6 @@ export const githubProjectOptions = {
     config: {
         description: { maxWidth: 50 },
         lang: { minWidth: 10 },
-        // URL: { maxWidth: 10 }
 
     },
     columnSplitter: '|',
@@ -32,7 +28,6 @@ export const terminalOptions = {
             `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} to get started.\n`;
     },
     prompt: `${greenText('# user >')}`,
-    // name: 'name',
     checkArity: false,
     history: true,
     exit: true,
@@ -41,8 +36,5 @@ export const terminalOptions = {
     completion: true,
     echoCommand: true,
     keymap: {
-        // 'CTRL+D': (e, original) => {
-        //     alert('ho')
-        // }
     }
 };
