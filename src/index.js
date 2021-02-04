@@ -92,6 +92,7 @@ function ready() {
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
     scale: (arg) => scale(arg),
+    'family-tech-support': () => displayHelp(),
     'show-certs': () => { return columnify(achievements) },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);

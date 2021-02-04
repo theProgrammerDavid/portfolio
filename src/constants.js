@@ -8,7 +8,7 @@ import {
 export const commands = [
     { 'show-projects': 'populates a list of projects from Github' },
     { 'show-resume': 'shows resume in a new tab' },
-    { 'show-social': 'follow me on social media' },
+    { 'show-socials': 'follow me on social media' },
     { 'show-certs': 'List of certificates/achievements' },
     { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
     { 'scale <arg>': `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
@@ -20,6 +20,7 @@ export const achievements = [
     { 'No.': 2, title: '2nd place Bolt Hack', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/bolt_hack.jpeg', 'Bolt Hack') },
     { 'No.': 3, title: 'Freelance - OMR Corrector', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/mahss_omr.jpeg', 'Freelance-Mahss') },
     { 'No.': 4, title: '2nd place Cisco CTF', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/CiscoCTF.png', 'Cisco CTF') },
+    { 'No.': 5, title: 'Samsung PRISM Ambient Temp Detection', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf', 'Samsung PRISM') }
 
 ];
 export const socials = [
