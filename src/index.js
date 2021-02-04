@@ -77,6 +77,7 @@ function ready() {
     'show-projects': () => columnify(githubProjects, githubProjectOptions),
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
+    'family-tech-support': () => displayHelp(),
     scale: (arg) => {
       if (arg === 'up')
         fontSize += 0.2;
