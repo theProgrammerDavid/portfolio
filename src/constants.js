@@ -1,7 +1,5 @@
 import {
-    redText, greenText,
     orangeText, purpleText,
-    turquoiseText, render,
     renderLink, get_image
 } from './formatting'
 
@@ -29,3 +27,8 @@ export const socials = [
 
 ]
 export const myPic = () => { return get_image('https://avatars1.githubusercontent.com/u/35698009?s=460&u=988e5ad85edb20cf16aaeeb8ea3e8b44088a582c&v=4') }
+
+export const scaleLimits = {
+    scaleUp: 2.4,
+    scaleDown: 1.0,
+}
