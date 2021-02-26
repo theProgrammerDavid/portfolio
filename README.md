@@ -21,3 +21,11 @@ Add these to your `snowpack.config.js` file
     }
   }
 ```
+
+### Resources 
+
+| Sr. No | Dependency | URL                                     |
+|--------|------------|-----------------------------------------|
+| 1      | Columnify  | https://www.npmjs.com/package/columnify |
+| 2      | Figlet     | https://www.npmjs.com/package/figlet    |
+| 3      | Snowpack   | https://www.snowpack.dev/               |
