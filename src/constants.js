@@ -14,6 +14,11 @@ export const commands = [
 
 ];
 export const projects = [
+    { 'No.': 1, title: 'xP', description: 'A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ', document_url: renderLink('https://github.com/theProgrammerDavid/xP', 'xP') },
+    { 'No.': 2, title: 'HasherDB', description: 'My own implementation of an in-memory NoSQL Database written in C++', document_url: renderLink('https://github.com/theProgrammerDavid/MyDB', 'HasherDB') },
+    { 'No.': 3, title: 'ThreeJs Playground', description: 'A 3D playground for cool ThreeJs stuff', document_url: renderLink(' https://theprogrammerdavid.github.io/three-js-samples/dist/index.html', 'Playground') },
+
+
 
 ];
 export const achievements = [
@@ -30,6 +35,7 @@ export const socials = [
     { 'No': 2, website: 'StackOverflow', url: 'https://stackoverflow.com/users/14312583/goanmafia' },
     { 'No': 3, website: 'Artstation', url: 'https://www.artstation.com/david_velho' },
     { 'No': 4, website: '500px', url: 'https://500px.com/p/david_velho?view=photos' },
+    { 'No': 5, website: 'Linkedin', url: 'https://www.linkedin.com/in/david-velho-aba95a173/' }
 ]
 export const myPic = () => { return get_image('https://avatars1.githubusercontent.com/u/35698009?s=460&u=988e5ad85edb20cf16aaeeb8ea3e8b44088a582c&v=4') }
 
