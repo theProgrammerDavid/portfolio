@@ -1,9 +1,6 @@
 import {
-    redText, greenText,
-    orangeText, purpleText,
-    turquoiseText, render
+    greenText,render
 } from './formatting'
-import term from './index'
 export const socialOptions = {
     minWidth: 10,
     truncate: true,
@@ -18,23 +15,11 @@ export const githubProjectOptions = {
     minWidth: 10,
     truncate: true,
     config: {
-        description: { maxWidth: 50 }
+        description: { maxWidth: 50 },
+        lang: { minWidth: 10 },
+
     },
-    columnSplitter: '|', dataTransform: (data) => {
-        switch (data) {
-            case 'other':
-                return orangeText(data);
-            case 'C':
-            case 'C++':
-                return purpleText(data);
-            case 'Dart':
-                return turquoiseText(data);
-            case 'HTML':
-                return greenText(data);
-            default:
-                return data;
-        }
-    }
+    columnSplitter: '|',
 }
 
 export const terminalOptions = {
@@ -43,7 +28,6 @@ export const terminalOptions = {
             `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`help`)} / ${greenText('family-tech-support')} to get started.\n`;
     },
     prompt: `${greenText('# user >')}`,
-    // name: 'name',
     checkArity: false,
     history: true,
     exit: true,
@@ -52,8 +36,5 @@ export const terminalOptions = {
     completion: true,
     echoCommand: true,
     keymap: {
-        'CTRL+D': (e, original)=>{
-            alert('ho')
-        }
     }
 };

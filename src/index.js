@@ -12,7 +12,7 @@ import {
 } from './options';
 
 import {
-  socials, commands, myPic, achievements
+  socials, commands, myPic, achievements, scaleLimits, projects
 } from './constants';
 
 async function loadFonts() {
@@ -21,36 +21,8 @@ async function loadFonts() {
 }
 loadFonts();
 
-var term;
-
 var fontSize = 1.5;
-var githubProjects = [];
-
-
-
-
-const getGithubProjects = async () => {
-
-  fetch('https://api.github.com/users/theProgrammerDavid/repos').then(
-    (resp) => resp.json()
-  ).then(
-    (data) => {
-      data.map((repo, index) => {
-        githubProjects.push({
-          'Sr.No': index + 1,
-          name: repo.name,
-          fork: repo.fork ? `Yes` : `No`,
-          description: repo.description,
-          lang: repo.language || 'other',
-        });
-      })
-    }
-  ).catch((error) => {
-    return error.message + '';
-  })
-
-}
-getGithubProjects();
+var term;
 
 const helpCommands = () => {
   return `
@@ -60,7 +32,9 @@ const helpCommands = () => {
 }
 const aboutMe = () => {
   return `I'm ${renderLink("https://avatars1.githubusercontent.com/u/35698009?s=460&u=988e5ad85edb20cf16aaeeb8ea3e8b44088a582c&v=4", "David")}, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
-    I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.
+    I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.\n
+    
+    Most of my projects can be found on my ${renderLink("https://github.com/theProgrammerDavid", 'Github')}. The ${orangeText('show-projects')} section has a few projects that I'm really proud of. 
     `
 }
 const displayHelp = () => {
@@ -70,22 +44,38 @@ const displayHelp = () => {
     ${helpCommands()}`;
 }
 
+const scale = (arg) => {
+  switch (arg) {
+    case 'up':
+      if(fontSize >= scaleLimits.scaleUp){
+        return orangeText("You are probably sitting far from your screen, pull your seat closer.");
+      }
+      fontSize += 0.2;
+      document.documentElement.style.cssText = `--size: ${fontSize}`;
+      break;
+    case 'down':
+      console.log(fontSize, scaleLimits.scaleDown);
+      if(fontSize <= scaleLimits.scaleDown){
+        return orangeText("You won't be able to see anything if you scale down further, watcha tryin to do?");
+      }
+      fontSize -= 0.2;
+      document.documentElement.style.cssText = `--size: ${fontSize}`;
+      break;
+    default:
+      return redText(`Invalid Usage! scale <'up' or 'down'>`)
+
+  }
+}
+
 function ready() {
   term = $('body').terminal({
 
     help: () => displayHelp(),
-    'show-projects': () => columnify(githubProjects, githubProjectOptions),
+    'show-projects': () => {return columnify(projects, githubProjectOptions)},
     echo: (...text) => text.join(' '),
     alert: (...text) => alert(text.join(' ')),
+    scale: (arg) => scale(arg),
     'family-tech-support': () => displayHelp(),
-    scale: (arg) => {
-      if (arg === 'up')
-        fontSize += 0.2;
-      else if (arg === 'down')
-        fontSize -= 0.2;
-      else return redText('Error! usage is: scale up/down');
-      document.documentElement.style.cssText = `--size: ${fontSize}`;
-    },
     'show-certs': () => { return columnify(achievements) },
     'show-resume': () => {
       window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
