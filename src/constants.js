@@ -1,13 +1,13 @@
 import {
     orangeText, purpleText,
-    renderLink, get_image
+    renderLink, get_image, lightBlueText
 } from './formatting'
 
 export const commands = [
-    { 'show-projects': 'populates a list of projects from Github' },
-    { 'show-resume': 'shows resume in a new tab' },
-    { 'show-socials': 'follow me on social media' },
-    { 'show-certs': 'List of certificates/achievements' },
+    {'cat <arg>':'Displays the contents of the current file '},
+    {'help':'Displays the help message'},
+    {'ls':'displays contents of the current directory'},
+    {'echo <arg>': 'Prints arg on a newline '},
     { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
     { 'scale <arg>': `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
     { 'me': `Displays my profile picture` },
@@ -16,10 +16,9 @@ export const commands = [
 export const projects = [
     { 'No.': 1, title: 'xP', description: 'A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ', document_url: renderLink('https://github.com/theProgrammerDavid/xP', 'xP') },
     { 'No.': 2, title: 'HasherDB', description: 'My own implementation of an in-memory NoSQL Database written in C++', document_url: renderLink('https://github.com/theProgrammerDavid/MyDB', 'HasherDB') },
-    { 'No.': 3, title: 'ThreeJs Playground', description: 'A 3D playground for cool ThreeJs stuff', document_url: renderLink(' https://theprogrammerdavid.github.io/three-js-samples/dist/index.html', 'Playground') },
-    { 'No.': 4, title: 'Portfolio Website', description: 'My own portfolio website built with Jquery and Snowpack', document_url: renderLink(' https://github.com/theProgrammerDavid/portfolio', 'Portfolio') },
-
-
+    { 'No.': 3, title: 'ThreeJs Playground', description: 'A 3D playground for cool ThreeJs stuff', document_url: renderLink('https://theprogrammerdavid.github.io/three-js-samples', 'Playground') },
+    { 'No.': 4, title: 'Portfolio Website', description: 'My own portfolio website built with Jquery and Snowpack', document_url: renderLink('https://github.com/theProgrammerDavid/portfolio', 'Portfolio') },
+    { 'No.': 5, title: 'CP and Cheat Sheets', description: 'Collection of Competitive programming practice questions and language cheat sheet', document_url: renderLink('https://theprogrammerdavid.github.io/CC/', 'Cheat Sheets') },
 
 ];
 export const achievements = [
@@ -44,3 +43,35 @@ export const scaleLimits = {
     scaleUp: 2.4,
     scaleDown: 1.0,
 }
+
+export const folders = [
+    { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('projects'), },
+    { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('certificates'), },
+    { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('achievements'), },
+    { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('socials'), },
+    { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('resume') },
+    { permission: '.rw-rw-r--', owner: 'david', name: 'languages' },
+    { permission: '.rw-rw-r--', owner: 'david', name: 'frameworks' },
+
+
+]
+
+export const langs = [
+    'https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A',
+    'https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white',
+    'https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white',
+    'https://img.shields.io/badge/c%20-%2300599C.svg?&style=for-the-badge&logo=c&logoColor=white',
+    'https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white',
+
+]
+
+export const frameworks = [
+    'https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge',
+    'https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB',
+    'https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white',
+    'https://img.shields.io/badge/material%20ui%20-%230081CB.svg?&style=for-the-badge&logo=material-ui&logoColor=white',
+    'https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white',
+    'https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black',
+    'https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl',
+
+]

@@ -14,6 +14,10 @@ export const purpleText = (text) => {
 export const turquoiseText = (text) => {
     return `[[;rgba(64,224,208,0.99);]${text}]`
 }
+export const lightBlueText = (text)=>{
+    return `[[;rgba(31,134,237,0.99);]${text}]`
+
+}
 
 export function render(text, font) {
     return figlet.textSync(text, {

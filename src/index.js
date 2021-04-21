@@ -2,7 +2,7 @@ import columnify from 'columnify';
 import {
   redText, greenText,
   orangeText, purpleText,
-  turquoiseText, render,
+  turquoiseText, render, get_image,
   renderLink
 } from './formatting'
 import './mobile';
@@ -12,7 +12,7 @@ import {
 } from './options';
 
 import {
-  socials, commands, myPic, achievements, scaleLimits, projects
+  socials, commands, myPic, achievements, scaleLimits, projects, folders, langs, frameworks
 } from './constants';
 
 async function loadFonts() {
@@ -30,24 +30,18 @@ const helpCommands = () => {
     return `\n\t${index + 1}.\t${Object.keys(command)}\t:\t${command[Object.keys(command)]}`
   })}`;
 }
-const aboutMe = () => {
-  return `I'm ${renderLink("https://avatars1.githubusercontent.com/u/35698009?s=460&u=988e5ad85edb20cf16aaeeb8ea3e8b44088a582c&v=4", "David")}, a full stack developer, DevOps engineer, app developer and system admin and systems programmer
-    I am proficient with languages like C,C++, Js,Python Ts and frameworks like Flutter.\n
-    
-    Most of my projects can be found on my ${renderLink("https://github.com/theProgrammerDavid", 'Github')}. The ${orangeText('show-projects')} section has a few projects that I'm really proud of. 
-    `
-}
+
 const displayHelp = () => {
   return `${render('David Velho', 'Doom')}
-    ${aboutMe()}
-    You can press [${orangeText(`TAB`)}] for auto complete, ${orangeText('Ctrl+r')} for reverse search and ${orangeText('clear')} to clear the screen 
+    
+    You can press ${orangeText('Ctrl+r')} for reverse search and ${orangeText('clear')} to clear the screen 
     ${helpCommands()}`;
 }
 
 const scale = (arg) => {
   switch (arg) {
     case 'up':
-      if(fontSize >= scaleLimits.scaleUp){
+      if (fontSize >= scaleLimits.scaleUp) {
         return orangeText("You are probably sitting far from your screen, pull your seat closer.");
       }
       fontSize += 0.2;
@@ -55,7 +49,7 @@ const scale = (arg) => {
       break;
     case 'down':
       console.log(fontSize, scaleLimits.scaleDown);
-      if(fontSize <= scaleLimits.scaleDown){
+      if (fontSize <= scaleLimits.scaleDown) {
         return orangeText("You won't be able to see anything if you scale down further, watcha tryin to do?");
       }
       fontSize -= 0.2;
@@ -67,23 +61,61 @@ const scale = (arg) => {
   }
 }
 
+const _cat = (arg) => {
+  switch (arg) {
+    case 'frameworks':
+      frameworks.forEach(f => {
+        term.echo(get_image(f));
+      });
+      break;
+
+    case 'languages':
+      langs.forEach(lang => {
+        term.echo(get_image(lang));
+      });
+      break;
+    default:
+      return redText(`Cannot view contents of file ${arg}`)
+  }
+}
+
+const _ls = (arg) => {
+  switch (arg) {
+    case 'projects':
+      return columnify(projects);
+
+    case 'achievements':
+      return columnify(achievements);
+
+    case 'resume':
+      window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`)
+      break;
+    case 'socials':
+      return columnify(socials, socialOptions)
+
+    case undefined:
+      return columnify(folders, {
+        showHeaders: false,
+        columnSplitter: '\t'
+      });
+
+    default:
+      return redText(`Cannot view contents of '${arg}'`)
+  }
+
+}
+
 function ready() {
   term = $('body').terminal({
-
+    cat: (arg) => _cat(arg),
+    getImg: (url) => get_image(url),
     help: () => displayHelp(),
-    'show-projects': () => {return columnify(projects, githubProjectOptions)},
+    ls: (arg) => _ls(arg),
     echo: (...text) => text.join(' '),
-    alert: (...text) => alert(text.join(' ')),
     scale: (arg) => scale(arg),
     'family-tech-support': () => displayHelp(),
-    'show-certs': () => { return columnify(achievements) },
-    'show-resume': () => {
-      window.open(`https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`);
-    },
     me: () => { return myPic(); },
-    'show-socials': () => {
-      return columnify(socials, socialOptions);
-    }
+
 
   }, terminalOptions);
 }
