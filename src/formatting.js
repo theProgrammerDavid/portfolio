@@ -27,9 +27,6 @@ export function renderLink(link, text) {
 }
 
 export function get_image(url) {
-    return new Promise(function (resolve, reject) {
-        const img = $(`<img src=${url} />`);
-        img.on('load', () => resolve(img));
-        img.on('error', reject);
-    });
+    return `[[@;;;;${url}]]`;
+
 }
