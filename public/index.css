@@ -1,3 +1,31 @@
 :root {
   --size: 1.5;
 }
+
+body {
+  background-color: black;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.pa {
+  margin: 50px auto;
+  width: 600px;
+  font: bold 90px 'courier new', consolas, monaco, monospace;
+  color: green;
+  border-right: 6px solid;
+  overflow: hidden;
+  animation: typing 5s steps(11, end) infinite, /* # of steps = # of chars */
+  blink-caret 1s step-end infinite alternate;
+}
+

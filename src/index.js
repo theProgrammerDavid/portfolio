@@ -96,6 +96,9 @@ const _ls = (arg) => {
 }
 
 function ready() {
+
+  document.getElementById("loadingScreen").style.display = "none";
+
   term = $('body').terminal({
     cat: (arg) => _cat(arg),
     getImg: (url) => get_image(url),
