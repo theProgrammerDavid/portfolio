@@ -4,13 +4,13 @@ import {
 } from './formatting'
 
 export const commands = [
-    {'cat <arg>':'Displays the contents of the current file '},
-    {'help':'Displays the help message'},
-    {'ls':'displays contents of the current directory'},
-    {'echo <arg>': 'Prints arg on a newline '},
-    { 'alert': `opens a browser based alert . Usage: ${orangeText('alert')} ${purpleText('some text with or without spaces')}` },
-    { 'scale <arg>': `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
-    { 'me': `Displays my profile picture` },
+    { name: 'cat <arg>', desc: 'Displays the contents of the current file ' },
+    { name: 'help', desc: 'Displays the help message' },
+    { name: 'ls', desc: 'displays contents of the current directory' },
+    { name: 'echo <arg>', desc: 'Prints arg on a newline ' },
+    { name: 'scale <arg>', desc: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
+    { name: 'me', desc: `Displays my profile picture` },
+    { name: 'getImg <link to image>', desc: 'displays an image on the terminal from the link provided'}
 
 ];
 export const projects = [

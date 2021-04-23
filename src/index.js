@@ -7,7 +7,7 @@ import {
 } from './formatting'
 import './mobile';
 import {
-  githubProjectOptions, terminalOptions,
+  terminalOptions,
   socialOptions
 } from './options';
 
@@ -24,18 +24,8 @@ loadFonts();
 var fontSize = 1.5;
 var term;
 
-const helpCommands = () => {
-  return `
-    ${commands.map((command, index) => {
-    return `\n\t${index + 1}.\t${Object.keys(command)}\t:\t${command[Object.keys(command)]}`
-  })}`;
-}
-
 const displayHelp = () => {
-  return `${render('David Velho', 'Doom')}
-    
-    You can press ${orangeText('Ctrl+r')} for reverse search and ${orangeText('clear')} to clear the screen 
-    ${helpCommands()}`;
+  return columnify(commands)
 }
 
 const scale = (arg) => {
@@ -109,7 +99,7 @@ function ready() {
   term = $('body').terminal({
     cat: (arg) => _cat(arg),
     getImg: (url) => get_image(url),
-    help: () => displayHelp(),
+    man: () => displayHelp(),
     ls: (arg) => _ls(arg),
     echo: (...text) => text.join(' '),
     scale: (arg) => scale(arg),
