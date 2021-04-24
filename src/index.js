@@ -6,14 +6,17 @@ import {
   renderLink
 } from './formatting'
 import './mobile';
-import {
-  terminalOptions,
-  socialOptions
-} from './options';
+
+import { Node, File, newFolder } from './Node';
 
 import {
-  socials, commands, myPic, achievements, scaleLimits, projects, folders, langs, frameworks
+  socials, commands, myPic, achievements, scaleLimits, projects, folders, langs, frameworks,
+  terminalOptions,
+  socialOptions, getPwd, setPwd, getPrompt
 } from './constants';
+
+const root = new Node();
+var currentNode = new Node();
 
 async function loadFonts() {
   figlet.defaults({ fontPath: 'https://unpkg.com/figlet@1.4.0/fonts/' });
@@ -53,6 +56,10 @@ const scale = (arg) => {
 
 const _cat = (arg) => {
   switch (arg) {
+
+    case 'me.jpg':
+      return myPic();
+
     case 'frameworks':
       frameworks.forEach(f => {
         term.echo(get_image(f));
@@ -100,14 +107,16 @@ function ready() {
   document.getElementById("loadingScreen").style.display = "none";
 
   term = $('body').terminal({
+    mkdir: (name) => { root.children.push(newFolder(name)); console.log(root) },
     cat: (arg) => _cat(arg),
     getImg: (url) => get_image(url),
     man: () => displayHelp(),
+    cd: (dir) => { setPwd(dir); term.set_prompt(getPrompt()) },
     ls: (arg) => _ls(arg),
     echo: (...text) => text.join(' '),
     scale: (arg) => scale(arg),
     'family-tech-support': () => displayHelp(),
-    me: () => { return myPic(); },
+    // me: () => { return myPic(); },
 
 
   }, terminalOptions);

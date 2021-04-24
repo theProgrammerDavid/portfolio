@@ -1,7 +1,61 @@
 import {
-    orangeText, purpleText,
+    orangeText, purpleText, greenText, render,
     renderLink, get_image, lightBlueText
 } from './formatting'
+
+var pwd = '~';
+
+export const getPwd = () => {
+    return pwd;
+}
+
+export const setPwd = (newDir) => {
+    pwd = newDir;
+    getPrompt();
+}
+
+export const socialOptions = {
+    minWidth: 10,
+    truncate: true,
+    config: {
+        url: { maxWidth: 50 }
+    },
+    columnSplitter: '|', dataTransform: (data) => {
+        return data;
+    }
+};
+export const githubProjectOptions = {
+    minWidth: 10,
+    truncate: true,
+    config: {
+        description: { maxWidth: 50 },
+        lang: { minWidth: 10 },
+
+    },
+    columnSplitter: '|',
+}
+
+export const getPrompt = () => {
+    return `${greenText(`user`)} in ${orangeText(pwd)}\n${lightBlueText('>')}`;
+}
+
+export const terminalOptions = {
+    greetings: function () {
+        return render('David Velho', 'Doom') +
+            `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(`man`)} / ${greenText('family-tech-support')} to get started.\n`;
+    },
+    prompt: getPrompt() ,
+    checkArity: false,
+    history: true,
+    exit: true,
+    clear: true,
+    warp: false,
+    completion: true,
+    echoCommand: true,
+    keymap: {
+    }
+};
+
 
 export const commands = [
     { name: 'cat <arg>', desc: 'Displays the contents of the current file ' },
@@ -10,7 +64,7 @@ export const commands = [
     { name: 'echo <arg>', desc: 'Prints arg on a newline ' },
     { name: 'scale <arg>', desc: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
     { name: 'me', desc: `Displays my profile picture` },
-    { name: 'getImg <link to image>', desc: 'displays an image on the terminal from the link provided'}
+    { name: 'getImg <link to image>', desc: 'displays an image on the terminal from the link provided' }
 
 ];
 export const projects = [
@@ -52,6 +106,7 @@ export const folders = [
     { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('resume') },
     { permission: '.rw-rw-r--', owner: 'david', name: 'languages' },
     { permission: '.rw-rw-r--', owner: 'david', name: 'frameworks' },
+    { permission: '.rw-rw-r--', owner: 'david', name: 'me.jpg' },
 
 
 ]
