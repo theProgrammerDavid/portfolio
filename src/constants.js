@@ -72,7 +72,7 @@ export const projects = [
     { 'No.': 2, title: 'HasherDB', description: 'My own implementation of an in-memory NoSQL Database written in C++', document_url: renderLink('https://github.com/theProgrammerDavid/MyDB', 'HasherDB') },
     { 'No.': 3, title: 'ThreeJs Playground', description: 'A 3D playground for cool ThreeJs stuff', document_url: renderLink('https://theprogrammerdavid.github.io/three-js-samples', 'Playground') },
     { 'No.': 4, title: 'Portfolio Website', description: 'My own portfolio website built with Jquery and Snowpack', document_url: renderLink('https://github.com/theProgrammerDavid/portfolio', 'Portfolio') },
-    { 'No.': 5, title: 'CP and Cheat Sheets', description: 'Collection of Competitive programming practice questions and language cheat sheet', document_url: renderLink('https://theprogrammerdavid.github.io/CC/', 'Cheat Sheets') },
+    { 'No.': 5, title: 'CP and Cheat Sheets', description: 'Collection of Competitive programming practice questions and language cheat sheet', document_url: renderLink('https://cheatsheet.davidvelho.tech/', 'Cheat Sheets') },
 
 ];
 export const achievements = [
