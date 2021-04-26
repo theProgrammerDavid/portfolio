@@ -68,20 +68,20 @@ export const commands = [
 
 ];
 export const projects = [
-    { 'No.': 1, title: 'xP', description: 'A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ', document_url: renderLink('https://github.com/theProgrammerDavid/xP', 'xP') },
-    { 'No.': 2, title: 'HasherDB', description: 'My own implementation of an in-memory NoSQL Database written in C++', document_url: renderLink('https://github.com/theProgrammerDavid/MyDB', 'HasherDB') },
-    { 'No.': 3, title: 'ThreeJs Playground', description: 'A 3D playground for cool ThreeJs stuff', document_url: renderLink('https://theprogrammerdavid.github.io/three-js-samples', 'Playground') },
-    { 'No.': 4, title: 'Portfolio Website', description: 'My own portfolio website built with Jquery and Snowpack', document_url: renderLink('https://github.com/theProgrammerDavid/portfolio', 'Portfolio') },
-    { 'No.': 5, title: 'CP and Cheat Sheets', description: 'Collection of Competitive programming practice questions and language cheat sheet', document_url: renderLink('https://cheatsheet.davidvelho.tech/', 'Cheat Sheets') },
+    { 'No.': 1, title: 'xP',                    description: 'A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ',   document_url: renderLink('https://github.com/theProgrammerDavid/xP',                'xP') },
+    { 'No.': 2, title: 'HasherDB',              description: 'My own implementation of an in-memory NoSQL Database written in C++',                             document_url: renderLink('https://github.com/theProgrammerDavid/MyDB',              'HasherDB') },
+    { 'No.': 3, title: 'ThreeJs Playground',    description: 'A 3D playground for cool ThreeJs stuff',                                                          document_url: renderLink('https://theprogrammerdavid.github.io/three-js-samples',   'Playground') },
+    { 'No.': 4, title: 'Portfolio Website',     description: 'My own portfolio website built with Jquery and Snowpack',                                         document_url: renderLink('https://github.com/theProgrammerDavid/portfolio',         'Portfolio') },
+    { 'No.': 5, title: 'CP and Cheat Sheets',   description: 'Collection of Competitive programming practice questions and language cheat sheet',               document_url: renderLink('https://cheatsheet.davidvelho.tech/',                     'Cheat Sheets') },
 
 ];
 export const achievements = [
-    { 'No.': 1, title: 'LoR Dean SCOPE VIT, TVS Pilot Project', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/tvs_cert.jpeg', 'TVS') },
-    { 'No.': 2, title: '2nd place Bolt Hack', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/bolt_hack.jpeg', 'Bolt Hack') },
-    { 'No.': 3, title: 'Freelance - OMR Corrector', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/mahss_omr.jpeg', 'Freelance-Mahss') },
-    { 'No.': 4, title: '2nd place Cisco CTF', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/ciscoCTF.png', 'Cisco CTF') },
-    { 'No.': 5, title: 'Samsung PRISM Ambient Temp Detection', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf', 'Samsung PRISM') },
-    { 'No.': 6, title: 'Camcann Systems Programmer Intern', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg', 'CamCann SDE Intern') }
+    { 'No.': 1, title: 'LoR Dean SCOPE VIT, TVS Pilot Project', document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/tvs_cert.jpeg',      'TVS') },
+    { 'No.': 2, title: '2nd place Bolt Hack',                   document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/bolt_hack.jpeg',     'Bolt Hack') },
+    { 'No.': 3, title: 'Freelance - OMR Corrector',             document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/mahss_omr.jpeg',     'Freelance-Mahss') },
+    { 'No.': 4, title: '2nd place Cisco CTF',                   document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/ciscoCTF.png',       'Cisco CTF') },
+    { 'No.': 5, title: 'Samsung PRISM Ambient Temp Detection',  document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf', 'Samsung PRISM') },
+    { 'No.': 6, title: 'Camcann Systems Programmer Intern',     document_url: renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg',        'CamCann SDE Intern') }
 
 ];
 export const socials = [
@@ -106,6 +106,7 @@ export const folders = [
     { permission: 'drwxrwxr-x', owner: 'david', name: lightBlueText('resume') },
     { permission: '.rw-rw-r--', owner: 'david', name: 'languages' },
     { permission: '.rw-rw-r--', owner: 'david', name: 'frameworks' },
+    { permission: '.rw-rw-r--', owner: 'david', name: 'others' },
     { permission: '.rw-rw-r--', owner: 'david', name: 'me.jpg' },
 
 
@@ -128,5 +129,16 @@ export const frameworks = [
     'https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white',
     'https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black',
     'https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl',
+
+]
+export const other = [
+    "https://img.shields.io/badge/CMake-%23008FBA.svg?&style=for-the-badge&logo=cmake&logoColor=white",
+    'https://img.shields.io/badge/docker-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white',
+    "https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white",
+    "https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white",
+    "https://img.shields.io/badge/GoogleCloud-%234285F4.svg?&style=for-the-badge&logo=google-cloud&logoColor=white",
+    "https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white",
+    "https://img.shields.io/badge/DigitalOcean-%230167ff.svg?&style=for-the-badge&logo=digitalOcean&logoColor=white",
+    "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white"
 
 ]

@@ -11,7 +11,7 @@ import { Node, File, newFolder } from './Node';
 
 import {
   socials, commands, myPic, achievements, scaleLimits, projects, folders, langs, frameworks,
-  terminalOptions,
+  terminalOptions, other,
   socialOptions, getPwd, setPwd, getPrompt
 } from './constants';
 
@@ -66,6 +66,12 @@ const _cat = (arg) => {
       });
       break;
 
+    case 'others':
+      other.forEach(o => {
+        term.echo(get_image(o));
+      })
+      break;
+      
     case 'languages':
       langs.forEach(lang => {
         term.echo(get_image(lang));
