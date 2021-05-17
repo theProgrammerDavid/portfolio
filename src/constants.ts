@@ -9,7 +9,7 @@ export const getPwd = () => {
     return pwd;
 }
 
-export const setPwd = (newDir) => {
+export const setPwd = (newDir:string) => {
     pwd = newDir;
     getPrompt();
 }
@@ -20,7 +20,7 @@ export const socialOptions = {
     config: {
         url: { maxWidth: 50 }
     },
-    columnSplitter: '|', dataTransform: (data) => {
+    columnSplitter: '|', dataTransform: (data:any) => {
         return data;
     }
 };
