@@ -58,13 +58,13 @@ export const terminalOptions = {
 
 
 export const commands = [
-    { name: 'cat <arg>', desc: 'Displays the contents of the current file ' },
-    { name: 'help', desc: 'Displays the help message' },
-    { name: 'ls', desc: 'displays contents of the current directory' },
-    { name: 'echo <arg>', desc: 'Prints arg on a newline ' },
-    { name: 'scale <arg>', desc: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
-    { name: 'me', desc: `Displays my profile picture` },
-    { name: 'getImg <link to image>', desc: 'displays an image on the terminal from the link provided' }
+    { name: 'cat <arg>', description: 'Displays the contents of the current file ' },
+    { name: 'help', description: 'Displays the help message' },
+    { name: 'ls', description: 'displays contents of the current directory' },
+    { name: 'echo <arg>', description: 'Prints arg on a newline ' },
+    { name: 'scale <arg>', description: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText('scale up')} or ${orangeText('scale down')}` },
+    { name: 'me', description: `Displays my profile picture` },
+    { name: 'getImg <link to image>', description: 'displays an image on the terminal from the link provided' }
 
 ];
 export const projects = [
