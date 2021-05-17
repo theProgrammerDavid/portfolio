@@ -1,76 +1,121 @@
-export {}
-// import Queue from './Queue';
+import Queue from "./Queue";
 
-// export class File {
-//     constructor(name, data) {
-//         this.fileData = data || '';
-//         this.fileName = name || '';
-//     }
-// }
+export class File {
+  fileData = "";
+  fileName = "";
+  constructor(name: string, data: string) {
+    this.fileData = data || "";
+    this.fileName = name || "";
+  }
+  print(){
+      
+  }
+}
 
-// export class Node {
-//     constructor(name) {
-//         this.folderName = name || '';
-//         this.children = [];
-//         this.files = [];
-//     }
-// }
+export class Node {
+  folderName = "";
+  children: Node[];
+  files: File[];
+  constructor(name: string) {
+    this.folderName = name || "";
+    this.children = [];
+    this.files = [];
+  }
+  hasChild(name: string) {
+    for (let i = 0; i < this.children.length; i++) {
+      if (this.children[i].folderName === name) {
+        return true;
+      }
+    }
 
-// export const ACTIONS = {
-//     'VIEW_FOLDER': 0,
-//     'ADD_FILE': 1,
-//     'ADD_FOLDER': 2,
-//     'MODIFY_FILE': 3,
-//     'MODIFY_FOLDER': 4
-// }
+    return false;
+  }
 
-// export const addChild = (root, child) => {
-//     if (root != null && child != null) {
-//         root.children.push(child);
-//     }
-// }
+  getFolder(name: string) {
+    for (let i = 0; i < this.children.length; i++) {
+      if (this.children[i].folderName === name) {
+        return this.children[i];
+      }
+    }
+  }
+}
 
-// export const newFile = (data, name) => {
-//     return new File(data, name);
-// }
+export enum ACTIONS {
+  VIEW_FOLDER = 0,
+  ADD_FILE,
+  ADD_FOLDER,
+  MODIFY_FILE,
+  MODIFY_FOLDER,
+}
 
-// export const newFolder = (folderName) => {
-//     let f = new File();
-//     let n = new Node(folderName);
-//     n.children.push(f);
-//     return n;
-// }
+export const addChild = (root: Node, child: Node) => {
+  if (root != null && child != null) {
+    root.children.push(child);
+  }
+};
 
-// export const findFolder = (root, folder, action) => {
-//     if (root == undefined) return;
-//     var q = new queue();
-//     q.push(root);
+export const newFolder = (folderName: string) => {
+  //   let f = new File();
+  let n = new Node(folderName);
+  //   n.children.push(f);
+  return n;
+};
 
-//     while (!q.isEmpty()) {
-//         let n = q.size();
+// export const findFolder = (root: Node, folder: Node, action: ACTIONS) => {
+//   if (root == undefined) return;
+//   var q = new Queue();
+//   q.push(root);
 
-//         while (n > 0) {
-//             let p = q.dequeue();
+//   while (!q.isEmpty()) {
+//     let n = q.size();
 
-//             if (p.folderName === folder.folderName) {
-//                 switch (action) {
-//                     case ACTIONS.VIEW_FOLDER:
-//                         break;
-//                     case ACTIONS.ADD_FILE:
-//                         break;
-//                     case ACTIONS.ADD_FOLDER:
-//                         break;
-//                     case ACTIONS.MODIFY_FOLDER:
-//                         break;
-//                     case ACTIONS.MODIFY_FILE:
-//                         break;
-//                 }
-//             }
-//             for (let i = 0; i < p.children.length; i++) {
-//                 q.push(p.children[i]);
-//             }
+//     while (n > 0) {
+//       let p = q.dequeue();
+//       if (!p) return;
+//       if (p.folderName === folder.folderName) {
+//         switch (action) {
+//           case ACTIONS.VIEW_FOLDER:
+//             break;
+//           case ACTIONS.ADD_FILE:
+//             break;
+//           case ACTIONS.ADD_FOLDER:
+//             break;
+//           case ACTIONS.MODIFY_FOLDER:
+//             break;
+//           case ACTIONS.MODIFY_FILE:
+//             break;
 //         }
-//         n--;
+//       }
+//       for (let i = 0; i < p.children.length; i++) {
+//         q.push(p.children[i]);
+//       }
 //     }
+//     n--;
+//   }
+// };
 
-// }
+export const findParent = (root: Node, folder: Node) => {
+  if (root == undefined) return undefined;
+  if (root.hasChild(folder.folderName)) return root;
+
+  var q = new Queue<Node>();
+  q.push(root);
+
+  while (!q.isEmpty()) {
+    let n = q.size();
+
+    while (n > 0) {
+      let p = q.dequeue();
+      if (!p) return undefined;
+      if (p.hasChild(folder.folderName)) return p;
+      //   if (p.folderName === folder.folderName) {
+      //   }
+
+      for (let i = 0; i < p.children.length; i++) {
+        q.push(p.children[i]);
+      }
+    }
+    n--;
+  }
+  return undefined;
+};
