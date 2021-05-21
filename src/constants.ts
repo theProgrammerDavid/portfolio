@@ -41,13 +41,11 @@ export const socialOptions = {
   },
 };
 export const githubProjectOptions = {
-  minWidth: 10,
-  truncate: true,
   config: {
-    description: { maxWidth: 50 },
-    lang: { minWidth: 10 },
+    description: {
+      maxWidth: 60,
+    },
   },
-  columnSplitter: "|",
 };
 
 export const getPrompt = () => {
@@ -99,7 +97,7 @@ export const projects = [
     "No.": 1,
     title: "xP",
     description:
-      "A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
+      "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
     document_url: renderLink("https://github.com/theProgrammerDavid/xP", "xP"),
   },
   {
@@ -247,29 +245,109 @@ export const folders = [
 ];
 
 export const langs = [
-  "https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A",
-  "https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white",
-  "https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white",
-  "https://img.shields.io/badge/c%20-%2300599C.svg?&style=for-the-badge&logo=c&logoColor=white",
-  "https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white",
+  {
+    name: "Javascript",
+    url:
+      "https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A",
+  },
+  {
+    name: "C++",
+    url:
+      "https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white",
+  },
+  {
+    name: "Typescript",
+    url:
+      "https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white",
+  },
+  {
+    name: "C",
+    url:
+      "https://img.shields.io/badge/c%20-%2300599C.svg?&style=for-the-badge&logo=c&logoColor=white",
+  },
+  {
+    name: "Java",
+    url:
+      "https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white",
+  },
 ];
 
 export const frameworks = [
-  "https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge",
-  "https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB",
-  "https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white",
-  "https://img.shields.io/badge/material%20ui%20-%230081CB.svg?&style=for-the-badge&logo=material-ui&logoColor=white",
-  "https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white",
-  "https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black",
-  "https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl",
+  {
+    name: "ExpressJs",
+    url:
+      "https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge",
+  },
+  {
+    name: "React",
+    url:
+      "https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB",
+  },
+  {
+    name: "Bootstrap",
+    url:
+      "https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white",
+  },
+  {
+    name: "Material UI",
+    url:
+      "https://img.shields.io/badge/material%20ui%20-%230081CB.svg?&style=for-the-badge&logo=material-ui&logoColor=white",
+  },
+  {
+    name: "Redux",
+    url:
+      "https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white",
+  },
+  {
+    name: "Webpack",
+    url:
+      "https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black",
+  },
+  {
+    name: "OpenGL",
+    url:
+      "https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl",
+  },
 ];
 export const other = [
-  "https://img.shields.io/badge/CMake-%23008FBA.svg?&style=for-the-badge&logo=cmake&logoColor=white",
-  "https://img.shields.io/badge/docker-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white",
-  "https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white",
-  "https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white",
-  "https://img.shields.io/badge/GoogleCloud-%234285F4.svg?&style=for-the-badge&logo=google-cloud&logoColor=white",
-  "https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white",
-  "https://img.shields.io/badge/DigitalOcean-%230167ff.svg?&style=for-the-badge&logo=digitalOcean&logoColor=white",
-  "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white",
+  {
+    name: "CMake",
+    url:
+      "https://img.shields.io/badge/CMake-%23008FBA.svg?&style=for-the-badge&logo=cmake&logoColor=white",
+  },
+  {
+    name: "Docker",
+    url:
+      "https://img.shields.io/badge/docker-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white",
+  },
+  {
+    name: "Blender",
+    url:
+      "https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white",
+  },
+  {
+    name: "Git",
+    url:
+      "https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white",
+  },
+  {
+    name: "Google Cloud",
+    url:
+      "https://img.shields.io/badge/GoogleCloud-%234285F4.svg?&style=for-the-badge&logo=google-cloud&logoColor=white",
+  },
+  {
+    name: "Heroku",
+    url:
+      "https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white",
+  },
+  {
+    name: "Digital Ocean",
+    url:
+      "https://img.shields.io/badge/DigitalOcean-%230167ff.svg?&style=for-the-badge&logo=digitalOcean&logoColor=white",
+  },
+  {
+    name: "Nginx",
+    url:
+      "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white",
+  },
 ];

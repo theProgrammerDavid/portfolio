@@ -1,3 +1,4 @@
+declare var term: any;
 declare global {
   interface ImportMeta {
     hot: {
@@ -44,9 +45,67 @@ import {
   cdOut,
   setPwd,
   getPrompt,
+  githubProjectOptions,
 } from "./constants";
 
 const root = new Node("");
+const setupDir = () => {
+  let mypic = new File("me.jpg", () => {
+    term.echo(myPic());
+  });
+  let l = new File("languages", () => {
+    l.data.forEach((d) => {
+      term.echo(get_image(d));
+    });
+  });
+  let f = new File("frameworks", () => {
+    f.data.forEach((d) => {
+      term.echo(get_image(d));
+    });
+  });
+  let o = new File("others", () => {
+    o.data.forEach((d) => {
+      term.echo(get_image(d));
+    });
+  });
+  other.forEach((_o) => {
+    o.append(_o.url);
+  });
+  frameworks.forEach((_f) => {
+    f.append(_f.url);
+  });
+  langs.forEach((_l) => {
+    l.append(_l.url);
+  });
+  root.files.push(l);
+  root.files.push(f);
+  root.files.push(o);
+  root.files.push(mypic);
+
+  let n = new Node("projects");
+  n.files.push(
+    new File("projects.txt", () => {
+      term.echo(columnify(projects, githubProjectOptions));
+    })
+  );
+  let n2 = new Node("socials");
+  let n3 = new Node("achievements");
+
+  n2.files.push(
+    new File("socials.txt", () => {
+      term.echo(columnify(socials, socialOptions));
+    })
+  );
+  n3.files.push(
+    new File("certs.txt", () => {
+      term.echo(columnify(achievements));
+    })
+  );
+  root.children.push(n);
+  root.children.push(n2);
+  root.children.push(n3);
+};
+setupDir();
 var currentNode = root;
 
 async function loadFonts() {
@@ -56,7 +115,6 @@ async function loadFonts() {
 loadFonts();
 
 var fontSize = 1.5;
-var term: any;
 
 const displayHelp = () => {
   return columnify(commands);
@@ -88,60 +146,21 @@ const scale = (arg: string) => {
   }
 };
 
-const _cat = (arg: string) => {
-  switch (arg) {
-    case "me.jpg":
-      return myPic();
-
-    case "frameworks":
-      frameworks.forEach((f) => {
-        term.echo(get_image(f));
-      });
-      break;
-      currentNode;
-    case "others":
-      other.forEach((o) => {
-        term.echo(get_image(o));
-      });
-      break;
-
-    case "languages":
-      langs.forEach((lang) => {
-        term.echo(get_image(lang));
-      });
-      break;
-    default:
-      return redText(`Cannot view contents of file ${arg}`);
-  }
-};
-
 const _ls = (arg: string) => {
-  switch (arg) {
-    case "projects":
-      return columnify(projects);
-
-    case "achievements":
-      return columnify(achievements);
-
-    case "resume":
-      window.open(
-        `https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#`
-      );
-      break;
-    case "socials":
-      return columnify(socials, socialOptions);
-
-    case undefined:
-      return columnify(folders, {
-        showHeaders: false,
-        columnSplitter: "\t",
-      });
-
-    default:
-      return redText(`Cannot view contents of '${arg}'`);
+  if (arg == undefined) currentNode.showContents();
+  else if (currentNode.hasChild(arg)) {
+    currentNode.getFolder(arg)?.showContents();
+  }
+  //traverse the tree based on the path
+};
+const _cat = (arg: string) => {
+  if (arg == undefined) return redText(`Cannot view contents of ${arg}`);
+  else if (arg === "*") {
+  }
+  if (currentNode.hasFile(arg)) {
+    currentNode.getFile(arg)?.cat();
   }
 };
-
 const _cdOut = () => {
   if (currentNode == root) return redText(`cannot go back further`);
   cdOut();
@@ -152,7 +171,7 @@ const _cdOut = () => {
 };
 
 const _cd = (dir: string) => {
-  if (import.meta.env.MODE) console.log(dir);
+  if (dir == undefined) return redText(`cannot find folder '${dir}'`);
   if (dir === "..") _cdOut();
 
   let _x = currentNode.hasChild(dir);

@@ -1,14 +1,20 @@
+// import term from "./index";
+declare var term: any;
+import columnify from "columnify";
+import { lightBlueText } from "./formatting";
 import Queue from "./Queue";
 
 export class File {
-  fileData = "";
-  fileName = "";
-  constructor(name: string, data: string) {
-    this.fileData = data || "";
-    this.fileName = name || "";
+  data: string[] = [];
+  name = "";
+
+  cat!: () => void;
+  constructor(name: string, _cat: () => void = () => {}) {
+    this.name = name || "";
+    this.cat = _cat;
   }
-  print(){
-      
+  append(d: string) {
+    this.data.push(d);
   }
 }
 
@@ -21,6 +27,15 @@ export class Node {
     this.children = [];
     this.files = [];
   }
+  hasFile(name: string) {
+    for (let i = 0; i < this.files.length; i++) {
+      if (this.files[i].name === name) {
+        return true;
+      }
+    }
+
+    return false;
+  }
   hasChild(name: string) {
     for (let i = 0; i < this.children.length; i++) {
       if (this.children[i].folderName === name) {
@@ -30,7 +45,41 @@ export class Node {
 
     return false;
   }
-
+  showContents() {
+    if (import.meta.env.MODE) {
+      console.log(this.files);
+      console.log(this.children);
+    }
+    let _files = [];
+    for (let i = 0; i < this.children.length; i++) {
+      _files.push({
+        permissions: "drwxrwxr-x",
+        owner: "david",
+        name: `${lightBlueText(this.children[i].folderName)} `,
+      });
+    }
+    for (let i = 0; i < this.files.length; i++) {
+      _files.push({
+        permissions: ".rw-rw-r--",
+        owner: 'david',
+        name: this.files[i].name,
+      });
+    }
+    term.echo(
+      columnify(_files, {
+        columnSplitter: " ",
+        showHeaders: false,
+        minWidth: 15,
+      })
+    );
+  }
+  getFile(name: string) {
+    for (let i = 0; i < this.files.length; i++) {
+      if (this.files[i].name === name) {
+        return this.files[i];
+      }
+    }
+  }
   getFolder(name: string) {
     for (let i = 0; i < this.children.length; i++) {
       if (this.children[i].folderName === name) {
