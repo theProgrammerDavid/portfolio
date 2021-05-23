@@ -101,9 +101,14 @@ const setupDir = () => {
       term.echo(columnify(achievements));
     })
   );
+  let resume = new File('resume.pdf', ()=>{
+    term.echo(orangeText('opening resume.pdf'));
+    window.open('https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#');
+  });
   root.children.push(n);
   root.children.push(n2);
   root.children.push(n3);
+  root.files.push(resume);
 };
 setupDir();
 var currentNode = root;

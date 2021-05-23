@@ -77,6 +77,9 @@ export const commands = [
     name: "cat <arg>",
     description: "Displays the contents of the current file ",
   },
+  {
+    name: 'cd', description: 'you know what it does ',
+  },
   { name: "help", description: "Displays the help message" },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
