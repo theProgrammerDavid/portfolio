@@ -7,11 +7,22 @@ import Queue from "./Queue";
 export class File {
   data: string[] = [];
   name = "";
+  hasCustomName: boolean = false;
 
+  showName!: () => string;
   cat!: () => void;
-  constructor(name: string, _cat: () => void = () => {}) {
+
+  constructor(
+    name: string,
+    _cat: () => void = () => {},
+    customName: boolean = false,
+    _name: () => string = () => ''
+  ) {
     this.name = name || "";
     this.cat = _cat;
+
+    this.hasCustomName = customName;
+    if (customName) this.showName = _name;
   }
   append(d: string) {
     this.data.push(d);
@@ -68,7 +79,9 @@ export class Node {
       _files.push({
         permissions: ".rw-rw-r--",
         owner: "david",
-        name: this.files[i].name,
+        name: this.files[i].hasCustomName
+          ? this.files[i].showName()
+          : this.files[i].name,
       });
     }
     term.echo(
