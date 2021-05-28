@@ -27,6 +27,12 @@ export class Node {
     this.children = [];
     this.files = [];
   }
+  addFile(file: File) {
+    this.files.push(file);
+  }
+  addChild(node: Node) {
+    this.children.push(node);
+  }
   hasFile(name: string) {
     for (let i = 0; i < this.files.length; i++) {
       if (this.files[i].name === name) {
@@ -61,7 +67,7 @@ export class Node {
     for (let i = 0; i < this.files.length; i++) {
       _files.push({
         permissions: ".rw-rw-r--",
-        owner: 'david',
+        owner: "david",
         name: this.files[i].name,
       });
     }
@@ -99,7 +105,7 @@ export enum ACTIONS {
 
 export const addChild = (root: Node, child: Node) => {
   if (root != null && child != null) {
-    root.children.push(child);
+    root.addChild(child);
   }
 };
 
