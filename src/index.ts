@@ -77,13 +77,13 @@ const setupDir = () => {
   langs.forEach((_l) => {
     l.append(_l.url);
   });
-  root.files.push(l);
-  root.files.push(f);
-  root.files.push(o);
-  root.files.push(mypic);
+  root.addFile(l);
+  root.addFile(f);
+  root.addFile(o);
+  root.addFile(mypic);
 
   let n = new Node("projects");
-  n.files.push(
+  n.addFile(
     new File("projects.txt", () => {
       term.echo(columnify(projects, githubProjectOptions));
     })
@@ -91,19 +91,19 @@ const setupDir = () => {
   let n2 = new Node("socials");
   let n3 = new Node("achievements");
 
-  n2.files.push(
+  n2.addFile(
     new File("socials.txt", () => {
       term.echo(columnify(socials, socialOptions));
     })
   );
-  n3.files.push(
+  n3.addFile(
     new File("certs.txt", () => {
       term.echo(columnify(achievements));
     })
   );
-  root.children.push(n);
-  root.children.push(n2);
-  root.children.push(n3);
+  root.addChild(n);
+  root.addChild(n2);
+  root.addChild(n3);
 };
 setupDir();
 var currentNode = root;
@@ -195,7 +195,7 @@ function ready() {
   term = $("body").terminal(
     {
       mkdir: (name: string) => {
-        currentNode.children.push(newFolder(name));
+        currentNode.addChild(newFolder(name));
         if (import.meta.env.MODE) console.log(root);
       },
       cat: (arg: string) => _cat(arg),
