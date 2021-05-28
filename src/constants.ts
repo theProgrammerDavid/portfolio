@@ -57,8 +57,8 @@ export const terminalOptions = {
     return (
       render("David Velho", "Doom") +
       `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(
-        `man`
-      )} / ${greenText("family-tech-support")} to get started.\n`
+        `cat README`
+      )}  to get started.\n`
     );
   },
   prompt: getPrompt(),
@@ -86,6 +86,8 @@ export const commands = [
       "scale up"
     )} or ${orangeText("scale down")}`,
   },
+  { name: "resume", description: "Opens resume in a new window" },
+  { name: "..", description: "Traverse one directory up" },
   { name: "me", description: `Displays my profile picture` },
   {
     name: "getImg <link to image>",
@@ -351,3 +353,17 @@ export const other = [
       "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white",
   },
 ];
+
+export const readmeHelp = () => {
+  let instructions = `
+  This is my portfolio website themed around a [WIP] terminal. Hope you enjoyed it.
+  The instructions are in a file called ${greenText(
+    "README"
+  )}. To view it's contents, type in ${orangeText("cat README")}
+
+  Below are some of the supported commands, accessible by entering ${greenText(
+    "man"
+  )}. Since it's a terminal, you can manipulate files as you please and traverse directories 
+  `;
+  return instructions;
+};

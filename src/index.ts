@@ -46,6 +46,7 @@ import {
   setPwd,
   getPrompt,
   githubProjectOptions,
+  readmeHelp
 } from "./constants";
 
 const root = new Node("");
@@ -104,6 +105,27 @@ const setupDir = () => {
   root.addChild(n);
   root.addChild(n2);
   root.addChild(n3);
+  root.addFile(
+    new File("resume.docx", () => {
+      window.open(
+        "https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#"
+      );
+    })
+  );
+
+  root.addFile(
+    new File(
+      "README",
+      () => {
+        term.echo(readmeHelp());
+        term.echo(columnify(commands));
+      },
+      true,
+      ()=>{
+        return greenText('README')
+      }
+    )
+  );
 };
 setupDir();
 var currentNode = root;
@@ -174,6 +196,12 @@ const _cd = (dir: string) => {
   if (dir == undefined) return redText(`cannot find folder '${dir}'`);
   if (dir === "..") _cdOut();
 
+  let count = dir.match(new RegExp('/', 'g'))?.length;
+  if(count !== undefined){
+    console.log('HERE');
+    return redText('Nested directory traversal is a WIP. For now, single directory traversal is supported')
+  }
+
   let _x = currentNode.hasChild(dir);
   if (import.meta.env.MODE) {
     console.log(_x);
@@ -206,6 +234,11 @@ function ready() {
       echo: (...text: string[]) => text.join(" "),
       scale: (arg: string) => scale(arg),
       "family-tech-support": () => displayHelp(),
+      resume: () => {
+        window.open(
+          "https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#"
+        );
+      },
       me: () => {
         return myPic();
       },
