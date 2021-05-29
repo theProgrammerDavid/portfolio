@@ -251,6 +251,15 @@ function ready() {
       cd: (dir: string) => _cd(dir),
       ls: (arg: string) => _ls(arg),
       echo: (...text: string[]) => text.join(" "),
+      touch: (fileName: string) => {
+        term.read("Enter file content: ", (content: string) => {
+          let f = new File(fileName, () => {
+            term.echo(f.data);
+          });
+          f.data.push(content);
+          currentNode.addFile(f);
+        });
+      },
       scale: (arg: string) => scale(arg),
       "family-tech-support": () => displayHelp(),
       resume: () => {

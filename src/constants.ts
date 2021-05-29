@@ -82,6 +82,11 @@ export const commands = [
       "scale up"
     )} or ${orangeText("scale down")}`,
   },
+  {
+    name: "touch <arg>",
+    description:
+      "creates a file with name <arg> and prompts you to enter the file contents",
+  },
   { name: "resume", description: "Opens resume in a new window" },
   { name: "..", description: "Traverse one directory up" },
   { name: "me", description: `Displays my profile picture` },
