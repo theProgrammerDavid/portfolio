@@ -235,6 +235,32 @@ const _cd = (dir: string) => {
   }
 };
 
+const _rm = (arg: string) => {
+  term.read("are you sure? Y/N : ", (ans: string) => {
+    if (ans === "y" || ans === "Y") {
+      if (currentNode.hasChild(arg)) {
+        currentNode.children = currentNode.children.filter((child) => {
+          return child.folderName !== arg;
+        });
+      } else if (currentNode.hasFile(arg)) {
+        currentNode.files = currentNode.files.filter((file) => {
+          return file.name !== arg;
+        });
+      }
+    }
+  });
+};
+
+const _touch = (fileName: string) => {
+  term.read("Enter file content: ", (content: string) => {
+    let f = new File(fileName, () => {
+      term.echo(f.data);
+    });
+    f.data.push(content);
+    currentNode.addFile(f);
+  });
+};
+
 function ready() {
   const loadingScreen = document.getElementById("loadingScreen")!;
   loadingScreen.style.display = "none";
@@ -251,15 +277,8 @@ function ready() {
       cd: (dir: string) => _cd(dir),
       ls: (arg: string) => _ls(arg),
       echo: (...text: string[]) => text.join(" "),
-      touch: (fileName: string) => {
-        term.read("Enter file content: ", (content: string) => {
-          let f = new File(fileName, () => {
-            term.echo(f.data);
-          });
-          f.data.push(content);
-          currentNode.addFile(f);
-        });
-      },
+      rm: _rm,
+      touch: _touch,
       scale: (arg: string) => scale(arg),
       "family-tech-support": () => displayHelp(),
       resume: () => {
