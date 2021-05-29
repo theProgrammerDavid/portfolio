@@ -46,7 +46,7 @@ import {
   setPwd,
   getPrompt,
   githubProjectOptions,
-  readmeHelp
+  readmeHelp,
 } from "./constants";
 
 const root = new Node("");
@@ -121,8 +121,8 @@ const setupDir = () => {
         term.echo(columnify(commands));
       },
       true,
-      ()=>{
-        return greenText('README')
+      () => {
+        return greenText("README");
       }
     )
   );
@@ -197,23 +197,42 @@ const _cd = (dir: string) => {
   if (dir == undefined) return redText(`cannot find folder '${dir}'`);
   if (dir === "..") return _cdOut();
 
-  let count = dir.match(new RegExp('/', 'g'))?.length;
-  if(count !== undefined){
-    return redText('Nested directory traversal is a WIP. For now, single directory traversal is supported')
+  if (dir.startsWith("./")) {
+    dir = dir.substring(2);
+  }
+  if (dir.endsWith("/")) {
+    dir = dir.substring(0, dir.length - 1);
+    console.log(dir);
   }
 
-  let _x = currentNode.hasChild(dir);
-  if (import.meta.env.MODE) {
-    console.log(_x);
-    console.log(currentNode);
-  }
+  let count = dir.match(new RegExp("/", "g"))?.length;
 
-  if (_x) {
-    cdIn(dir);
-    currentNode = currentNode.getFolder(dir)!;
-    if (import.meta.env.MODE) console.log(currentNode);
-    term.set_prompt(getPrompt());
-  } else return redText(`cannot find folder '${dir}'`);
+  if (count != undefined && count >= 1) {
+    // return redText('Multi level traversal is a WIP. For now, single directory traversal is supported')
+    let dirs = dir.split("/");
+    for (let i in dirs) {
+      console.log(dirs[i]);
+      let _x = currentNode.hasChild(dirs[i]);
+      if (_x) {
+        cdIn(dirs[i]);
+        currentNode = currentNode.getFolder(dirs[i])!;
+        term.set_prompt(getPrompt());
+      }
+    }
+  } else {
+    let _x = currentNode.hasChild(dir);
+    if (import.meta.env.MODE) {
+      console.log(_x);
+      console.log(currentNode);
+    }
+
+    if (_x) {
+      cdIn(dir);
+      currentNode = currentNode.getFolder(dir)!;
+      if (import.meta.env.MODE) console.log(currentNode);
+      term.set_prompt(getPrompt());
+    } else return redText(`cannot find folder '${dir}'`);
+  }
 };
 
 function ready() {
