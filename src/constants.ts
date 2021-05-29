@@ -36,9 +36,6 @@ export const socialOptions = {
     url: { maxWidth: 50 },
   },
   columnSplitter: "|",
-  dataTransform: (data: any) => {
-    return data;
-  },
 };
 export const githubProjectOptions = {
   config: {
@@ -77,7 +74,6 @@ export const commands = [
     name: "cat <arg>",
     description: "Displays the contents of the current file ",
   },
-  { name: "help", description: "Displays the help message" },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
   {
@@ -85,6 +81,11 @@ export const commands = [
     description: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText(
       "scale up"
     )} or ${orangeText("scale down")}`,
+  },
+  {
+    name: "touch <arg>",
+    description:
+      "creates a file with name <arg> and prompts you to enter the file contents",
   },
   { name: "resume", description: "Opens resume in a new window" },
   { name: "..", description: "Traverse one directory up" },
