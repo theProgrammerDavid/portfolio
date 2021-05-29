@@ -235,30 +235,29 @@ const _cd = (dir: string) => {
   }
 };
 
-const _rm = (arg: string) => {
-  term.read("are you sure? Y/N : ", (ans: string) => {
-    if (ans === "y" || ans === "Y") {
-      if (currentNode.hasChild(arg)) {
-        currentNode.children = currentNode.children.filter((child) => {
-          return child.folderName !== arg;
-        });
-      } else if (currentNode.hasFile(arg)) {
-        currentNode.files = currentNode.files.filter((file) => {
-          return file.name !== arg;
-        });
-      }
+const _rm = async (arg: string) => {
+  let ans = await term.read("are you sure: ");
+  if (ans === "y" || ans === "Y") {
+    if (currentNode.hasChild(arg)) {
+      currentNode.children = currentNode.children.filter((child) => {
+        return child.folderName !== arg;
+      });
+    } else if (currentNode.hasFile(arg)) {
+      currentNode.files = currentNode.files.filter((file) => {
+        return file.name !== arg;
+      });
     }
-  });
+  }
 };
 
-const _touch = (fileName: string) => {
-  term.read("Enter file content: ", (content: string) => {
-    let f = new File(fileName, () => {
-      term.echo(f.data);
-    });
-    f.data.push(content);
-    currentNode.addFile(f);
+const _touch = async (fileName: string) => {
+  let content = term.read("Enter file content: ");
+
+  let f = new File(fileName, () => {
+    term.echo(f.data);
   });
+  f.data.push(content);
+  currentNode.addFile(f);
 };
 
 function ready() {
