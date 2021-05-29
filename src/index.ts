@@ -178,6 +178,7 @@ const _ls = (arg: string) => {
 const _cat = (arg: string) => {
   if (arg == undefined) return redText(`Cannot view contents of ${arg}`);
   else if (arg === "*") {
+    currentNode.catContents();
   }
   if (currentNode.hasFile(arg)) {
     currentNode.getFile(arg)?.cat();
@@ -194,11 +195,10 @@ const _cdOut = () => {
 
 const _cd = (dir: string) => {
   if (dir == undefined) return redText(`cannot find folder '${dir}'`);
-  if (dir === "..") _cdOut();
+  if (dir === "..") return _cdOut();
 
   let count = dir.match(new RegExp('/', 'g'))?.length;
   if(count !== undefined){
-    console.log('HERE');
     return redText('Nested directory traversal is a WIP. For now, single directory traversal is supported')
   }
 

@@ -44,6 +44,11 @@ export class Node {
   addChild(node: Node) {
     this.children.push(node);
   }
+  catContents(){
+    for(let i=0;i<this.files.length;i++){
+      this.files[i].cat();
+    }
+  }
   hasFile(name: string) {
     for (let i = 0; i < this.files.length; i++) {
       if (this.files[i].name === name) {

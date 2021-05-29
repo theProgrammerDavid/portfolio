@@ -36,9 +36,6 @@ export const socialOptions = {
     url: { maxWidth: 50 },
   },
   columnSplitter: "|",
-  dataTransform: (data: any) => {
-    return data;
-  },
 };
 export const githubProjectOptions = {
   config: {
@@ -77,7 +74,6 @@ export const commands = [
     name: "cat <arg>",
     description: "Displays the contents of the current file ",
   },
-  { name: "help", description: "Displays the help message" },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
   {
