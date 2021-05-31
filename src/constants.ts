@@ -1,3 +1,6 @@
+declare var term: any;
+declare var $: any;
+
 import {
   orangeText,
   purpleText,
@@ -49,27 +52,18 @@ export const getPrompt = () => {
   return `${greenText(`user`)} in ${orangeText(pwd)}\n${lightBlueText(">")}`;
 };
 
-export const terminalOptions = {
-  greetings: function () {
-    return (
-      render("David Velho", "Doom") +
-      `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(
-        `cat README`
-      )}  to get started.\n`
-    );
-  },
-  prompt: getPrompt(),
-  checkArity: false,
-  history: true,
-  exit: true,
-  clear: true,
-  warp: false,
-  completion: true,
-  echoCommand: true,
-  keymap: {},
-};
+export const commandList = [
+  "cd",
+  "rm",
+  "ls",
+  "touch",
+  "cat",
+  "scale",
+  "exit",
+  "clear",
+];
 
-export const commands = [
+export const commandDesc = [
   {
     name: "cat <arg>",
     description: "Displays the contents of the current file ",

@@ -16,7 +16,7 @@ export class File {
     name: string,
     _cat: () => void = () => {},
     customName: boolean = false,
-    _name: () => string = () => ''
+    _name: () => string = () => ""
   ) {
     this.name = name || "";
     this.cat = _cat;
@@ -38,14 +38,31 @@ export class Node {
     this.children = [];
     this.files = [];
   }
+
+  getChildrenNames() {
+    let names: string[] = [];
+    this.children.forEach((child) => {
+      names.push(child.folderName);
+    });
+    return names;
+  }
+
+  getFileNames() {
+    let names: string[] = [];
+    this.files.forEach((file) => {
+      names.push(file.name);
+    });
+    return names;
+  }
+
   addFile(file: File) {
     this.files.push(file);
   }
   addChild(node: Node) {
     this.children.push(node);
   }
-  catContents(){
-    for(let i=0;i<this.files.length;i++){
+  catContents() {
+    for (let i = 0; i < this.files.length; i++) {
       this.files[i].cat();
     }
   }

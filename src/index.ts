@@ -29,7 +29,8 @@ import { Node, File, newFolder, findParent } from "./Node";
 
 import {
   socials,
-  commands,
+  commandList,
+  commandDesc as commands,
   myPic,
   achievements,
   scaleLimits,
@@ -37,7 +38,6 @@ import {
   folders,
   langs,
   frameworks,
-  terminalOptions,
   other,
   socialOptions,
   getPwd,
@@ -85,10 +85,11 @@ const setupDir = () => {
 
   let n = new Node("projects");
   n.addFile(
-    new File("projects.txt", () => {
+    new File("all.txt", () => {
       term.echo(columnify(projects, githubProjectOptions));
     })
   );
+
   let n2 = new Node("socials");
   let n3 = new Node("achievements");
 
@@ -129,6 +130,48 @@ const setupDir = () => {
 };
 setupDir();
 var currentNode = root;
+
+const terminalOptions = {
+  greetings: function () {
+    return (
+      render("David Velho", "Doom") +
+      `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(
+        `cat README`
+      )}  to get started.\n`
+    );
+  },
+  prompt: getPrompt(),
+  checkArity: false,
+  history: true,
+  exit: true,
+  clear: true,
+  warp: false,
+  // completion: true,
+  echoCommand: true,
+  completion: async () => {
+    var command = term.get_command(); // what you entered
+    var name: string = command.match(/^([^\s]*)/)[0]; //command
+
+    switch (name) {
+      case "cd":
+      case "ls":
+        return currentNode.getChildrenNames();
+      case "cat":
+        return currentNode.getFileNames();
+      case "rm":
+        return [
+          ...currentNode.getChildrenNames(),
+          ...currentNode.getFileNames(),
+        ];
+      case "scale":
+        return ["up", "down"];
+    }
+    return commandList;
+  },
+  keymap: {},
+  autocompleteMenu: true,
+  wordAutocomplete: true,
+};
 
 async function loadFonts() {
   figlet.defaults({ fontPath: "https://unpkg.com/figlet@1.4.0/fonts/" });
