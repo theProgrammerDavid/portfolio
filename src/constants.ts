@@ -70,6 +70,8 @@ export const commandDesc = [
   },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
+  { name: "cd <arg>", description: "enter a folder" },
+  { name: "rm <arg>", description: "delete the specified file or folder" },
   {
     name: "scale <arg>",
     description: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText(
