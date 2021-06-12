@@ -94,10 +94,10 @@ export const commandDesc = [
 export const projects = [
   {
     "No.": 1,
-    title: "xP",
+    title: "PostBaby",
     description:
       "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
-    document_url: renderLink("https://github.com/theProgrammerDavid/xP", "xP"),
+    document_url: renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby"),
   },
   {
     "No.": 2,
