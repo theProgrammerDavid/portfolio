@@ -137,6 +137,16 @@ export const projects = [
       "Cheat Sheets"
     ),
   },
+  {
+    "No.": 6,
+    title: "Unify PDF Merger",
+    description:
+      "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
+    document_url: renderLink(
+      "https://unify.davidvelho.tech/",
+      "Unify PDF Merger"
+    ),
+  },
 ];
 export const achievements = [
   {
