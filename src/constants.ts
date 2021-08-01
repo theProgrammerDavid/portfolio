@@ -94,10 +94,10 @@ export const commandDesc = [
 export const projects = [
   {
     "No.": 1,
-    title: "xP",
+    title: "PostBaby",
     description:
       "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
-    document_url: renderLink("https://github.com/theProgrammerDavid/xP", "xP"),
+    document_url: renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby"),
   },
   {
     "No.": 2,
@@ -135,6 +135,16 @@ export const projects = [
     document_url: renderLink(
       "https://cheatsheet.davidvelho.tech/",
       "Cheat Sheets"
+    ),
+  },
+  {
+    "No.": 6,
+    title: "Unify PDF Merger",
+    description:
+      "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
+    document_url: renderLink(
+      "https://unify.davidvelho.tech/",
+      "Unify PDF Merger"
     ),
   },
 ];
