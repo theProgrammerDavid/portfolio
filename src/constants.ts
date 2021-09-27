@@ -1,3 +1,6 @@
+declare var term: any;
+declare var $: any;
+
 import {
   orangeText,
   purpleText,
@@ -36,9 +39,6 @@ export const socialOptions = {
     url: { maxWidth: 50 },
   },
   columnSplitter: "|",
-  dataTransform: (data: any) => {
-    return data;
-  },
 };
 export const githubProjectOptions = {
   config: {
@@ -52,27 +52,18 @@ export const getPrompt = () => {
   return `${greenText(`user`)} in ${orangeText(pwd)}\n${lightBlueText(">")}`;
 };
 
-export const terminalOptions = {
-  greetings: function () {
-    return (
-      render("David Velho", "Doom") +
-      `\n${greenText(`Hey, I'm David`)}. Type in ${greenText(
-        `man`
-      )} / ${greenText("family-tech-support")} to get started.\n`
-    );
-  },
-  prompt: getPrompt(),
-  checkArity: false,
-  history: true,
-  exit: true,
-  clear: true,
-  warp: false,
-  completion: true,
-  echoCommand: true,
-  keymap: {},
-};
+export const commandList = [
+  "cd",
+  "rm",
+  "ls",
+  "touch",
+  "cat",
+  "scale",
+  "exit",
+  "clear",
+];
 
-export const commands = [
+export const commandDesc = [
   {
     name: "cat <arg>",
     description: "Displays the contents of the current file ",
@@ -83,12 +74,21 @@ export const commands = [
   { name: "help", description: "Displays the help message" },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
+  { name: "cd <arg>", description: "enter a folder" },
+  { name: "rm <arg>", description: "delete the specified file or folder" },
   {
     name: "scale <arg>",
     description: `increases or decreases the terminal font size by 0.2. Usage: ${orangeText(
       "scale up"
     )} or ${orangeText("scale down")}`,
   },
+  {
+    name: "touch <arg>",
+    description:
+      "creates a file with name <arg> and prompts you to enter the file contents",
+  },
+  { name: "resume", description: "Opens resume in a new window" },
+  { name: "..", description: "Traverse one directory up" },
   { name: "me", description: `Displays my profile picture` },
   {
     name: "getImg <link to image>",
@@ -98,10 +98,10 @@ export const commands = [
 export const projects = [
   {
     "No.": 1,
-    title: "xP",
+    title: "PostBaby",
     description:
       "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
-    document_url: renderLink("https://github.com/theProgrammerDavid/xP", "xP"),
+    document_url: renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby"),
   },
   {
     "No.": 2,
@@ -139,6 +139,16 @@ export const projects = [
     document_url: renderLink(
       "https://cheatsheet.davidvelho.tech/",
       "Cheat Sheets"
+    ),
+  },
+  {
+    "No.": 6,
+    title: "Unify PDF Merger",
+    description:
+      "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
+    document_url: renderLink(
+      "https://unify.davidvelho.tech/",
+      "Unify PDF Merger"
     ),
   },
 ];
@@ -354,3 +364,17 @@ export const other = [
       "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white",
   },
 ];
+
+export const readmeHelp = () => {
+  let instructions = `
+  This is my portfolio website themed around a [WIP] terminal. Hope you enjoyed it.
+  The instructions are in a file called ${greenText(
+    "README"
+  )}. To view it's contents, type in ${orangeText("cat README")}
+
+  Below are some of the supported commands, accessible by entering ${greenText(
+    "man"
+  )}. Since it's a terminal, you can manipulate files as you please and traverse directories 
+  `;
+  return instructions;
+};

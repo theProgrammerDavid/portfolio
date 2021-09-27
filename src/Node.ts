@@ -7,11 +7,22 @@ import Queue from "./Queue";
 export class File {
   data: string[] = [];
   name = "";
+  hasCustomName: boolean = false;
 
+  showName!: () => string;
   cat!: () => void;
-  constructor(name: string, _cat: () => void = () => {}) {
+
+  constructor(
+    name: string,
+    _cat: () => void = () => {},
+    customName: boolean = false,
+    _name: () => string = () => ""
+  ) {
     this.name = name || "";
     this.cat = _cat;
+
+    this.hasCustomName = customName;
+    if (customName) this.showName = _name;
   }
   append(d: string) {
     this.data.push(d);
@@ -26,6 +37,34 @@ export class Node {
     this.folderName = name || "";
     this.children = [];
     this.files = [];
+  }
+
+  getChildrenNames() {
+    let names: string[] = [];
+    this.children.forEach((child) => {
+      names.push(child.folderName);
+    });
+    return names;
+  }
+
+  getFileNames() {
+    let names: string[] = [];
+    this.files.forEach((file) => {
+      names.push(file.name);
+    });
+    return names;
+  }
+
+  addFile(file: File) {
+    this.files.push(file);
+  }
+  addChild(node: Node) {
+    this.children.push(node);
+  }
+  catContents() {
+    for (let i = 0; i < this.files.length; i++) {
+      this.files[i].cat();
+    }
   }
   hasFile(name: string) {
     for (let i = 0; i < this.files.length; i++) {
@@ -61,8 +100,10 @@ export class Node {
     for (let i = 0; i < this.files.length; i++) {
       _files.push({
         permissions: ".rw-rw-r--",
-        owner: 'david',
-        name: this.files[i].name,
+        owner: "david",
+        name: this.files[i].hasCustomName
+          ? this.files[i].showName()
+          : this.files[i].name,
       });
     }
     term.echo(
@@ -99,7 +140,7 @@ export enum ACTIONS {
 
 export const addChild = (root: Node, child: Node) => {
   if (root != null && child != null) {
-    root.children.push(child);
+    root.addChild(child);
   }
 };
 
