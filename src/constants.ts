@@ -201,6 +201,14 @@ export const achievements = [
       "CamCann SDE Intern"
     ),
   },
+  {
+    "No.": 7,
+    title: "Introduction to High Performance and Parallel Processing Certification",
+    document_url: renderLink(
+      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf",
+      "Certification PDF"
+    ),
+  },
 ];
 export const socials = [
   { No: 1, website: "Github", url: "https://github.com/theProgrammerDavid" },
