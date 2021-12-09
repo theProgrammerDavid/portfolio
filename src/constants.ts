@@ -68,6 +68,10 @@ export const commandDesc = [
     name: "cat <arg>",
     description: "Displays the contents of the current file ",
   },
+  {
+    name: 'cd', description: 'you know what it does ',
+  },
+  { name: "help", description: "Displays the help message" },
   { name: "ls", description: "displays contents of the current directory" },
   { name: "echo <arg>", description: "Prints arg on a newline " },
   { name: "cd <arg>", description: "enter a folder" },
@@ -195,6 +199,14 @@ export const achievements = [
     document_url: renderLink(
       "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg",
       "CamCann SDE Intern"
+    ),
+  },
+  {
+    "No.": 7,
+    title: "Introduction to High Performance and Parallel Processing Certification",
+    document_url: renderLink(
+      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf",
+      "Certification PDF"
     ),
   },
 ];
