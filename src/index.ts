@@ -10,9 +10,14 @@ declare global {
     };
   }
 }
-
-import columnify from "columnify";
+declare var $: any;
 declare var figlet: any;
+
+import { Node, File, newFolder, findParent } from "./Node";
+import columnify from "columnify";
+import "./mobile";
+import fileSystem from './fileSystem';
+
 import {
   redText,
   greenText,
@@ -23,9 +28,6 @@ import {
   get_image,
   renderLink,
 } from "./formatting";
-import "./mobile";
-declare var $: any;
-import { Node, File, newFolder, findParent } from "./Node";
 
 import {
   socials,
@@ -48,88 +50,6 @@ import {
   githubProjectOptions,
   readmeHelp,
 } from "./constants";
-
-const root = new Node("");
-const setupDir = () => {
-  let mypic = new File("me.jpg", () => {
-    term.echo(myPic());
-  });
-  let l = new File("languages", () => {
-    l.data.forEach((d) => {
-      term.echo(get_image(d));
-    });
-  });
-  let f = new File("frameworks", () => {
-    f.data.forEach((d) => {
-      term.echo(get_image(d));
-    });
-  });
-  let o = new File("others", () => {
-    o.data.forEach((d) => {
-      term.echo(get_image(d));
-    });
-  });
-  other.forEach((_o) => {
-    o.append(_o.url);
-  });
-  frameworks.forEach((_f) => {
-    f.append(_f.url);
-  });
-  langs.forEach((_l) => {
-    l.append(_l.url);
-  });
-  root.addFile(l);
-  root.addFile(f);
-  root.addFile(o);
-  root.addFile(mypic);
-
-  let n = new Node("projects");
-  n.addFile(
-    new File("all.txt", () => {
-      term.echo(columnify(projects, githubProjectOptions));
-    })
-  );
-
-  let n2 = new Node("socials");
-  let n3 = new Node("achievements");
-
-  n2.addFile(
-    new File("socials.txt", () => {
-      term.echo(columnify(socials, socialOptions));
-    })
-  );
-  n3.addFile(
-    new File("certs.txt", () => {
-      term.echo(columnify(achievements));
-    })
-  );
-  root.addChild(n);
-  root.addChild(n2);
-  root.addChild(n3);
-  root.addFile(
-    new File("resume.docx", () => {
-      window.open(
-        "https://docs.google.com/document/d/109u-jq5jsT690D1vpmRB2bcAVhZXfGemT9KBEIQT0mY/edit#"
-      );
-    })
-  );
-
-  root.addFile(
-    new File(
-      "README",
-      () => {
-        term.echo(readmeHelp());
-        term.echo(columnify(commands));
-      },
-      true,
-      () => {
-        return greenText("README");
-      }
-    )
-  );
-};
-setupDir();
-var currentNode = root;
 
 const terminalOptions = {
   greetings: function () {
@@ -155,13 +75,13 @@ const terminalOptions = {
     switch (name) {
       case "cd":
       case "ls":
-        return currentNode.getChildrenNames();
+        return fileSystem.getCurrentNode().getChildrenNames();
       case "cat":
-        return currentNode.getFileNames();
+        return fileSystem.getCurrentNode().getFileNames();
       case "rm":
         return [
-          ...currentNode.getChildrenNames(),
-          ...currentNode.getFileNames(),
+          ...fileSystem.getCurrentNode().getChildrenNames(),
+          ...fileSystem.getCurrentNode().getFileNames(),
         ];
       case "scale":
         return ["up", "down"];
@@ -212,26 +132,26 @@ const scale = (arg: string) => {
 };
 
 const _ls = (arg: string) => {
-  if (arg == undefined) currentNode.showContents();
-  else if (currentNode.hasChild(arg)) {
-    currentNode.getFolder(arg)?.showContents();
+  if (arg == undefined) fileSystem.getCurrentNode().showContents();
+  else if (fileSystem.getCurrentNode().hasChild(arg)) {
+    fileSystem.getCurrentNode().getFolder(arg)?.showContents();
   }
   //traverse the tree based on the path
 };
 const _cat = (arg: string) => {
   if (arg == undefined) return redText(`Cannot view contents of ${arg}`);
   else if (arg === "*") {
-    currentNode.catContents();
+    fileSystem.getCurrentNode().catContents();
   }
-  if (currentNode.hasFile(arg)) {
-    currentNode.getFile(arg)?.cat();
+  if (fileSystem.getCurrentNode().hasFile(arg)) {
+    fileSystem.getCurrentNode().getFile(arg)?.cat();
   }
 };
 const _cdOut = () => {
-  if (currentNode == root) return redText(`cannot go back further`);
+  if (fileSystem.getCurrentNode() == fileSystem.getRootNode()) return redText(`cannot go back further`);
   cdOut();
-  let _x = findParent(root, currentNode)!;
-  currentNode = _x;
+  let _x = findParent(fileSystem.getRootNode(), fileSystem.getCurrentNode())!;
+  fileSystem.setCurrentNode = _x;
   term.set_prompt(getPrompt());
   if (import.meta.env.MODE) console.log(_x);
 };
@@ -255,24 +175,24 @@ const _cd = (dir: string) => {
     let dirs = dir.split("/");
     for (let i in dirs) {
       console.log(dirs[i]);
-      let _x = currentNode.hasChild(dirs[i]);
+      let _x = fileSystem.getCurrentNode().hasChild(dirs[i]);
       if (_x) {
         cdIn(dirs[i]);
-        currentNode = currentNode.getFolder(dirs[i])!;
+        fileSystem.setCurrentNode = fileSystem.getCurrentNode().getFolder(dirs[i])!;
         term.set_prompt(getPrompt());
       }
     }
   } else {
-    let _x = currentNode.hasChild(dir);
+    let _x = fileSystem.getCurrentNode().hasChild(dir);
     if (import.meta.env.MODE) {
       console.log(_x);
-      console.log(currentNode);
+      console.log(fileSystem.getCurrentNode());
     }
 
     if (_x) {
       cdIn(dir);
-      currentNode = currentNode.getFolder(dir)!;
-      if (import.meta.env.MODE) console.log(currentNode);
+      fileSystem.setCurrentNode = fileSystem.getCurrentNode().getFolder(dir)!;
+      if (import.meta.env.MODE) console.log(fileSystem.getCurrentNode());
       term.set_prompt(getPrompt());
     } else return redText(`cannot find folder '${dir}'`);
   }
@@ -281,12 +201,12 @@ const _cd = (dir: string) => {
 const _rm = async (arg: string) => {
   let ans = await term.read("are you sure: ");
   if (ans === "y" || ans === "Y") {
-    if (currentNode.hasChild(arg)) {
-      currentNode.children = currentNode.children.filter((child) => {
+    if (fileSystem.getCurrentNode().hasChild(arg)) {
+      fileSystem.getCurrentNode().children = fileSystem.getCurrentNode().children.filter((child) => {
         return child.folderName !== arg;
       });
-    } else if (currentNode.hasFile(arg)) {
-      currentNode.files = currentNode.files.filter((file) => {
+    } else if (fileSystem.getCurrentNode().hasFile(arg)) {
+      fileSystem.getCurrentNode().files = fileSystem.getCurrentNode().files.filter((file) => {
         return file.name !== arg;
       });
     }
@@ -300,7 +220,7 @@ const _touch = async (fileName: string) => {
     term.echo(f.data);
   });
   f.data.push(content);
-  currentNode.addFile(f);
+  fileSystem.getCurrentNode().addFile(f);
 };
 
 function ready() {
@@ -310,8 +230,8 @@ function ready() {
   term = $("body").terminal(
     {
       mkdir: (name: string) => {
-        currentNode.addChild(newFolder(name));
-        if (import.meta.env.MODE) console.log(root);
+        fileSystem.getCurrentNode().addChild(newFolder(name));
+        if (import.meta.env.MODE) console.log(fileSystem.getRootNode());
       },
       cat: (arg: string) => _cat(arg),
       getImg: (url: string) => get_image(url),
