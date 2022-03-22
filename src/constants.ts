@@ -107,7 +107,7 @@ export const achievements = [
   buildAchievement("Samsung PRISM Ambient Temp Detection", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf", "Samsung PRISM")),
   buildAchievement("Camcann Systems Programmer Intern", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg", "CamCann SDE Intern")),
   buildAchievement("Introduction to High Performance and Parallel Processing Certification", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf", "Certification PDF")),
-  buildAchievement('Google Cloud Fundamentals', renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP', 'Google Cloud Fundamentals'))
+  buildAchievement('Google Cloud Fundamentals', renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP.pdf', 'Google Cloud Fundamentals'))
 ];
 export const socials = [
   buildSocial("Github", "https://github.com/theProgrammerDavid"),
