@@ -96,6 +96,7 @@ export const projects = [
   buildProject("Portfolio Website", "My own portfolio website built with Jquery and Snowpack", renderLink("https://github.com/theProgrammerDavid/portfolio", "Portfolio")),
   buildProject("CP and Cheat Sheets", "Collection of Competitive programming practice questions and language cheat sheet", renderLink("https://cheatsheet.davidvelho.tech/", "Cheat Sheets")),
   buildProject("Unify PDF Merger", "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.", renderLink("https://unify.davidvelho.tech/", "Unify PDF Merger")),
+  buildProject("Dicer Computing Framework", "Easy to use cross platform distributed computing framework to automatically delegate jobs to slave computers", renderLink('https://github.com/theProgrammerDavid/dicer/tree/dev', 'DICER'))
 ];
 
 export const achievements = [
@@ -106,6 +107,7 @@ export const achievements = [
   buildAchievement("Samsung PRISM Ambient Temp Detection", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf", "Samsung PRISM")),
   buildAchievement("Camcann Systems Programmer Intern", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg", "CamCann SDE Intern")),
   buildAchievement("Introduction to High Performance and Parallel Processing Certification", renderLink("https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf", "Certification PDF")),
+  buildAchievement('Google Cloud Fundamentals', renderLink('https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP', 'Google Cloud Fundamentals'))
 ];
 export const socials = [
   buildSocial("Github", "https://github.com/theProgrammerDavid"),
