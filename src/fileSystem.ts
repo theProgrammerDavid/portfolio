@@ -1,12 +1,12 @@
 import { Node, File } from "./Node";
-import { get_image } from './formatting';
+import { get_image, lightBlueText } from './formatting';
 import columnify from 'columnify';
 import { greenText } from './formatting';
 import {
     myPic, other, frameworks, langs,
     projects, githubProjectOptions,
     socialOptions, socials, achievements, readmeHelp,
-    commandDesc as commands,
+    commandDesc as commands, publications
 } from './constants'
 declare var term: any;
 
@@ -57,6 +57,7 @@ class FileSystem {
 
         let n2 = new Node("socials");
         let n3 = new Node("achievements");
+        let publicationsNode = new Node("publications");
 
         n2.addFile(
             new File("socials.txt", () => {
@@ -78,6 +79,13 @@ class FileSystem {
                 );
             })
         );
+
+        publications.forEach((publication) => { 
+            let tempFile = new File(publication.name, ()=>window.open(publication.url), true, ()=>lightBlueText(publication.name))
+            publicationsNode.addFile(tempFile)
+        })
+
+        this.root.addChild(publicationsNode)
 
         this.root.addFile(
             new File(
