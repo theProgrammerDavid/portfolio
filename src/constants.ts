@@ -19,7 +19,8 @@ import {
   buildCommand,
   buildOther,
   buildProject,
-  buildAchievement
+  buildAchievement,
+  buildPublication
 } from './util';
 var pwd: string = "~";
 
@@ -118,6 +119,11 @@ export const socials = [
   buildSocial("Linkedin", "https://www.linkedin.com/in/david-velho-aba95a173/"),
   buildSocial("dev.to", "https://dev.to/theprogrammerdavid"),
 
+]
+
+export const publications = [
+  buildPublication("covIoT: Integrated Patient Monitoring And Sanitization System", "https://ieeexplore.ieee.org/document/9767863"),
+  buildPublication("COVID vision: An integrated face mask detector and social distancing tracker", "https://www.sciencedirect.com/science/article/pii/S2666307422000110?via%3Dihub")
 ]
 
 export const myPic = () => {

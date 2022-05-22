@@ -2,7 +2,8 @@ import {
     Folder, Other, Social,
     Language, Framework, Command,
     Project,
-    Achievement
+    Achievement,
+    Publication
 } from './models';
 
 export function buildFolder(permission: string, owner: string, name: string): Folder {
@@ -67,4 +68,12 @@ export function buildAchievement(title: string, document_url: string): Achieveme
         title: title,
         document_url: document_url
     };
+}
+
+var publicationIndexCounter = 1;
+export function buildPublication(name: string, url: string): Publication {
+    return {
+        name: name,
+        url: url
+    }
 }

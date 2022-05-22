@@ -42,3 +42,8 @@ export interface Achievement {
     title: string;
     document_url: string;
 }
+
+export interface Publication{
+    name:string;
+    url:string;
+}
