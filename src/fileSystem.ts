@@ -15,6 +15,7 @@ import {
   readmeHelp,
   commandDesc as commands,
   publications,
+  certifications,
 } from "./constants";
 declare var term: any;
 
@@ -66,6 +67,7 @@ class FileSystem {
     let n2 = new Node("socials");
     let n3 = new Node("achievements");
     let publicationsNode = new Node("publications");
+    let certificationsNode = new Node("certifications");
 
     n2.addFile(
       new File("socials.txt", () => {
@@ -98,7 +100,17 @@ class FileSystem {
       publicationsNode.addFile(tempFile);
     });
 
+    certifications.forEach((certification) => {
+      let tempFile = new File(
+        certification.name,
+        () => window.open(certification.url),
+        true,
+        () => lightBlueText(certification.name)
+      );
+      certificationsNode.addFile(tempFile);
+    });
     this.root.addChild(publicationsNode);
+    this.root.addChild(certificationsNode);
 
     this.root.addFile(
       new File(

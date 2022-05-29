@@ -47,3 +47,8 @@ export interface Publication {
   name: string;
   url: string;
 }
+
+export interface Certification {
+  name: string;
+  url: string;
+}

@@ -8,6 +8,7 @@ import {
   Project,
   Achievement,
   Publication,
+  Certification,
 } from "./models";
 
 export function buildFolder(
@@ -87,6 +88,14 @@ export function buildAchievement(
 
 var publicationIndexCounter = 1;
 export function buildPublication(name: string, url: string): Publication {
+  return {
+    name: name,
+    url: url,
+  };
+}
+
+var certificationIndex = 1;
+export function buildCertification(name: string, url: string): Certification {
   return {
     name: name,
     url: url,

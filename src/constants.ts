@@ -21,6 +21,7 @@ import {
   buildProject,
   buildAchievement,
   buildPublication,
+  buildCertification,
 } from "./util";
 var pwd: string = "~";
 
@@ -185,20 +186,6 @@ export const achievements = [
       "CamCann SDE Intern"
     )
   ),
-  buildAchievement(
-    "Introduction to High Performance and Parallel Processing Certification",
-    renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf",
-      "Certification PDF"
-    )
-  ),
-  buildAchievement(
-    "Google Cloud Fundamentals",
-    renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP.pdf",
-      "Google Cloud Fundamentals"
-    )
-  ),
 ];
 export const socials = [
   buildSocial("Github", "https://github.com/theProgrammerDavid"),
@@ -245,6 +232,17 @@ export const folders = [
   buildFolder(".rw-rw-r--", "david", "frameworks"),
   buildFolder(".rw-rw-r--", "david", "others"),
   buildFolder(".rw-rw-r--", "david", "me.jpg"),
+];
+
+export const certifications = [
+  buildCertification(
+    "Introduction to High Performance and Parallel Processing Certification",
+    "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/coursera_hpc.pdf"
+  ),
+  buildCertification(
+    "Google Cloud Fundamentals",
+    "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP.pdf"
+  ),
 ];
 
 export const langs = [
