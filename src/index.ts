@@ -16,7 +16,7 @@ declare var figlet: any;
 import { Node, File, newFolder, findParent } from "./Node";
 import columnify from "columnify";
 import "./mobile";
-import fileSystem from './fileSystem';
+import fileSystem from "./fileSystem";
 
 import {
   redText,
@@ -148,7 +148,8 @@ const _cat = (arg: string) => {
   }
 };
 const _cdOut = () => {
-  if (fileSystem.getCurrentNode() == fileSystem.getRootNode()) return redText(`cannot go back further`);
+  if (fileSystem.getCurrentNode() == fileSystem.getRootNode())
+    return redText(`cannot go back further`);
   cdOut();
   let _x = findParent(fileSystem.getRootNode(), fileSystem.getCurrentNode())!;
   fileSystem.setCurrentNode = _x;
@@ -178,7 +179,9 @@ const _cd = (dir: string) => {
       let _x = fileSystem.getCurrentNode().hasChild(dirs[i]);
       if (_x) {
         cdIn(dirs[i]);
-        fileSystem.setCurrentNode = fileSystem.getCurrentNode().getFolder(dirs[i])!;
+        fileSystem.setCurrentNode = fileSystem
+          .getCurrentNode()
+          .getFolder(dirs[i])!;
         term.set_prompt(getPrompt());
       }
     }
@@ -202,13 +205,17 @@ const _rm = async (arg: string) => {
   let ans = await term.read("are you sure: ");
   if (ans === "y" || ans === "Y") {
     if (fileSystem.getCurrentNode().hasChild(arg)) {
-      fileSystem.getCurrentNode().children = fileSystem.getCurrentNode().children.filter((child) => {
-        return child.folderName !== arg;
-      });
+      fileSystem.getCurrentNode().children = fileSystem
+        .getCurrentNode()
+        .children.filter((child) => {
+          return child.folderName !== arg;
+        });
     } else if (fileSystem.getCurrentNode().hasFile(arg)) {
-      fileSystem.getCurrentNode().files = fileSystem.getCurrentNode().files.filter((file) => {
-        return file.name !== arg;
-      });
+      fileSystem.getCurrentNode().files = fileSystem
+        .getCurrentNode()
+        .files.filter((file) => {
+          return file.name !== arg;
+        });
     }
   }
 };

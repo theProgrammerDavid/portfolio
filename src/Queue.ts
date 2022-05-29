@@ -1,10 +1,9 @@
-
 export default class Queue<Type> {
   items: Type[];
   constructor() {
     this.items = [];
   }
-  push(element:Type) {
+  push(element: Type) {
     this.items.push(element);
   }
   size() {
