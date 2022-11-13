@@ -243,6 +243,10 @@ export const certifications = [
     "Google Cloud Fundamentals",
     "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/Coursera HT9P8F555YLP.pdf"
   ),
+  buildCertification(
+    "Microsoft Future Ready Talent",
+    "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/FRT_Certificate.pdf"
+  ),
 ];
 
 export const langs = [
