@@ -1,4 +1,5 @@
-import term from "./index";
+// import term from "./index";
+declare var term: any;
 declare var figlet: any;
 
 export const greenText = (text: string) => {

@@ -29,3 +29,17 @@ body {
   blink-caret 1s step-end infinite alternate;
 }
 
+.hidden{
+  display: none;
+}
+
+.helperToggle{
+  position: absolute;
+  z-index: 10000;
+  top: 2vh;
+  right: 4vh;
+  cursor: pointer;
+  background-color: rgb(102, 102, 102);
+  color: white;
+  padding: 0.5em;
+}
