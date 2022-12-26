@@ -15,7 +15,7 @@ declare var figlet: any;
 
 import { Node, File, newFolder, findParent } from "./Node";
 import columnify from "columnify";
-import "./mobile";
+import "../mobile";
 import fileSystem from "./fileSystem";
 
 import {

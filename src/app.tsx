@@ -1,6 +1,7 @@
 import React from 'react'
-import { ViewState } from './models';
-import Terminal from './terminal'
+import { ViewState } from './terminal/models';
+import Terminal from './terminal/terminal'
+import Simplified from './simplified';
 
 interface iViewToggle {
     viewState: ViewState;
@@ -16,12 +17,16 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     >Switch to {viewState === ViewState.ADVANCED ? 'Simplified' : 'Advanced'} view</div>
 }
 
-function SimplifiedView() {
-    return <>Hi</>
+function LoadingScreen() {
+    return <div id="loadingScreen">
+        <div className="pa">
+            <span>...</span>
+        </div>
+    </div>
 }
 
 function App() {
-    const [viewState, setViewState] = React.useState<ViewState>(ViewState.ADVANCED);
+    const [viewState, setViewState] = React.useState<ViewState>(ViewState.SIMPLIFIED);
 
     const toggleViewState = () => {
         if (viewState === ViewState.ADVANCED) setViewState(ViewState.SIMPLIFIED)
@@ -30,8 +35,9 @@ function App() {
 
     return (
         <>
+            <LoadingScreen />
             <ViewToggle viewState={viewState} toggleViewState={toggleViewState} />
-            {viewState === ViewState.ADVANCED ? <Terminal /> : <SimplifiedView />}
+            {viewState === ViewState.ADVANCED ? <Terminal /> : <Simplified />}
         </>
     )
 }
