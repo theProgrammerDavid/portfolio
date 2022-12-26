@@ -25,19 +25,16 @@ body {
   color: rgba(0, 255, 0, 0.99);
   border-right: 6px solid;
   overflow: hidden;
-  animation: typing 5s steps(3, end) infinite,
+  animation: typing 5s steps(11, end) infinite,
     /* # of steps = # of chars */ blink-caret 1s step-end infinite alternate;
 }
 
-.hidden {
-  display: none;
-}
-
 .helperToggle {
-  position: absolute;
+  position: sticky;
   z-index: 10000;
   top: 2vh;
-  right: 4vh;
+  float: right;
+  margin: 2vh;
   cursor: pointer;
   background-color: rgb(102, 102, 102);
   color: white;

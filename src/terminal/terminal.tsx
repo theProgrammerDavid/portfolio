@@ -269,10 +269,15 @@ function Terminal() {
     React.useEffect(() => {
         const loadingScreen = document.getElementById("loadingScreen")!;
         loadingScreen.style.display = "block";
-        
+
         // allows time for the virtual dom to be applied to the real dom
         // then we call the ready function
-        setTimeout(() => ready(), 500)
+        setTimeout(() => {
+            ready();
+            const simplifiedViewRoot = document.getElementById("simplifiedViewRoot");
+            if (simplifiedViewRoot)
+                simplifiedViewRoot.style.display = "block";
+        }, 11500)
     }, [])
     return (<div id="terminalDisplay" ></div>)
 }

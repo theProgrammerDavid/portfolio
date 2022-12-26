@@ -17,14 +17,6 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     >Switch to {viewState === ViewState.ADVANCED ? 'Simplified' : 'Advanced'} view</div>
 }
 
-function LoadingScreen() {
-    return <div id="loadingScreen">
-        <div className="pa">
-            <span>...</span>
-        </div>
-    </div>
-}
-
 function App() {
     const [viewState, setViewState] = React.useState<ViewState>(ViewState.SIMPLIFIED);
 
@@ -35,9 +27,19 @@ function App() {
 
     return (
         <>
-            <LoadingScreen />
             <ViewToggle viewState={viewState} toggleViewState={toggleViewState} />
-            {viewState === ViewState.ADVANCED ? <Terminal /> : <Simplified />}
+            {/* {viewState === ViewState.ADVANCED ? <Terminal /> : <Simplified />} */}
+            <div className="" style={{
+                display: viewState === ViewState.ADVANCED ? 'block' : 'none'
+            }}>
+                <Terminal />
+            </div>
+            <div className="" style={{
+                display: viewState === ViewState.SIMPLIFIED ? 'block' : 'none'
+            }}>
+                <Simplified />
+            </div>
+
         </>
     )
 }
