@@ -7,7 +7,11 @@
     "lint": "prettier --check \"src/**/*.ts\""
   },
   "dependencies": {
-    "columnify": "^1.5.4"
+    "@types/styled-components": "^5.1.26",
+    "columnify": "^1.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.0.5",
@@ -17,8 +21,12 @@
     "@snowpack/web-test-runner-plugin": "^0.2.0",
     "@types/columnify": "^1.5.0",
     "@types/jquery": "^3.5.5",
+    "@types/react-dom": "^18.0.10",
     "prettier": "^2.0.5",
     "snowpack": "^2.18.2",
     "typescript": "^4.0.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }

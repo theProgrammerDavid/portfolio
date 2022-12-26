@@ -52,3 +52,8 @@ export interface Certification {
   name: string;
   url: string;
 }
+
+export enum ViewState {
+  SIMPLIFIED,
+  ADVANCED,
+}

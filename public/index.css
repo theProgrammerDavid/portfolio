@@ -21,11 +21,28 @@ body {
 .pa {
   margin: 50px auto;
   width: 600px;
-  font: bold 90px 'courier new', consolas, monaco, monospace;
+  font: bold 90px "courier new", consolas, monaco, monospace;
   color: rgba(0, 255, 0, 0.99);
   border-right: 6px solid;
   overflow: hidden;
-  animation: typing 5s steps(11, end) infinite, /* # of steps = # of chars */
-  blink-caret 1s step-end infinite alternate;
+  animation: typing 5s steps(11, end) infinite,
+    /* # of steps = # of chars */ blink-caret 1s step-end infinite alternate;
 }
 
+.helperToggle {
+  position: sticky;
+  z-index: 10000;
+  top: 2vh;
+  float: right;
+  margin: 2vh;
+  cursor: pointer;
+  background-color: rgb(102, 102, 102);
+  color: white;
+  padding: 0.5em;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  background-color: black !important;
+}
