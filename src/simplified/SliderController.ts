@@ -4,7 +4,6 @@ export class Slider {
 
   constructor(options: { section: string; dots: string }) {
     this.sections = document.querySelectorAll(options.section);
-    console.log(document.querySelector(options.dots))
     this.navigation = document.querySelector(options.dots);
 
     this.navigation.addEventListener("click", this.scrollToSection.bind(this));
