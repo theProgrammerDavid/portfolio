@@ -19,7 +19,7 @@ export function LandingSection() {
           'WebkitBackgroundClip': 'text',
           'WebkitTextStroke': '4px transparent',
           color: '#222',
-          fontSize: '10em',
+          fontSize: '8em',
           fontFamily: '"AnuratiRegular", "Fira Code", "monospace"',
           animation: '3s cubic-bezier(.48,1.2,1,1.01) 0s 1 normal none running introName'
           // animation: '3s ease-out 0s 1 introName'
