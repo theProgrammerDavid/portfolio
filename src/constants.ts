@@ -1,7 +1,7 @@
 declare var term: any;
 declare var $: any;
 
-import { iExperience, iNavBarData } from "./models";
+import { iBlog, iExperience, iNavBarData } from "./models";
 import {
   orangeText,
   purpleText,
@@ -460,3 +460,18 @@ export const experienceColorArray = generateColor(
   "#ff6b6b",
   experience.length * 2
 ).map((color) => `#${color}`);
+
+export const blogLinks: Array<iBlog> = [
+  {
+    title: "How to use Cpack and NSIS to Package applications on Windows",
+    url: "https://blog.davidvelho.tech/post/cmake-cpack-nsis-windows/",
+  },
+  {
+    title: "Dockerize Apache Tomcat",
+    url: "https://blog.davidvelho.tech/post/docker-apache-tomcat/",
+  },
+  {
+    title: "MailInABoxTips",
+    url: "https://blog.davidvelho.tech/post/mail-in-a-box-tips/",
+  },
+];

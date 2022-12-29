@@ -104,3 +104,8 @@ export interface iCircle {
   radius: string;
   color: string;
 }
+
+export interface iBlog {
+  title: string;
+  url: string;
+}

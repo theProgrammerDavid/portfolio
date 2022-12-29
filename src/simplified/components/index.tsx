@@ -7,6 +7,7 @@ export * from './ExperienceItem'
 export * from './MyNavBar'
 export * from './MarkdownBadge'
 export * from './Project';
+export * from './BlogItem';
 
 export const NavDots = styled.ul`
   position: fixed;

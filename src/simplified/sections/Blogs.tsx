@@ -1,12 +1,12 @@
 import React from 'react'
-import { experience, experienceColorArray } from '../../constants'
-import { ExperienceItem, MySection } from '../components'
+import { blogLinks, experience, experienceColorArray } from '../../constants'
+import { BlogItem, ExperienceItem, MySection } from '../components'
 
 export function Blgos() {
     return (
         <MySection
             id="blogs"
-            height={'140vh'}
+            height={'150vh'}
             className="section"
         >
             <div >
@@ -23,7 +23,10 @@ export function Blgos() {
                         maxWidth: '70vw'
                     }}
                 >
-                    
+                    {blogLinks.map((i, index) => (<BlogItem
+                        key={i.title}
+                        title={i.title}
+                        url={i.url} />))}
                 </div>
             </div>
         </MySection>
