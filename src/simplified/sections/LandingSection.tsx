@@ -25,14 +25,6 @@ export function LandingSection() {
           // animation: '3s ease-out 0s 1 introName'
         }}
       >DAV I D V E L H O</div>
-      <div
-        className='uk-heading-small'
-        style={{
-          fontWeight: '200',
-          color: '#444',
-          textAlign: 'center',
-          animation: '3s cubic-bezier(.48,1.2,1,1.01) 0s 1 normal none running introNameDesc'
-        }}>David Velho</div>
     </MySection>
   )
 }

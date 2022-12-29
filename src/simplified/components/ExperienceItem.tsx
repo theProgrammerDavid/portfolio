@@ -20,11 +20,19 @@ export function ExperienceItem(props: iExperience) {
                     width: '2vw'
                 }}
             >
-                <div className="">
+                <div
+                    style={{
+                        fontFamily: '"Fira Code", "monospace"',
+                    }}
+                >
                     {props.end}
                 </div>
                 <span className="uk-margin" uk-icon="arrow-up"></span>
-                <div className="">{props.start}</div>
+                <div
+                    style={{
+                        fontFamily: '"Fira Code", "monospace"',
+                    }}
+                    className="">{props.start}</div>
             </div>
 
             <div
@@ -47,16 +55,23 @@ export function ExperienceItem(props: iExperience) {
             <div className="">
                 <div
                     style={{
+                        fontFamily: '"Fira Code", "monospace"',
                         fontSize: '2vw',
                     }}
                 >{props.position}</div>
                 <div
                     style={{
+                        fontFamily: '"Fira Code", "monospace"',
                         fontSize: '1.25vw',
                         marginBottom: '1vw'
                     }}
                 >{props.company}, {props.location}</div>
-                <div className="">{props.description}</div>
+                <div
+                    style={{
+                        fontFamily: '"Fira Code", "monospace"',
+                        color: '#777'
+                    }}
+                >{props.description}</div>
             </div>
         </div>
     )

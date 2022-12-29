@@ -332,7 +332,8 @@ export const frameworks = [
   ),
   buildFramework(
     "OpenGL",
-    "https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl"
+    "https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl",
+    "Beginner"
   ),
 ];
 
