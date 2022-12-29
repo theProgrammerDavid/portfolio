@@ -222,7 +222,7 @@ body.full-screen-terminal .terminal {
 
 .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, terminal-output>div:not(.raw) div>span:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji) {
     color: #aaa;
-    background-color: #000
+    background-color: var(--backgroundColor)
 }
 
 .cmd .cmd-prompt span, .cmd span.cmd-prompt {
@@ -343,7 +343,7 @@ terminal .terminal-output>div {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
         color: #000;
-        color: var(--background, #000)
+        color: var(--background, var(--backgroundColor))
     }
     50.1%, to {
         background-color: inherit;
@@ -357,7 +357,7 @@ terminal .terminal-output>div {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
         color: #000;
-        color: var(--background, #000)
+        color: var(--background, var(--backgroundColor))
     }
     50.1%, to {
         background-color: inherit;
@@ -371,7 +371,7 @@ terminal .terminal-output>div {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
         color: #000;
-        color: var(--background, #000)
+        color: var(--background, var(--backgroundColor))
     }
     50.1%, to {
         background-color: inherit;
@@ -385,7 +385,7 @@ terminal .terminal-output>div {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
         color: #000;
-        color: var(--background, #000);
+        color: var(--background, var(--backgroundColor));
         box-shadow: 0 0 3px #aaa;
         -webkit-box-shadow: 0 0 3px var(--color, #aaa);
         box-shadow: 0 0 3px var(--color, #aaa)
@@ -403,7 +403,7 @@ terminal .terminal-output>div {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
         color: #000;
-        color: var(--background, #000);
+        color: var(--background, var(--backgroundColor));
         box-shadow: 0 0 3px #aaa;
         -moz-box-shadow: 0 0 3px var(--color, #aaa);
         box-shadow: 0 0 3px var(--color, #aaa)
@@ -420,8 +420,8 @@ terminal .terminal-output>div {
     0%, 50% {
         background-color: #aaa;
         background-color: var(--original-color, #aaa);
-        color: #000;
-        color: var(--background, #000);
+        color: var(--backgroundColor);
+        color: var(--background, var(--backgroundColor));
         box-shadow: 0 0 3px #aaa;
         box-shadow: 0 0 3px var(--color, #aaa)
     }
@@ -520,10 +520,10 @@ terminal .terminal-output>div {
     @keyframes terminal-blink {
         0%, 50% {
             background-color: var(--original-color, #aaa);
-            color: var(--background, #000)
+            color: var(--background, var(--backgroundColor))
         }
         50.1%, to {
-            background-color: var(--background, #000);
+            background-color: var(--background, var(--backgroundColor));
             color: var(--original-color, #aaa)
         }
     }
@@ -562,7 +562,7 @@ terminal .terminal-output>div {
             color: #000
         }
         50.1%, to {
-            background-color: #000;
+            background-color: var(--backgroundColor);
             color: #aaa
         }
     }
@@ -570,12 +570,12 @@ terminal .terminal-output>div {
 
 .cmd span[data-text]::-moz-selection, .cmd span[data-text]:not(.far):not(.fa):not(.fas) span::-moz-selection, .terminal .terminal-output .raw div::-moz-selection, .terminal .terminal-output::-moz-selection, .terminal .terminal-output div div::-moz-selection, .terminal .terminal-output div div a::-moz-selection, .terminal .terminal-output span[data-text]::-moz-selection, .terminal .terminal-output span[data-text]:not(.far):not(.fa):not(.fas) span::-moz-selection, .terminal h1::-moz-selection, .terminal h2::-moz-selection, .terminal h3::-moz-selection, .terminal h4::-moz-selection, .terminal h5::-moz-selection, .terminal h6::-moz-selection, .terminal pre::-moz-selection, .terminal td::-moz-selection {
     background-color: #aaa;
-    color: #000
+    color: var(--backgroundColor)
 }
 
 .cmd span[data-text]:not(.far):not(.fa):not(.fas) span::selection, .terminal .terminal-output .raw div::selection, .terminal .terminal-output::selection, .terminal .terminal-output div div::selection, .terminal .terminal-output div div a::selection, .terminal .terminal-output span[data-text]::selection, .terminal .terminal-output span[data-text]:not(.far):not(.fa):not(.fas) span::selection, .terminal h1::selection, .terminal h2::selection, .terminal h3::selection, .terminal h4::selection, .terminal h5::selection, .terminal h6::selection, .terminal pre::selection, .terminal td::selection {
     background-color: hsla(0, 0%, 66.7%, .99);
-    color: #000
+    color: var(--backgroundColor)
 }
 
 .cmd .emoji::-moz-selection, .cmd .emoji span::-moz-selection, .cmd textarea::-moz-selection, .terminal-output .emoji::-moz-selection, .terminal-output .emoji span::-moz-selection {
@@ -648,7 +648,7 @@ terminal .terminal-output>div {
 @supports (--css:variables) {
     .cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji) {
         color: var(--color, #aaa);
-        background-color: var(--background, #000)
+        background-color: var(--background, var(--backgroundColor))
     }
     .terminal span[style*="--length"] {
         width: calc(var(--length, 1)*var(--char-width, 7.23438)*1px);
@@ -665,11 +665,11 @@ terminal .terminal-output>div {
     }
     .cmd.cmd.cmd .cmd-inverted, .cmd.cmd.cmd .inverted, .terminal .inverted {
         background-color: var(--color, #aaa)!important;
-        color: var(--background, #000)!important
+        color: var(--background, var(--backgroundColor))!important
     }
     .cmd .cmd-cursor.cmd-blink {
         color: var(--color, #aaa);
-        background-color: var(--background, #000)
+        background-color: var(--background, var(--backgroundColor))
     }
     .cmd .cmd-cursor.cmd-blink .emoji, .cmd .cmd-cursor.cmd-blink .fa, .cmd .cmd-cursor.cmd-blink .far, .cmd .cmd-cursor.cmd-blink .fas, .cmd .cmd-cursor.cmd-blink>span[data-text]:not(.emoji):not(.fa):not(.far):not(.fas) span, .cmd .cmd-cursor.cmd-blink a {
         -webkit-animation: var(--animation, terminal-blink) 1s infinite linear;
@@ -684,22 +684,22 @@ terminal .terminal-output>div {
     }
     .cmd span[data-text]:not(.far):not(.fa):not(.fas):not(.emoji) span::-moz-selection, .terminal .terminal-output .raw div::-moz-selection, .terminal .terminal-output::-moz-selection, .terminal .terminal-output div div::-moz-selection, .terminal .terminal-output div div a::-moz-selection, .terminal .terminal-output span[data-text]::-moz-selection, .terminal .terminal-output span[data-text]:not(.far):not(.fa):not(.fas):not(.emoji) span::-moz-selection, .terminal h1::-moz-selection, .terminal h2::-moz-selection, .terminal h3::-moz-selection, .terminal h4::-moz-selection, .terminal h5::-moz-selection, .terminal h6::-moz-selection, .terminal pre::-moz-selection, .terminal td::-moz-selection {
         background-color: var(--color, #aaa);
-        color: var(--background, #000)
+        color: var(--background, var(--backgroundColor))
     }
     .terminal .terminal-output div div a::-moz-selection {
         background-color: var(--link-color, rgba(15, 96, 255, .99))!important;
-        color: var(--background, #000)!important
+        color: var(--background, var(--backgroundColor))!important
     }
     .terminal .terminal-output div div a:hover::-moz-selection {
         background-color: var(--link-color, rgba(2, 50, 144, .99))!important
     }
     .cmd span[data-text]:not(.far):not(.fa):not(.fas):not(.emoji) span::selection, .terminal .terminal-output .raw div::selection, .terminal .terminal-output::selection, .terminal .terminal-output div div::selection, .terminal .terminal-output div div a::selection, .terminal .terminal-output span[data-text]:not(.emoji)::selection, .terminal .terminal-output span[data-text]:not(.far):not(.fa):not(.fas):not(.emoji) span::selection, .terminal h1::selection, .terminal h2::selection, .terminal h3::selection, .terminal h4::selection, .terminal h5::selection, .terminal h6::selection, .terminal pre::selection, .terminal td::selection {
         background-color: var(--color, hsla(0, 0%, 66.7%, .99))!important;
-        color: var(--background, #000)!important
+        color: var(--background, var(--backgroundColor))!important
     }
     .terminal .terminal-output div div a::selection {
         background-color: var(--link-color, rgba(15, 96, 255, .99))!important;
-        color: var(--background, #000)!important
+        color: var(--background, var(--backgroundColor))!important
     }
     .terminal .terminal-output div div a:hover::selection {
         background-color: var(--link-color, rgba(2, 50, 144, .99))!important
@@ -709,7 +709,7 @@ terminal .terminal-output>div {
 @supports (-ms-ime-align:auto) {
     .cmd span[data-text]::selection, .terminal .terminal-output div div::selection, .terminal .terminal-output div div a::selection, .terminal h1::selection, .terminal h2::selection, .terminal h3::selection, .terminal h4::selection, .terminal h5::selection, .terminal h6::selection, .terminal pre::selection, .terminal td::selection {
         background-color: hsla(0, 0%, 66.7%, .99);
-        color: #000
+        color: var(--backgroundColor)
     }
 }
 
@@ -734,7 +734,7 @@ terminal .terminal-output>div {
 
 .cmd .cursor-wrapper li:hover {
     background: #aaa;
-    color: #000
+    color: var(--backgroundColor)
 }
 
 .cursor-wrapper {
@@ -831,7 +831,7 @@ terminal .terminal-output>div {
 .terminal::-webkit-scrollbar {
     width: 6px;
     height: 6px;
-    background: var(--background, #000)
+    background: var(--background, var(--backgroundColor))
 }
 
 .terminal::-webkit-scrollbar-thumb, .terminal::-webkit-scrollbar-thumb:hover {
@@ -839,7 +839,7 @@ terminal .terminal-output>div {
 }
 
 .terminal {
-    scrollbar-color: #aaa #000;
+    scrollbar-color: #aaa var(--backgroundColor);
     scrollbar-color: var(--color, #aaa) var(--background, #000);
     scrollbar-width: thin
 }

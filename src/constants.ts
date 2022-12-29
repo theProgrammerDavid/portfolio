@@ -1,6 +1,7 @@
 declare var term: any;
 declare var $: any;
 
+import { iExperience, iNavBarData } from "./models";
 import {
   orangeText,
   purpleText,
@@ -9,7 +10,7 @@ import {
   renderLink,
   get_image,
   lightBlueText,
-} from "./formatting";
+} from "./terminal/formatting";
 
 import {
   buildSocial,
@@ -22,6 +23,7 @@ import {
   buildAchievement,
   buildPublication,
   buildCertification,
+  generateColor,
 } from "./util";
 var pwd: string = "~";
 
@@ -188,16 +190,36 @@ export const achievements = [
   ),
 ];
 export const socials = [
-  buildSocial("Github", "https://github.com/theProgrammerDavid"),
+  buildSocial(
+    "Github",
+    "https://github.com/theProgrammerDavid",
+    "https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+  ),
   buildSocial(
     "Stack Overflow",
-    "https://stackoverflow.com/users/14312583/goanmafia"
+    "https://stackoverflow.com/users/14312583/goanmafia",
+    "https://img.shields.io/badge/-Stackoverflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white"
   ),
-  buildSocial("Artstation", "https://www.artstation.com/david_velho"),
-  buildSocial("Artstation", "https://www.artstation.com/david_velho"),
-  buildSocial("500px", "https://500px.com/p/david_velho?view=photos"),
-  buildSocial("Linkedin", "https://www.linkedin.com/in/david-velho-aba95a173/"),
-  buildSocial("dev.to", "https://dev.to/theprogrammerdavid"),
+  buildSocial(
+    "Artstation",
+    "https://www.artstation.com/david_velho",
+    "https://img.shields.io/badge/-ArtStation-2A79C6?style=flat-square&logo=ArtStation&logoColor=white"
+  ),
+  buildSocial(
+    "500px",
+    "https://500px.com/p/david_velho?view=photos",
+    "https://img.shields.io/badge/500px-0099E5?logo=500px&logoColor=fff&style=flat"
+  ),
+  buildSocial(
+    "Linkedin",
+    "https://www.linkedin.com/in/david-velho-aba95a173/",
+    "https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"
+  ),
+  buildSocial(
+    "dev.to",
+    "https://dev.to/theprogrammerdavid",
+    "https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white"
+  ),
 ];
 
 export const publications = [
@@ -252,50 +274,61 @@ export const certifications = [
 export const langs = [
   buildLanguage(
     "Javascript",
-    "https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A"
+    "https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A",
+    "Expert"
   ),
   buildLanguage(
     "C++",
-    "https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white"
+    "https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white",
+    "Expert"
   ),
   buildLanguage(
     "C",
-    "https://img.shields.io/badge/c%20-%2300599C.svg?&style=for-the-badge&logo=c&logoColor=white"
+    "https://img.shields.io/badge/c%20-%2300599C.svg?&style=for-the-badge&logo=c&logoColor=white",
+    "Expert"
   ),
   buildLanguage(
     "Java",
-    "https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"
+    "https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white",
+    "Experienced"
   ),
   buildLanguage(
     "Python",
-    "https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
+    "https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54",
+    "Experienced"
   ),
 ];
 
 export const frameworks = [
   buildFramework(
     "ExpressJs",
-    "https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge"
+    "https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge",
+    "Experienced"
   ),
   buildFramework(
     "React",
-    "https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"
+    "https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB",
+    "Expert"
   ),
   buildFramework(
     "Bootstrap",
-    "https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"
+    "https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white",
+    "Experienced"
   ),
   buildFramework(
     "Material UI",
-    "https://img.shields.io/badge/material%20ui%20-%230081CB.svg?&style=for-the-badge&logo=material-ui&logoColor=white"
+    "https://img.shields.io/badge/material%20ui%20-%230081CB.svg?&style=for-the-badge&logo=material-ui&logoColor=white",
+    "Experienced"
   ),
   buildFramework(
     "Redux",
-    "https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white"
+    "https://img.shields.io/badge/redux%20-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white",
+    "Experienced"
   ),
   buildFramework(
     "Webpack",
-    "https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black"
+    "https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black",
+    "Experienced"
   ),
   buildFramework(
     "OpenGL",
@@ -306,35 +339,43 @@ export const frameworks = [
 export const other = [
   buildOther(
     "CMake",
-    "https://img.shields.io/badge/CMake-%23008FBA.svg?&style=for-the-badge&logo=cmake&logoColor=white"
+    "https://img.shields.io/badge/CMake-%23008FBA.svg?&style=for-the-badge&logo=cmake&logoColor=white",
+    "Expert"
   ),
   buildOther(
     "Docker",
-    "https://img.shields.io/badge/docker-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"
+    "https://img.shields.io/badge/docker-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white",
+    "Expert"
   ),
   buildOther(
     "Blender",
-    "https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white"
+    "https://img.shields.io/badge/blender-%23F5792A.svg?&style=for-the-badge&logo=blender&logoColor=white",
+    "Experienced"
   ),
   buildOther(
     "Git",
-    "https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"
+    "https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white",
+    "Expert"
   ),
   buildOther(
     "Google Cloud",
-    "https://img.shields.io/badge/GoogleCloud-%234285F4.svg?&style=for-the-badge&logo=google-cloud&logoColor=white"
+    "https://img.shields.io/badge/GoogleCloud-%234285F4.svg?&style=for-the-badge&logo=google-cloud&logoColor=white",
+    "Experienced"
   ),
   buildOther(
     "Heroku",
-    "https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"
+    "https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white",
+    "Experienced"
   ),
   buildOther(
     "Digital Ocean",
-    "https://img.shields.io/badge/DigitalOcean-%230167ff.svg?&style=for-the-badge&logo=digitalOcean&logoColor=white"
+    "https://img.shields.io/badge/DigitalOcean-%230167ff.svg?&style=for-the-badge&logo=digitalOcean&logoColor=white",
+    "Experienced"
   ),
   buildOther(
     "Nginx",
-    "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white"
+    "https://img.shields.io/badge/nginx-%23009639.svg?&style=for-the-badge&logo=nginx&logoColor=white",
+    "Experienced"
   ),
 ];
 
@@ -351,3 +392,70 @@ export const readmeHelp = () => {
   `;
   return instructions;
 };
+
+export const navBarData: Array<iNavBarData> = [
+  {
+    name: "Home",
+    idTag: "landingPage",
+  },
+  {
+    name: "About me",
+    idTag: "aboutMe",
+  },
+  {
+    name: "Work Experience",
+    idTag: "workExperience",
+  },
+  {
+    name: "Projects",
+    idTag: "projects",
+  },
+  {
+    name: "Blogs",
+    idTag: "blogs",
+  },
+];
+
+export const experience: Array<iExperience> = [
+  {
+    company: "ISS Governance",
+    position: "Junior Analyst",
+    description:
+      "Working with React, NodeJS and Spring boot in the DataDesk team as a full stack developer, responsible for maintaining multiple cutting edge microservices along with legacy applications.",
+    location: "Mumbai",
+    start: "Jun 2022",
+  },
+  {
+    company: "Samsung PRISM",
+    position: "Student Research Project",
+    description:
+      "Worked with NodeJS, Java android and SQL for On Device Ambient Temperature Estimation without the use of external specialized hardware for future generations of SAMSUNG phones ",
+    location: "VIT Vellore, Remote",
+    start: "Dec 2019",
+    end: "Aug 2020",
+  },
+  {
+    company: "IT-Hub, Govt. of Goa",
+    position: "SDE Intern",
+    description:
+      "Worked on govt. projects and education portals for use in local schools with React, NodeJS and MongoDB",
+    location: "Goa",
+    start: "May 2019",
+    end: "Jun 2019",
+  },
+  {
+    company: "Camcann Smart Systems",
+    position: "SDE Intern",
+    description:
+      "Develop computer vision  systems using C++, CMake, Python, OpenVino and the Intel NCS 2",
+    location: "VIT Vellore Incubator",
+    start: "Dec 2019",
+    end: "Apr 2020",
+  },
+];
+
+export const experienceColorArray = generateColor(
+  "#8181fb",
+  "#ff6b6b",
+  experience.length * 2
+).map((color) => `#${color}`);
