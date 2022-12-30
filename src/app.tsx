@@ -1,5 +1,5 @@
 import React from 'react'
-import { ViewState } from './terminal/models';
+import { ViewState } from './models';
 import Terminal from './terminal/terminal'
 import Simplified from './simplified';
 
@@ -14,7 +14,7 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
         onClick={() => {
             toggleViewState();
         }}
-    >Switch to {viewState === ViewState.ADVANCED ? 'Simplified' : 'Advanced'} view</div>
+    >{viewState === ViewState.ADVANCED ? 'Back' : `👉🏽 devs click here`}</div>
 }
 
 function App() {

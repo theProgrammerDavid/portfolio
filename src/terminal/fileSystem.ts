@@ -16,7 +16,7 @@ import {
   commandDesc as commands,
   publications,
   certifications,
-} from "./constants";
+} from "../constants";
 declare var term: any;
 
 class FileSystem {
@@ -71,7 +71,12 @@ class FileSystem {
 
     n2.addFile(
       new File("socials.txt", () => {
-        term.echo(columnify(socials, socialOptions));
+        term.echo(
+          columnify(
+            socials.map((s) => ({ No: s.No, website: s.website, url: s.url })),
+            socialOptions
+          )
+        );
       })
     );
     n3.addFile(

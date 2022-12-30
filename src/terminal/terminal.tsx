@@ -49,7 +49,7 @@ import {
     getPrompt,
     githubProjectOptions,
     readmeHelp,
-} from "./constants";
+} from "../constants";
 import React from "react";
 
 const terminalOptions = {
@@ -67,6 +67,7 @@ const terminalOptions = {
     exit: true,
     clear: true,
     warp: false,
+    focus: true,
     // completion: true,
     echoCommand: true,
     completion: async () => {
@@ -118,7 +119,6 @@ const scale = (arg: string) => {
             document.documentElement.style.cssText = `--size: ${fontSize}`;
             break;
         case "down":
-            if (import.meta.env.MODE) console.log(fontSize, scaleLimits.scaleDown);
             if (fontSize <= scaleLimits.scaleDown) {
                 return orangeText(
                     "You won't be able to see anything if you scale down further, watcha tryin to do?"
@@ -155,7 +155,6 @@ const _cdOut = () => {
     let _x = findParent(fileSystem.getRootNode(), fileSystem.getCurrentNode())!;
     fileSystem.setCurrentNode = _x;
     term.set_prompt(getPrompt());
-    if (import.meta.env.MODE) console.log(_x);
 };
 
 const _cd = (dir: string) => {
@@ -188,15 +187,11 @@ const _cd = (dir: string) => {
         }
     } else {
         let _x = fileSystem.getCurrentNode().hasChild(dir);
-        if (import.meta.env.MODE) {
-            console.log(_x);
-            console.log(fileSystem.getCurrentNode());
-        }
+       
 
         if (_x) {
             cdIn(dir);
             fileSystem.setCurrentNode = fileSystem.getCurrentNode().getFolder(dir)!;
-            if (import.meta.env.MODE) console.log(fileSystem.getCurrentNode());
             term.set_prompt(getPrompt());
         } else return redText(`cannot find folder '${dir}'`);
     }
@@ -232,14 +227,13 @@ const _touch = async (fileName: string) => {
 };
 
 function ready() {
-    const loadingScreen = document.getElementById("loadingScreen")!;
-    loadingScreen.style.display = "none";
+    // const loadingScreen = document.getElementById("loadingScreen")!;
+    // loadingScreen.style.display = "none";
 
     term = $("#terminalDisplay").terminal(
         {
             mkdir: (name: string) => {
                 fileSystem.getCurrentNode().addChild(newFolder(name));
-                if (import.meta.env.MODE) console.log(fileSystem.getRootNode());
             },
             cat: (arg: string) => _cat(arg),
             getImg: (url: string) => get_image(url),
@@ -267,8 +261,8 @@ function ready() {
 
 function Terminal() {
     React.useEffect(() => {
-        const loadingScreen = document.getElementById("loadingScreen")!;
-        loadingScreen.style.display = "block";
+        // const loadingScreen = document.getElementById("loadingScreen")!;
+        // loadingScreen.style.display = "block";
 
         // allows time for the virtual dom to be applied to the real dom
         // then we call the ready function

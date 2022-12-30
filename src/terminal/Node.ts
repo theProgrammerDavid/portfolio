@@ -85,10 +85,6 @@ export class Node {
     return false;
   }
   showContents() {
-    if (import.meta.env.MODE) {
-      console.log(this.files);
-      console.log(this.children);
-    }
     let _files = [];
     for (let i = 0; i < this.children.length; i++) {
       _files.push({

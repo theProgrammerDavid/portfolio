@@ -2,8 +2,8 @@
     "compilerOptions": {
         "target": "es5",
         "lib": [
-           "es2016",
-            "dom",
+            "es2016",
+            "dom"
         ],
         "allowJs": true,
         "allowUmdGlobalAccess": true,
@@ -20,7 +20,8 @@
         "alwaysStrict": true,
         "strictNullChecks": true,
         "noEmit": true,
-        "jsx": "react"
+        "jsx": "react",
+        "outDir": "./build/"
     },
     "include": [
         "src"
