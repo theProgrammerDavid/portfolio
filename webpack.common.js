@@ -11,7 +11,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'output',
             template: path.resolve(__dirname, "public", "index.html"),
-            publicPath: '/public'
         }),
         new MiniCssExtractPlugin({
             filename: "./public/index.css",
