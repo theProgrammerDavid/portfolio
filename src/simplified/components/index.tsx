@@ -40,9 +40,11 @@ export const NavDot = styled.li`
   }
   `
 export const MySection = styled.section`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
+  align-items: center;
   height: ${(props: iMySection) => props.height ?? '100vh'};
   background-color: ${(props: iMySection) => props.backgroundColor ?? 'inherit'};
 `

@@ -1,13 +1,19 @@
 import React from 'react'
 import { experience, experienceColorArray, projects } from '../../constants'
+import { ThemeContext } from '../../context';
+import { iContext } from '../../models';
+import { getTheme } from '../../theme';
 import { ExperienceItem, MySection, Project } from '../components'
 
 export function Projects() {
+    const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
+
     return (
         <MySection
             id="projects"
             height={'140vh'}
             className="section"
+            backgroundColor={getTheme(currentTheme)}
         >
             <div >
                 <h1 className="uk-heading-xlarge"

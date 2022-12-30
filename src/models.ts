@@ -108,4 +108,11 @@ export interface iCircle {
 export interface iBlog {
   title: string;
   url: string;
+  open?: boolean;
+}
+
+export type Theme = "LIGHT" | "DARK";
+export interface iContext {
+  currentTheme: Theme;
+  changeTheme: (theme: Theme) => void;
 }

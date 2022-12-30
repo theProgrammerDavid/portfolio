@@ -2,14 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import { MySection, IntroText, MyChip, MarkdownBadge } from '../components'
 import { socials } from '../../constants'
+import { ThemeContext } from '../../context'
+import { iContext } from '../../models'
+import { getTheme, THEMES } from '../../theme'
 
 
 export function LandingSection() {
+  const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
+
   return (
     <MySection
       id="landingPage"
       className='section'
-      backgroundColor={'#222'}
+      backgroundColor={getTheme(currentTheme)}
     >
       <div
         className="name"
@@ -18,7 +23,7 @@ export function LandingSection() {
           'backgroundClip': 'text',
           'WebkitBackgroundClip': 'text',
           'WebkitTextStroke': '4px transparent',
-          color: '#222',
+          color: getTheme(currentTheme),
           fontSize: '8em',
           fontFamily: '"AnuratiRegular", "Fira Code", "monospace"',
           animation: '3s cubic-bezier(.48,1.2,1,1.01) 0s 1 normal none running introName'

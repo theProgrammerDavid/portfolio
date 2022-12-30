@@ -415,6 +415,10 @@ export const navBarData: Array<iNavBarData> = [
     name: "Blogs",
     idTag: "blogs",
   },
+  // {
+  //   name: "Contact Me",
+  //   idTag: "contactMe",
+  // },
 ];
 
 export const experience: Array<iExperience> = [
