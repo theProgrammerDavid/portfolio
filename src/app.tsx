@@ -1,7 +1,9 @@
 import React from 'react'
-import { ViewState } from './models';
+import { Theme, ViewState } from './models';
 import Terminal from './terminal/terminal'
 import Simplified from './simplified';
+import { ThemeProvider } from 'styled-components';
+import { ThemeContext } from './context';
 
 interface iViewToggle {
     viewState: ViewState;
@@ -10,25 +12,42 @@ interface iViewToggle {
 
 function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     return <div
+        style={{
+            fontFamily: '"FiraCode", "monospace"'
+        }}
         className="helperToggle"
         onClick={() => {
             toggleViewState();
         }}
-    >{viewState === ViewState.ADVANCED ? 'Back' : `👉🏽 devs click here`}</div>
+    >{viewState === ViewState.ADVANCED ? 'Back' : `Developer Mode`}</div>
 }
+
+/**
+ * 
+ *  
+    return (
+       
+    );
+ */
 
 function App() {
     const [viewState, setViewState] = React.useState<ViewState>(ViewState.SIMPLIFIED);
+    const [themeMode, setThemeMode] = React.useState<Theme>('DARK');
 
     const toggleViewState = () => {
         if (viewState === ViewState.ADVANCED) setViewState(ViewState.SIMPLIFIED)
         else setViewState(ViewState.ADVANCED)
     }
 
+    React.useEffect(() => {
+        let prevTheme = localStorage.getItem("THEME");
+        if (prevTheme)
+            setThemeMode(prevTheme as Theme)
+    }, [])
+
     return (
-        <>
+        <ThemeContext.Provider value={{ currentTheme: themeMode, changeTheme: setThemeMode }}>
             <ViewToggle viewState={viewState} toggleViewState={toggleViewState} />
-            {/* {viewState === ViewState.ADVANCED ? <Terminal /> : <Simplified />} */}
             <div className="" style={{
                 display: viewState === ViewState.ADVANCED ? 'block' : 'none'
             }}>
@@ -39,8 +58,7 @@ function App() {
             }}>
                 <Simplified />
             </div>
-
-        </>
+        </ThemeContext.Provider>
     )
 }
 

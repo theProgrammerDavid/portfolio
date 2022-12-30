@@ -1,12 +1,18 @@
 import React from 'react'
 import { frameworks, langs, other, socials } from '../../constants'
+import { ThemeContext } from '../../context';
+import { iContext } from '../../models';
+import { getTheme } from '../../theme';
 import { ChipsRow, MarkdownBadge, MyChip, MySection } from '../components'
 
 export function AboutMe() {
+    const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
+
     return (
         <MySection
             id="aboutMe"
             // height='100vh'
+            backgroundColor={getTheme(currentTheme)}
             className="section"
             style={{
                 textAlign: 'center'
@@ -18,7 +24,7 @@ export function AboutMe() {
                         color: '#444',
                         fontWeight: 'lighter'
                     }}
-                >About me</h1>
+                >About Me</h1>
             </div>
 
             <ChipsRow>
@@ -65,7 +71,7 @@ export function AboutMe() {
                     maxWidth: '70vw',
                     fontFamily: '"FiraCode", "monospace"'
                 }}
-            >Hover for tooltip</p>
+            >Hover for Tooltip</p>
         </MySection>
     )
 }
