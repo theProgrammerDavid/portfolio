@@ -22,6 +22,7 @@ export function MarkdownBadge(props: iMarkdownBadge) {
         target="_blank"
         rel="noopener noreferrer">
         {props.markDownBadgeUrl && <img
+            loading='lazy'
             alt={props.alt}
             src={`data:image/svg+xml;utf8,${encodeURIComponent(markDownData)}`} />}</a>)
 }
