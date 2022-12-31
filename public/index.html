@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css"> -->
   <script defer src="./public/jquery.terminal.min.js"></script>
   <script defer src="./public/figlet.min.js"></script>
   <link rel="stylesheet" href="./public/jquery.terminal.min.css" />
@@ -44,6 +44,42 @@
   <!-- UIkit JS -->
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.19/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.19/dist/js/uikit-icons.min.js"></script>
+  <!-- <script type="text/javascript" src="./public/pdf.js"></script> -->
+  <script>
+    // pdfjsLib.disableWorker = true;
+    // pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+    // async function convertPdfToImageString(url) {
+    //   return new Promise((resolve, reject) => {
+    //     var loadingTask = pdfjsLib.getDocument(url);
+    //     loadingTask.promise.then(function (pdf) {
+
+    //       var pageNumber = 1;
+    //       pdf.getPage(pageNumber).then(function (page) {
+
+    //         var scale = 1.5;
+    //         var viewport = page.getViewport({ scale: scale });
+
+    //         var canvas = document.createElement('canvas');
+    //         var context = canvas.getContext('2d');
+    //         canvas.height = viewport.height;
+    //         canvas.width = viewport.width;
+
+            
+    //         var renderContext = {
+    //           canvasContext: context,
+    //           viewport: viewport
+    //         };
+    //         var renderTask = page.render(renderContext);
+    //         renderTask.promise.then(function () {
+    //           resolve(canvas.toDataURL("image/png"));
+    //         });
+    //       });
+    //     }, function (reason) {
+    //       reject(reason);
+    //     });
+    //   })
+    // }
+  </script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ export function ContactMe() {
                 <h1 className="uk-heading-xlarge"
                     style={{
                         textAlign: 'center',
-                        color: '#444',
+                        color: THEMES.BG_HEADING,
                         marginBottom: '4vmax',
                         fontWeight: 'lighter'
                     }}

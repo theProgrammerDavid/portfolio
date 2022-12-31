@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import { iCircle, iMarkdownBadge, iMyChip, iMySection } from '../../models';
+import { iCircle, iMarkdownBadge, iMyChip, iMyProject, iMySection } from '../../models';
+import { THEMES } from '../../theme';
 
 export * from './ExperienceItem'
 export * from './MyNavBar'
@@ -76,7 +77,7 @@ export const Chip = styled.div`
   font-size: 16px;
   line-height: 50px;
   border-radius: 25px;
-  background-color: #444;
+  background-color: ${THEMES.BG_HEADING};
   color: #aaa;
 `
 export const ChipImg = styled.img`
@@ -112,4 +113,20 @@ export const Circle = styled.div`
   height: ${(props: iCircle) => props.radius};
   background: ${(props: iCircle) => props.color};
   border-radius: 50%
+`
+
+
+export const MyProject = styled.div`
+ width: 20vmax;
+  height: 20vmax;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: ${(props: iMyProject) => props.color};
+  
+  &:hover{
+    width: 25vmax;
+    height: 25vmax;
+  }
 `

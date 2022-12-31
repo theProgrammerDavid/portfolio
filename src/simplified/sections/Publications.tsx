@@ -1,20 +1,20 @@
 import React from 'react'
-import { blogLinks, experience, experienceColorArray } from '../../constants'
+import { experience, experienceColorArray, projects, publications } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import { BlogItem, ExperienceItem, MySection } from '../components'
+import { ExperienceItem, MySection, Project } from '../components'
+import { PublicationItem } from '../components/PublicationItem';
 
-export function Blgos() {
+export function Publications() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
 
     return (
         <MySection
-            id="blogs"
-            height={'150vh'}
+            id="publications"
+            // height={'90vh'}
             className="section"
             backgroundColor={getTheme(currentTheme)}
-
         >
             <div >
                 <h1 className="uk-heading-xlarge"
@@ -24,17 +24,23 @@ export function Blgos() {
                         marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}
-                >Blogs</h1>
+                >Publications</h1>
                 <div className=""
                     style={{
-                        maxWidth: '70vw'
+                        maxWidth: '70vw',
+                        gap: '4vw',
                     }}
                 >
-                    {blogLinks.map((i, index) => (<BlogItem
-                        open={index == 0}
-                        key={i.title}
-                        title={i.title}
-                        url={i.url} />))}
+                    {publications.map((p, index) => (
+                        <PublicationItem
+                            key={p.name}
+                            name={p.name}
+                            url={p.url}
+                            open={index === 0}
+                            abstract={p.abstract}
+                            doi={p.doi}
+                        />
+                    ))}
                 </div>
             </div>
         </MySection>

@@ -2,7 +2,7 @@ import React from 'react'
 import { experience, experienceColorArray } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
-import { getTheme } from '../../theme';
+import { getTheme, THEMES } from '../../theme';
 import { ExperienceItem, MySection } from '../components'
 
 export function WorkExperience() {
@@ -19,7 +19,7 @@ export function WorkExperience() {
                 <h1 className="uk-heading-xlarge"
                     style={{
                         textAlign: 'center',
-                        color: '#444',
+                        color: THEMES.BG_HEADING,
                         marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}
