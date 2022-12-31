@@ -1,33 +1,33 @@
 import React from 'react'
-import { iBlog } from '../../models'
+import { iBlog, Publication } from '../../models'
 import { THEMES } from '../../theme'
 
-export function BlogItem(props: iBlog) {
+export function PublicationItem(props: Publication) {
     return (
         <ul
             style={{
                 border: `1px solid ${THEMES.BORDER_COLOR}`,
                 padding: '2em',
-                margin: '2em',
-                width: '100%'
+                margin: '2em'
             }}
             uk-accordion='true'>
             <li className={`${props.open ? "uk-open" : ""}`} >
                 <a
                     style={{
-                        color: THEMES.BORDER_COLOR,
+                        color: "#555",
                         fontSize: '3vmin',
                         fontFamily: '"Fira Code", "monospace"',
                         textAlign: 'center'
                     }}
-                    className="uk-accordion-title" >{props.title}</a>
-                <div className="uk-accordion-content">
-                    <iframe
-                        style={{
-                            width: '60vmax',
-                            height: '30vmax'
-                        }}
-                        src={props.url} />
+                    className="uk-accordion-title" >{props.name}</a>
+                <div
+                    style={{
+                        fontFamily: '"Fira Code", "monospace"',
+                        textAlign: "justify",
+                        textJustify: "inter-word"
+                    }}
+                    className="uk-accordion-content">
+                    {props.abstract}
                 </div>
             </li>
         </ul>

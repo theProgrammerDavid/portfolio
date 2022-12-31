@@ -2,7 +2,7 @@ import React from 'react'
 import { experience, experienceColorArray, projects } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
-import { getTheme } from '../../theme';
+import { getTheme, THEMES } from '../../theme';
 import { ExperienceItem, MySection, Project } from '../components'
 
 export function Projects() {
@@ -11,7 +11,7 @@ export function Projects() {
     return (
         <MySection
             id="projects"
-            height={'140vh'}
+            height={'180vh'}
             className="section"
             backgroundColor={getTheme(currentTheme)}
         >
@@ -19,7 +19,7 @@ export function Projects() {
                 <h1 className="uk-heading-xlarge"
                     style={{
                         textAlign: 'center',
-                        color: '#444',
+                        color: THEMES.BG_HEADING,
                         marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}

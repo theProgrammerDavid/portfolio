@@ -48,9 +48,9 @@ body {
   position: fixed;
   z-index: 10000;
   border-radius: 5px;
-  top: 2vh;
-  right: 2vh;
-  margin: 2vh;
+  top: 1vh;
+  right: 1vh;
+  margin: 0.5vh;
   cursor: pointer;
   background-color: rgb(102, 102, 102);
   color: white;

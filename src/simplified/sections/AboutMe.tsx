@@ -2,7 +2,7 @@ import React from 'react'
 import { frameworks, langs, other, socials } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
-import { getTheme } from '../../theme';
+import { getTheme, THEMES } from '../../theme';
 import { ChipsRow, MarkdownBadge, MyChip, MySection } from '../components'
 
 export function AboutMe() {
@@ -21,7 +21,7 @@ export function AboutMe() {
             <div >
                 <h1 className="uk-heading-xlarge"
                     style={{
-                        color: '#444',
+                        color: THEMES.BG_HEADING,
                         fontWeight: 'lighter'
                     }}
                 >About Me</h1>

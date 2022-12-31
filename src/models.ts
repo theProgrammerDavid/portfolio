@@ -53,6 +53,9 @@ export interface Achievement {
 export interface Publication {
   name: string;
   url: string;
+  open?: boolean;
+  abstract?: string;
+  doi?: string;
 }
 
 export interface Certification {
@@ -115,4 +118,8 @@ export type Theme = "LIGHT" | "DARK";
 export interface iContext {
   currentTheme: Theme;
   changeTheme: (theme: Theme) => void;
+}
+
+export interface iMyProject {
+  color: string;
 }
