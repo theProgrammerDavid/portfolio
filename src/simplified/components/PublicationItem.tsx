@@ -13,11 +13,12 @@ export function PublicationItem(props: Publication) {
             uk-accordion='true'>
             <li className={`${props.open ? "uk-open" : ""}`} >
                 <a
+                    href={props.url}
                     style={{
                         color: "#555",
                         fontSize: '3vmin',
                         fontFamily: '"Fira Code", "monospace"',
-                        textAlign: 'center'
+                        textAlign: 'center',
                     }}
                     className="uk-accordion-title" >{props.name}</a>
                 <div
@@ -27,7 +28,8 @@ export function PublicationItem(props: Publication) {
                         textJustify: "inter-word"
                     }}
                     className="uk-accordion-content">
-                    {props.abstract}
+                    <p>{props.abstract}</p>
+                    <p><a href={props.url}>DOI: {props.doi}</a></p>
                 </div>
             </li>
         </ul>

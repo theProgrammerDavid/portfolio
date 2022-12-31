@@ -191,3 +191,8 @@ export function debounce<T extends Function>(cb: T, wait = 20) {
   };
   return <T>(<any>callable);
 }
+
+export function getUrlLinkFromCert(certLink: string) {
+  let endPos = certLink.indexOf("]");
+  return certLink.substring(7, endPos);
+}

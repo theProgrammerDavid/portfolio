@@ -1,7 +1,13 @@
 declare var term: any;
 declare var $: any;
 
-import { iBlog, iExperience, iNavBarData, Publication } from "./models";
+import {
+  Achievement,
+  iBlog,
+  iExperience,
+  iNavBarData,
+  Publication,
+} from "./models";
 import {
   orangeText,
   purpleText,
@@ -145,7 +151,7 @@ export const projects = [
   ),
 ];
 
-export const achievements = [
+export const achievements: Array<Achievement> = [
   buildAchievement(
     "LoR Dean SCOPE VIT, TVS Pilot Project",
     renderLink(
@@ -168,19 +174,20 @@ export const achievements = [
     )
   ),
   buildAchievement(
+    "Samsung PRISM Ambient Temp Detection",
+    renderLink(
+      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.png",
+      "Samsung PRISM"
+    )
+  ),
+  buildAchievement(
     "2nd place Cisco CTF",
     renderLink(
       "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/ciscoCTF.png",
       "Cisco CTF"
     )
   ),
-  buildAchievement(
-    "Samsung PRISM Ambient Temp Detection",
-    renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.pdf",
-      "Samsung PRISM"
-    )
-  ),
+
   buildAchievement(
     "Camcann Systems Programmer Intern",
     renderLink(
@@ -238,7 +245,7 @@ export const publications: Array<Publication> = [
     url: "https://www.sciencedirect.com/science/article/pii/S2666307422000110?via%3Dihub",
     abstract:
       "The effects of the global pandemic are wide spreading. Many sectors like tourism and recreation have been temporarily suspended, but sectors like construction, development and maintenance have not been halted due to their importance to society. Such projects involve people working together in close proximity, thus leaving them susceptible to infection. It is recommended that people maintain social distance and wear a face mask to reduce the spread of COVID-19. To this effect, we propose COVID Vision - a system consisting of convolutional neural networks (CNNs) for a face mask detector, a social distancing tracker and a face recognition model to help people rely less on personnel and maintain the COVID-19 norms and restrictions. COVID Vision is able to detect, with great accuracy, if a person is wearing a mask or just covering their mouth with their hands as well as people's social distancing infractions from a live video in real time. It can also maintain a database of people who have tested positive for COVID-19 or are at risk using facial recognition.",
-    doi: "doi.org/10.1016/j.ijcce.2022.05.001",
+    doi: "10.1016/j.ijcce.2022.05.001",
   },
 ];
 
@@ -423,6 +430,10 @@ export const navBarData: Array<iNavBarData> = [
   {
     name: "Publications",
     idTag: "publications",
+  },
+  {
+    name: "Achievements",
+    idTag: "achievements",
   },
   {
     name: "Blogs",
