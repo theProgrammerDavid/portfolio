@@ -21,18 +21,19 @@ export function Achievements() {
             backgroundColor={getTheme(currentTheme)}
         >
             <div >
-                <h1 className="uk-heading-large uk-margin"
-                    style={{
-                        textAlign: 'center',
-                        color: THEMES.BG_HEADING,
-                        // marginBottom: '4vw',
-                        fontWeight: 'lighter'
-                    }}
-                >Achievements</h1>
+                <p>
+                    <h1 className="uk-heading-large uk-margin"
+                        style={{
+                            textAlign: 'center',
+                            color: THEMES.BG_HEADING,
+                            fontWeight: 'lighter'
+                        }}
+                    >Achievements</h1>
+                </p>
                 <div
                     style={{
                         // maxWidth: '70vmax',
-                        width: isMobile() ? 'inherit' : moderateScale(300),
+                        width: isMobile() ? 'inherit' : moderateScale(350),
                         gap: '4vw',
                         border: `1px solid ${THEMES.BORDER_COLOR}`,
                         // padding: '2em'
