@@ -1,6 +1,7 @@
 declare var term: any;
 declare var $: any;
 
+import React from "react";
 import {
   Achievement,
   iBlog,
@@ -8,6 +9,7 @@ import {
   iNavBarData,
   Publication,
 } from "./models";
+import { AboutMe, Achievements, Blgos, LandingSection, Projects, Publications, WorkExperience } from "./simplified/sections";
 import {
   orangeText,
   purpleText,
@@ -114,12 +116,14 @@ export const projects = [
   buildProject(
     "PostBaby",
     "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
-    renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby")
+    renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby"),
+    ["c++"]
   ),
   buildProject(
     "HasherDB",
     "My own implementation of an in-memory NoSQL Database written in C++",
-    renderLink("https://github.com/theProgrammerDavid/MyDB", "HasherDB")
+    renderLink("https://github.com/theProgrammerDavid/MyDB", "HasherDB"),
+    ["c++", "js"]
   ),
   buildProject(
     "ThreeJs Playground",
@@ -127,12 +131,14 @@ export const projects = [
     renderLink(
       "https://theprogrammerdavid.github.io/three-js-samples",
       "Playground"
-    )
+    ),
+    ["js", "html5", "css3"]
   ),
   buildProject(
     "Portfolio Website",
     "My own portfolio website built with Jquery and Snowpack",
-    renderLink("https://github.com/theProgrammerDavid/portfolio", "Portfolio")
+    renderLink("https://github.com/theProgrammerDavid/portfolio", "Portfolio"),
+    ["js", "html5", "css3"]
   ),
   buildProject(
     "CP and Cheat Sheets",
@@ -142,12 +148,14 @@ export const projects = [
   buildProject(
     "Unify PDF Merger",
     "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
-    renderLink("https://unify.davidvelho.tech/", "Unify PDF Merger")
+    renderLink("https://unify.davidvelho.tech/", "Unify PDF Merger"),
+    ["js", "html5", "css3"]
   ),
   buildProject(
     "Dicer Framework",
     "Easy to use cross platform distributed computing framework to automatically delegate jobs to slave computers",
-    renderLink("https://github.com/theProgrammerDavid/dicer/tree/dev", "DICER")
+    renderLink("https://github.com/theProgrammerDavid/dicer/tree/dev", "DICER"),
+    ["js", "node-js"]
   ),
 ];
 
@@ -155,35 +163,35 @@ export const achievements: Array<Achievement> = [
   buildAchievement(
     "LoR Dean SCOPE VIT, TVS Pilot Project",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/tvs_cert.jpeg",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308105/portfolio/tvs_cert_ebhhu3.jpg",
       "TVS"
     )
   ),
   buildAchievement(
     "2nd place Bolt Hack",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/bolt_hack.jpeg",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308105/portfolio/bolt_hack_ljf3hu.jpg",
       "Bolt Hack"
     )
   ),
   buildAchievement(
     "Freelance - OMR Corrector",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/mahss_omr.jpeg",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308104/portfolio/mahss_omr_kkeyda.jpg",
       "Freelance-Mahss"
     )
   ),
   buildAchievement(
     "Samsung PRISM Ambient Temp Detection",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/OD25VIT_David_.png",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308105/portfolio/OD25VIT_David__pueyw4.png",
       "Samsung PRISM"
     )
   ),
   buildAchievement(
     "2nd place Cisco CTF",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/ciscoCTF.png",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308105/portfolio/ciscoCTF_pzmwtr.png",
       "Cisco CTF"
     )
   ),
@@ -191,7 +199,7 @@ export const achievements: Array<Achievement> = [
   buildAchievement(
     "Camcann Systems Programmer Intern",
     renderLink(
-      "https://raw.githubusercontent.com/theProgrammerDavid/portfolio/master/static/camcann.jpg",
+      "https://res.cloudinary.com/dkgduqw0c/image/upload/v1674308105/portfolio/camcann_ocv8k6.jpg",
       "CamCann SDE Intern"
     )
   ),
@@ -414,30 +422,39 @@ export const navBarData: Array<iNavBarData> = [
   {
     name: "Home",
     idTag: "landingPage",
+    component: <LandingSection />
   },
   {
-    name: "About me",
+    name: "About Me",
     idTag: "aboutMe",
+    component: <AboutMe />
+
   },
   {
     name: "Work Experience",
     idTag: "workExperience",
+    component: <WorkExperience />
   },
   {
     name: "Projects",
     idTag: "projects",
+    component: <Projects />,
+    // hide: true
   },
   {
     name: "Publications",
     idTag: "publications",
+    component: <Publications />
   },
   {
     name: "Achievements",
     idTag: "achievements",
+    component: <Achievements />
   },
   {
     name: "Blogs",
     idTag: "blogs",
+    component: <Blgos />
   },
   // {
   //   name: "Contact Me",
@@ -464,6 +481,15 @@ export const experience: Array<iExperience> = [
     end: "Aug 2020",
   },
   {
+    company: "Camcann Smart Systems",
+    position: "SDE Intern",
+    description:
+      "Develop computer vision  systems using C++, CMake, Python, OpenVino and the Intel NCS 2",
+    location: "VIT Vellore Incubator",
+    start: "Dec 2019",
+    end: "Apr 2020",
+  },
+  {
     company: "IT-Hub, Govt. of Goa",
     position: "SDE Intern",
     description:
@@ -473,14 +499,13 @@ export const experience: Array<iExperience> = [
     end: "Jun 2019",
   },
   {
-    company: "Camcann Smart Systems",
-    position: "SDE Intern",
-    description:
-      "Develop computer vision  systems using C++, CMake, Python, OpenVino and the Intel NCS 2",
-    location: "VIT Vellore Incubator",
-    start: "Dec 2019",
-    end: "Apr 2020",
-  },
+    company: "TVS Pilot Project",
+    position: "Student Developer",
+    description: "Developed a Proof-of-Concept system that can detect defects in the manufacturing process of TVS motor vehicles on the assembly line, using Computer Vision and Machine Learning.",
+    location: "VIT Vellore",
+    start: "Jan 2019",
+    end: "Mar 2019",
+  }
 ];
 
 export const experienceColorArray = generateColor(
@@ -488,18 +513,3 @@ export const experienceColorArray = generateColor(
   "#ff6b6b",
   experience.length * 2
 ).map((color) => `#${color}`);
-
-export const blogLinks: Array<iBlog> = [
-  {
-    title: "How to use Cpack and NSIS to Package applications on Windows",
-    url: "https://blog.davidvelho.tech/post/cmake-cpack-nsis-windows/",
-  },
-  {
-    title: "Dockerize Apache Tomcat",
-    url: "https://blog.davidvelho.tech/post/docker-apache-tomcat/",
-  },
-  {
-    title: "MailInABoxTips",
-    url: "https://blog.davidvelho.tech/post/mail-in-a-box-tips/",
-  },
-];

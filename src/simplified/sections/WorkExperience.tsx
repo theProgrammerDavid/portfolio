@@ -1,8 +1,10 @@
 import React from 'react'
 import { experience, experienceColorArray } from '../../constants'
 import { ThemeContext } from '../../context';
+import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
+import { moderateScale } from '../../util';
 import { ExperienceItem, MySection } from '../components'
 
 export function WorkExperience() {
@@ -11,22 +13,29 @@ export function WorkExperience() {
     return (
         <MySection
             id="workExperience"
-            height={'140vh'}
-            className="section"
-            backgroundColor={getTheme(currentTheme)} 
+            // height={'140vh'}
+            className="section uk-section"
+            backgroundColor={getTheme(currentTheme)}
+            style={{
+                paddingTop: isMobile() ? "inherit" : moderateScale(80)
+            }}
         >
             <div >
-                <h1 className="uk-heading-xlarge"
+                <h1
+                    className="uk-heading-large uk-padding-large uk-padding-remove-top"
                     style={{
                         textAlign: 'center',
                         color: THEMES.BG_HEADING,
-                        marginBottom: '4vw',
+                        // marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}
                 >Work Experience</h1>
-                <div className=""
+                <div className="scroll"
                     style={{
-                        maxWidth: '70vw'
+                        maxWidth: moderateScale(isMobile() ? 300 : 400),
+                        height: isMobile() ? "inherit" : moderateScale(200),
+                        overflow: isMobile() ? "inherit" : 'scroll',
+                        overflowX: 'hidden'
                     }}
                 >
                     {experience.map((e, index) => (<ExperienceItem

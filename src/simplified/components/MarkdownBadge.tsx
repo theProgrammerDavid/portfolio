@@ -17,7 +17,7 @@ export function MarkdownBadge(props: iMarkdownBadge) {
     }, []);
 
     return (<a
-        uk-tooltip={props.experience}
+        // uk-tooltip={props.experience}
         href={props.url}
         target="_blank"
         rel="noopener noreferrer">

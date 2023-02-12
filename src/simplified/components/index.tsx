@@ -10,43 +10,14 @@ export * from './MarkdownBadge'
 export * from './Project';
 export * from './BlogItem';
 
-export const NavDots = styled.ul`
-  position: fixed;
-  top: 50%;
-  left: 2em;
-  transform: translateY(-50%);
-  margin: 0;
-  margin-right: 10px;
-  padding: 0;
-  cursor: pointer;
-  `
-
-export const NavDot = styled.li`
-  width: 12px;
-  height: 12px;
-  border: 2px solid #52616a;
-  border-radius: 50%;
-  list-style: none;
-  background: #c9d6de;
-  transition: all 0.3s;
-
-  &:not(:last-of-type) {
-    margin-bottom: 20px;
-  }
-
-  &:hover,
-  &.is-active {
-    transform: scale(1.8);
-    background: transparent;
-  }
-  `
 export const MySection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
-  height: ${(props: iMySection) => props.height ?? '100vh'};
+  height: ${(props: iMySection) => props.height ?? "100vh"};
+  // padding: ${(props: iMySection) => props.height ?? '50vh'} 0 ${(props: iMySection) => props.height ?? '50vh'} 0;
   background-color: ${(props: iMySection) => props.backgroundColor ?? 'inherit'};
 `
 export const IntroText = styled.span`
@@ -105,7 +76,7 @@ export const ChipsRow = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 70vw;
-  gap: 1em;
+  gap: 1rem;
 `
 
 export const Circle = styled.div`
@@ -116,17 +87,13 @@ export const Circle = styled.div`
 `
 
 
+
 export const MyProject = styled.div`
- width: 20vmax;
-  height: 20vmax;
+  width: 30rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   background-color: ${(props: iMyProject) => props.color};
-  
-  &:hover{
-    width: 25vmax;
-    height: 25vmax;
-  }
 `

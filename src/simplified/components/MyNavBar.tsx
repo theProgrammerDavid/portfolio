@@ -4,22 +4,24 @@ import { navBarData } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
+import DarkModeToggle from "react-dark-mode-toggle";
 
 export function MyNavBar() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
 
     return (
         <NavBar
+            id="myNavBar"
             style={{
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'space-around',
                 alignContent: 'center',
                 gap: '5em',
                 position: 'fixed',
-                height: '7vh',
-                width: '100vw',
+                height: '10vh',
+                width: '100%',
                 color: 'white',
                 backdropFilter: 'blur(10px)'
             }}
@@ -28,12 +30,13 @@ export function MyNavBar() {
                 key={index}
                 className='navItem'
                 onClick={() => document.getElementById(i.idTag)!.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: "center"
                 })
                 }
             >{i.name}</NavItem>))}
 
-            <button
+            {/* <button
                 className='uk-button'
                 style={{
                     fontFamily: '"FiraCode", "monospace"',
@@ -45,7 +48,15 @@ export function MyNavBar() {
                     changeTheme(currentTheme === "DARK" ? "LIGHT" : "DARK")
                     localStorage.setItem("THEME", currentTheme === "DARK" ? "LIGHT" : "DARK");
                 }}
-            >{currentTheme === "DARK" ? "DARK" : "LIGHT"}</button>
+            >{currentTheme === "DARK" ? "DARK" : "LIGHT"}</button> */}
+            <DarkModeToggle
+                speed={2}
+                checked={currentTheme === "DARK"}
+                onChange={(e) => {
+                    changeTheme(currentTheme === "DARK" ? "LIGHT" : "DARK")
+                    localStorage.setItem("THEME", currentTheme === "DARK" ? "LIGHT" : "DARK");
+                }}
+            />
         </NavBar>
     )
 }

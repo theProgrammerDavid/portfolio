@@ -1,9 +1,12 @@
 import React from 'react'
 import { frameworks, langs, other, socials } from '../../constants'
 import { ThemeContext } from '../../context';
+import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
+import { moderateScale, scale, verticalScale } from '../../util';
 import { ChipsRow, MarkdownBadge, MyChip, MySection } from '../components'
+import BuyMeACoffee from '../components/BuyMeACoffee';
 
 export function AboutMe() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
@@ -13,13 +16,15 @@ export function AboutMe() {
             id="aboutMe"
             // height='100vh'
             backgroundColor={getTheme(currentTheme)}
-            className="section"
+            className="section uk-section"
             style={{
-                textAlign: 'center'
+                textAlign: 'center',
+                justifyContent: "flex-start",
+                paddingTop: isMobile() ? "inherit" : moderateScale(60)
             }}
         >
             <div >
-                <h1 className="uk-heading-xlarge"
+                <h1 className="uk-heading-large"
                     style={{
                         color: THEMES.BG_HEADING,
                         fontWeight: 'lighter'
@@ -34,16 +39,21 @@ export function AboutMe() {
                     alt={i.website}
                     markDownBadgeUrl={i.badgeUrl} />)}
             </ChipsRow>
-            <p></p>
 
-            <div className="uk-text-large"
+            <div className="uk-padding"
                 style={{
                     color: '#555',
                     maxWidth: '70vw',
+                    fontSize: moderateScale(isMobile() ? 10 : 7),
                     fontFamily: '"FiraCode", "monospace"'
                 }}
             >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet just kidding. You thought I forgot to replace the placeholder text huh? I'm David, a full stack and systems dev. I started out as a C++ developer but I basically do everything these days, including 3D modelling and animation with 
+                <a
+                    href='https://www.blender.org/'
+                    style={{
+                        color: THEMES.LINK
+                    }}> Blender</a>
                 <br />
             </div>
             <div
@@ -65,13 +75,24 @@ export function AboutMe() {
                     markDownBadgeUrl={i.url} />)}
             </div>
 
-            <p
+            <p>
+                <p
+                    style={{
+                        color: '#555',
+                        fontSize: moderateScale(isMobile() ? 10 : 5),
+                        fontFamily: '"FiraCode", "monospace"'
+                    }}
+                >If you like my work, please consider supporting me at - </p>
+                <BuyMeACoffee />
+            </p>
+
+            {/* <p
                 style={{
                     color: '#555',
-                    maxWidth: '70vw',
+                    // maxWidth: '70vw',
                     fontFamily: '"FiraCode", "monospace"'
                 }}
-            >Hover for Tooltip</p>
+            >Hover for Tooltip</p> */}
         </MySection>
     )
 }

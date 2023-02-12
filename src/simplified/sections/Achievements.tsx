@@ -1,9 +1,10 @@
 import React from 'react'
 import { achievements, experience, experienceColorArray, projects, publications } from '../../constants'
 import { ThemeContext } from '../../context';
+import { isMobile } from '../../mobile';
 import { Achievement, iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import { getUrlLinkFromCert } from '../../util';
+import { getUrlLinkFromCert, moderateScale } from '../../util';
 import { ExperienceItem, MySection, Project } from '../components'
 import { PublicationItem } from '../components/PublicationItem';
 
@@ -15,26 +16,27 @@ export function Achievements() {
     return (
         <MySection
             id="achievements"
-            height={'115vh'}
-            className="section"
+            // height={'115vh'}
+            className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
         >
             <div >
-                <h1 className="uk-heading-xlarge"
-                    style={{
-                        textAlign: 'center',
-                        color: THEMES.BG_HEADING,
-                        marginBottom: '4vw',
-                        fontWeight: 'lighter'
-                    }}
-                >Achievements</h1>
+                <p>
+                    <h1 className="uk-heading-large uk-margin"
+                        style={{
+                            textAlign: 'center',
+                            color: THEMES.BG_HEADING,
+                            fontWeight: 'lighter'
+                        }}
+                    >Achievements</h1>
+                </p>
                 <div
                     style={{
-                        maxWidth: '70vmax',
-                        width: '70vmax',
+                        // maxWidth: '70vmax',
+                        width: isMobile() ? 'inherit' : moderateScale(350),
                         gap: '4vw',
                         border: `1px solid ${THEMES.BORDER_COLOR}`,
-                        padding: '2em'
+                        // padding: '2em'
                     }}
                 >
                     <div
@@ -78,11 +80,10 @@ export function Achievements() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                marginTop: '1em',
+                                margin: '1rem',
                             }}
                             className="">
-                            <ul
-                                className="uk-slideshow-nav uk-dotnav"></ul>
+                            <ul className="uk-slideshow-nav uk-dotnav"></ul>
                         </div>
                     </div>
                 </div>
