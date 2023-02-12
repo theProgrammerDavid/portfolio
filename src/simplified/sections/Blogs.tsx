@@ -1,13 +1,26 @@
 import React from 'react'
-import { blogLinks, experience, experienceColorArray } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import { BlogItem, ExperienceItem, MySection } from '../components'
+import { BlogItem, MySection } from '../components'
+import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 
 export function Blgos() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
+    const [blogData, setBlogData] = React.useState<Array<any>>([]);
+
+    async function loadBlogDataFromRSS() {
+        const result = await fetch("https://blog.davidvelho.tech/index.xml");
+        const data = await result.text();
+
+        const parser = new XMLParser();
+        setBlogData(parser.parse(data).rss.channel.item);
+    }
+
+    React.useEffect(() => {
+        loadBlogDataFromRSS();
+    }, [])
 
     return (
         <MySection
@@ -21,7 +34,6 @@ export function Blgos() {
                     style={{
                         textAlign: 'center',
                         color: THEMES.BG_HEADING,
-                        // marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}
                 >Blogs</h1>
@@ -33,11 +45,15 @@ export function Blgos() {
                         justifyContent: 'center'
                     }}
                 >
-                    {blogLinks.map((i, index) => (<BlogItem
-                        open={true}
-                        key={i.title}
-                        title={i.title}
-                        url={i.url} />))}
+                    {
+                        blogData.map((i, index) => (<BlogItem
+                            open={true}
+                            key={i.guid}
+                            title={i.title}
+                            url={i.link}
+                            pubDate={i.pubDate}
+                        />))
+                    }
                 </div>
             </div>
         </MySection>

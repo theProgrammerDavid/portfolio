@@ -115,6 +115,7 @@ export interface iBlog {
   title: string;
   url: string;
   open?: boolean;
+  pubDate: string;
 }
 
 export type Theme = "LIGHT" | "DARK";
