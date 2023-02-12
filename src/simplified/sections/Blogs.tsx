@@ -1,6 +1,7 @@
 import React from 'react'
 import { blogLinks, experience, experienceColorArray } from '../../constants'
 import { ThemeContext } from '../../context';
+import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { BlogItem, ExperienceItem, MySection } from '../components'
@@ -12,26 +13,28 @@ export function Blgos() {
         <MySection
             id="blogs"
             height={'150vh'}
-            className="section"
+            className="uk-section section"
             backgroundColor={getTheme(currentTheme)}
-
         >
             <div >
                 <h1 className="uk-heading-xlarge"
                     style={{
                         textAlign: 'center',
                         color: THEMES.BG_HEADING,
-                        marginBottom: '4vw',
+                        // marginBottom: '4vw',
                         fontWeight: 'lighter'
                     }}
                 >Blogs</h1>
-                <div className=""
+                <div className="uk-margin"
                     style={{
-                        maxWidth: '70vw'
+                        display: 'flex',
+                        flexDirection: isMobile() ? "column" : "row",
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
                     {blogLinks.map((i, index) => (<BlogItem
-                        open={index == 0}
+                        open={true}
                         key={i.title}
                         title={i.title}
                         url={i.url} />))}

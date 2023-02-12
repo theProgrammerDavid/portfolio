@@ -1,23 +1,26 @@
 import React from 'react'
 import { experience, experienceColorArray, projects, publications } from '../../constants'
 import { ThemeContext } from '../../context';
+import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
+import { moderateScale } from '../../util';
 import { ExperienceItem, MySection, Project } from '../components'
 import { PublicationItem } from '../components/PublicationItem';
 
 export function Publications() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
 
+
     return (
         <MySection
             id="publications"
             // height={'90vh'}
-            className="section"
+            className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
         >
             <div >
-                <h1 className="uk-heading-xlarge"
+                <h1 className="uk-heading-large"
                     style={{
                         textAlign: 'center',
                         color: THEMES.BG_HEADING,
@@ -27,7 +30,7 @@ export function Publications() {
                 >Publications</h1>
                 <div className=""
                     style={{
-                        maxWidth: '70vw',
+                        maxWidth: isMobile() ? "inherit" : '70vw',
                         gap: '4vw',
                     }}
                 >
@@ -43,6 +46,6 @@ export function Publications() {
                     ))}
                 </div>
             </div>
-        </MySection>
+        </MySection >
     )
 }

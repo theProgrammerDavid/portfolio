@@ -85,13 +85,15 @@ var projectIndexCounter = 1;
 export function buildProject(
   title: string,
   description: string,
-  document_url: string
+  document_url: string,
+  languages?: string[]
 ): Project {
   return {
     No: projectIndexCounter++,
     title: title,
     description: description,
     document_url: document_url,
+    languageIconArray: languages,
   };
 }
 
@@ -107,7 +109,6 @@ export function buildAchievement(
   };
 }
 
-var publicationIndexCounter = 1;
 export function buildPublication(name: string, url: string): Publication {
   return {
     name: name,
@@ -115,7 +116,6 @@ export function buildPublication(name: string, url: string): Publication {
   };
 }
 
-var certificationIndex = 1;
 export function buildCertification(name: string, url: string): Certification {
   return {
     name: name,
@@ -192,7 +192,34 @@ export function debounce<T extends Function>(cb: T, wait = 20) {
   return <T>(<any>callable);
 }
 
+export function setupScroll() {
+  const navBar = document.getElementById("myNavBar")!;
+  const navHeight = navBar.offsetHeight;
+  document.documentElement.style.setProperty(
+    "--scroll-padding",
+    `${navHeight}px`
+  );
+}
+
 export function getUrlLinkFromCert(certLink: string) {
   let endPos = certLink.indexOf("]");
   return certLink.substring(7, endPos);
 }
+
+export const DIMENSIONS = {
+  width: window.screen.width,
+  height: window.screen.height,
+};
+
+const SCALE = DIMENSIONS.width / 320;
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+const guidelineBaseWidth = 350;
+const guidelineBaseHeight = 680;
+
+export const scale = (size: number) =>
+  (DIMENSIONS.width / guidelineBaseWidth) * size;
+export const verticalScale = (size: number) =>
+  (DIMENSIONS.height / guidelineBaseHeight) * size;
+export const moderateScale = (size: number, factor = 0.5) =>
+  size + (scale(size) - size) * factor;

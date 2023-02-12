@@ -4,6 +4,7 @@ import Terminal from './terminal/terminal'
 import Simplified from './simplified';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext } from './context';
+import { setupScroll } from './util';
 
 interface iViewToggle {
     viewState: ViewState;
@@ -22,13 +23,6 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     >{viewState === ViewState.ADVANCED ? 'Back' : `Developer Mode`}</div>
 }
 
-/**
- * 
- *  
-    return (
-       
-    );
- */
 
 function App() {
     const [viewState, setViewState] = React.useState<ViewState>(ViewState.SIMPLIFIED);
@@ -40,6 +34,7 @@ function App() {
     }
 
     React.useEffect(() => {
+        setupScroll();
         let prevTheme = localStorage.getItem("THEME");
         if (prevTheme)
             setThemeMode(prevTheme as Theme)

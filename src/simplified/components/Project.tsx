@@ -1,44 +1,84 @@
 import React from 'react'
-import { MyProject } from '.'
-import { ThemeContext } from '../../context';
-import { iContext, Project } from '../../models'
-import { getTheme, THEMES } from '../../theme'
-import { debounce } from '../../util';
-
-function executeFnAfter(fn: any, delay: number) {
-    setTimeout(fn, delay);
-}
+import { isMobile } from '../../mobile';
+import { Project } from '../../models'
+import { THEMES } from '../../theme'
+import { getUrlLinkFromCert, moderateScale } from '../../util';
 
 export function Project(props: Project) {
-    const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
-    const [hoverEnabled, setHoverEnabled] = React.useState<boolean>(false);
 
-    const toggleHover = debounce(() => { setHoverEnabled(!hoverEnabled)}, 200);
+    const [showMenu, setShowMenu] = React.useState<boolean>(false);
 
     return (
-
-        <MyProject
-            color={THEMES.BG_MID_DARK}
-            onMouseEnter={() => toggleHover()}
-            onMouseLeave={() => setHoverEnabled(false)}
+        <div
+            className="project-card card"
+            onMouseLeave={() => setShowMenu(false)}
         >
-            <div
+            <div className="wrapper"
                 style={{
-                    fontFamily: '"FiraCode", "monospace"',
-                    fontSize: '2rem',
-                    color: THEMES.TEXT,
-                    transition: '1s'
-                }}
-            >{props.title}</div>
-            <div
-                style={{
-                    fontSize: '1.5em',
-                    display: hoverEnabled ? "block" : "none",
-                    fontFamily: '"FiraCode", "monospace"'
+                    backgroundColor: THEMES.BG_MID_DARK,
+                    backgroundImage: ``,
+                    backgroundSize: 'contain',
+                    backgroundRepeat: "no-repeat"
+
                 }}
             >
-                <hr className="uk-divider-small" />
-                {props.description}</div>
-        </MyProject>
+                <div className="url"
+                    style={{
+                        backgroundColor: THEMES.BG_HEADING,
+                    }}
+                >
+                    <a href={getUrlLinkFromCert(props.document_url)}><i
+                        style={{
+                            fontSize: moderateScale(isMobile() ? 10 : 10),
+                            color: THEMES.TEXT
+                        }}
+                        className="fab fa-github"></i></a>
+                </div>
+                <div className="data">
+                    <div className="content">
+                        <h1 className="title"><a href="#"
+                            style={{
+                                fontFamily: '"FiraCode", "monospace"',
+                                textDecoration: 'none'
+                            }}
+                        >{props.title}</a></h1>
+                        <p className="text"
+                            style={{
+                                color: THEMES.TEXT,
+                                fontFamily: '"FiraCode", "monospace"'
+                            }}
+                        >{props.description}</p>
+                        <label
+                            htmlFor={`show-menu-${props.No}`}
+                            className="menu-button"><span></span></label>
+                    </div>
+                    <input type="checkbox" id={`show-menu-${props.No}`}
+                        checked={showMenu}
+                        onClick={() => setShowMenu(true)}
+                    />
+                    <ul
+                        style={{
+                            display: showMenu ? "block" : "none",
+                        }}
+                        className="menu-content">
+                        {/* <li><a href="#"><i className="fab fa-github"></i></a></li>
+                        <li><a href="#"><i className="fab fa-html5"></i></a></li>
+                        <li><a href="#"><i className="fab fa-css3-alt"></i></a></li>
+                        <li><a href="#"><i className="fab fa-js"></i></a></li> */}
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: "space-around"
+                        }}>
+                            {props.languageIconArray?.map(icon => (<li><a href="#"><i
+                                style={{
+                                    color: THEMES.TEXT
+                                }}
+                                className={`fab fa-${icon === "c++" ? "cuttlefish" : icon}`}>{icon === "c++" ? "++" : ""}</i></a></li>))}
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
     )
 }

@@ -5,6 +5,7 @@ import { socials } from '../../constants'
 import { ThemeContext } from '../../context'
 import { iContext } from '../../models'
 import { getTheme, THEMES } from '../../theme'
+import { moderateScale } from '../../util'
 
 
 export function LandingSection() {
@@ -13,7 +14,7 @@ export function LandingSection() {
   return (
     <MySection
       id="landingPage"
-      className='section'
+      className='uk-section uk-section-xlarge'
       backgroundColor={getTheme(currentTheme)}
     >
       <div
@@ -24,7 +25,7 @@ export function LandingSection() {
           'WebkitBackgroundClip': 'text',
           'WebkitTextStroke': '4px transparent',
           color: getTheme(currentTheme),
-          fontSize: '8em',
+          fontSize: moderateScale(37),
           fontFamily: '"AnuratiRegular", "Fira Code", "monospace"',
           animation: '3s cubic-bezier(.48,1.2,1,1.01) 0s 1 normal none running introName'
           // animation: '3s ease-out 0s 1 introName'

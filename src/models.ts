@@ -42,6 +42,7 @@ export interface Project {
   title: string;
   description: string;
   document_url: string;
+  languageIconArray?: string[];
 }
 
 export interface Achievement {
@@ -71,6 +72,8 @@ export enum ViewState {
 export interface iNavBarData {
   name: string;
   idTag: string;
+  component?: any;
+  hide?: boolean;
 }
 
 export interface iMySection {
