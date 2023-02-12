@@ -14,7 +14,7 @@ interface iViewToggle {
 function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     return <div
         style={{
-            fontFamily: '"FiraCode", "monospace"'
+            fontFamily: '"Fira Code", "monospace"'
         }}
         className="helperToggle"
         onClick={() => {

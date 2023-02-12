@@ -26,7 +26,7 @@ export function ContactMe() {
                 <div
                     style={{
                         marginTop: '5vmax',
-                        fontFamily: '"FiraCode", "monospace"'
+                        fontFamily: '"Fira Code", "monospace"'
                     }}
                 >
                     <form>

@@ -38,14 +38,14 @@ export function Project(props: Project) {
                     <div className="content">
                         <h1 className="title"><a href="#"
                             style={{
-                                fontFamily: '"FiraCode", "monospace"',
+                                fontFamily: '"Fira Code", "monospace"',
                                 textDecoration: 'none'
                             }}
                         >{props.title}</a></h1>
                         <p className="text"
                             style={{
                                 color: THEMES.TEXT,
-                                fontFamily: '"FiraCode", "monospace"'
+                                fontFamily: '"Fira Code", "monospace"'
                             }}
                         >{props.description}</p>
                         <label
