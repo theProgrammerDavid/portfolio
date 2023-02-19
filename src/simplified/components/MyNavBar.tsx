@@ -4,7 +4,7 @@ import { navBarData } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import DarkModeToggle from "react-dark-mode-toggle";
+import { DarkModeToggle } from "react-dark-mode-toggle-2";
 
 export function MyNavBar() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
@@ -51,7 +51,7 @@ export function MyNavBar() {
             >{currentTheme === "DARK" ? "DARK" : "LIGHT"}</button> */}
             <DarkModeToggle
                 speed={2}
-                checked={currentTheme === "DARK"}
+                isDarkMode={currentTheme === "DARK"}
                 onChange={(e) => {
                     changeTheme(currentTheme === "DARK" ? "LIGHT" : "DARK")
                     localStorage.setItem("THEME", currentTheme === "DARK" ? "LIGHT" : "DARK");

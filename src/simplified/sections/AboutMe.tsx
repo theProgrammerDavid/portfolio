@@ -75,7 +75,7 @@ export function AboutMe() {
                     markDownBadgeUrl={i.url} />)}
             </div>
 
-            <p>
+            <div>
                 <p
                     style={{
                         color: '#555',
@@ -84,7 +84,7 @@ export function AboutMe() {
                     }}
                 >If you like my work, please consider supporting me at - </p>
                 <BuyMeACoffee />
-            </p>
+            </div>
         </MySection>
     )
 }

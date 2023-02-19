@@ -21,7 +21,7 @@ export function Achievements() {
             backgroundColor={getTheme(currentTheme)}
         >
             <div >
-                <p>
+                <div>
                     <h1 className="uk-heading-large uk-margin"
                         style={{
                             textAlign: 'center',
@@ -29,7 +29,7 @@ export function Achievements() {
                             fontWeight: 'lighter'
                         }}
                     >Achievements</h1>
-                </p>
+                </div>
                 <div
                     style={{
                         // maxWidth: '70vmax',
