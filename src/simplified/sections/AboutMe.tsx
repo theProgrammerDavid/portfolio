@@ -48,12 +48,12 @@ export function AboutMe() {
                     fontFamily: '"Fira Code", "monospace"'
                 }}
             >
-                Lorem ipsum dolor sit amet just kidding. You thought I forgot to replace the placeholder text huh? I'm David, a full stack and systems dev. I started out as a C++ developer but I basically do everything these days, including 3D modelling and animation with 
+                Lorem ipsum dolor sit amet just kidding. You thought I forgot to replace the placeholder text huh? I'm David, a full stack and systems developer. I started out as a C++ developer but I basically do everything these days, including 3D modelling and animation with 
                 <a
                     href='https://www.blender.org/'
                     style={{
                         color: THEMES.LINK
-                    }}> Blender</a>
+                    }}> Blender</a>.
                 <br />
             </div>
             <div

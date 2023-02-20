@@ -20,7 +20,7 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
         onClick={() => {
             toggleViewState();
         }}
-    >{viewState === ViewState.ADVANCED ? 'Back' : `Developer Mode`}</div>
+    >{viewState === ViewState.ADVANCED ? '<-Back' : `Developer Mode`}</div>
 }
 
 
