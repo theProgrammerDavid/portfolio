@@ -45,15 +45,15 @@ export function AboutMe() {
                     color: '#555',
                     maxWidth: '70vw',
                     fontSize: moderateScale(isMobile() ? 10 : 7),
-                    fontFamily: '"FiraCode", "monospace"'
+                    fontFamily: '"Fira Code", "monospace"'
                 }}
             >
-                Lorem ipsum dolor sit amet just kidding. You thought I forgot to replace the placeholder text huh? I'm David, a full stack and systems dev. I started out as a C++ developer but I basically do everything these days, including 3D modelling and animation with 
+                Lorem ipsum dolor sit amet just kidding. You thought I forgot to replace the placeholder text huh? I'm David, a full stack and systems developer. I started out as a C++ developer but I basically do everything these days, including 3D modelling and animation with 
                 <a
                     href='https://www.blender.org/'
                     style={{
                         color: THEMES.LINK
-                    }}> Blender</a>
+                    }}> Blender</a>.
                 <br />
             </div>
             <div
@@ -75,24 +75,16 @@ export function AboutMe() {
                     markDownBadgeUrl={i.url} />)}
             </div>
 
-            <p>
+            <div>
                 <p
                     style={{
                         color: '#555',
                         fontSize: moderateScale(isMobile() ? 10 : 5),
-                        fontFamily: '"FiraCode", "monospace"'
+                        fontFamily: '"Fira Code", "monospace"'
                     }}
                 >If you like my work, please consider supporting me at - </p>
                 <BuyMeACoffee />
-            </p>
-
-            {/* <p
-                style={{
-                    color: '#555',
-                    // maxWidth: '70vw',
-                    fontFamily: '"FiraCode", "monospace"'
-                }}
-            >Hover for Tooltip</p> */}
+            </div>
         </MySection>
     )
 }

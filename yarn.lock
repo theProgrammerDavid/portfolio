@@ -2627,11 +2627,6 @@ param-case@^3.0.4:
     dot-case "^3.0.4"
     tslib "^2.0.3"
 
-parse-unit@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/parse-unit/-/parse-unit-1.0.1.tgz#7e1bb6d5bef3874c28e392526a2541170291eecf"
-  integrity sha512-hrqldJHokR3Qj88EIlV/kAyAi/G5R2+R56TBANxNMy0uPlYcttx0jnMW6Yx5KsKPSbC3KddM/7qQm3+0wEXKxg==
-
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
@@ -2822,13 +2817,12 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dark-mode-toggle@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-dark-mode-toggle/-/react-dark-mode-toggle-0.2.0.tgz#73172805b0ea6a5f2db89c1e05a4365ac93735d1"
-  integrity sha512-YGN6EKU54TaEIQ2G5veB+XVRXSsbyrW9+rop/1Ap06A0z1j6QBVuMIZjhQpwYLKVhSPIxoe7zsWj0cZaEf7cQA==
+react-dark-mode-toggle-2@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-dark-mode-toggle-2/-/react-dark-mode-toggle-2-2.0.8.tgz#2712a4f97bc1b73e394cc71bdf0a2ca226e4ddd9"
+  integrity sha512-YUkXEyekgcvNJ4PigLLX/NezCwPkSLw8Lv0IKxXpY3DzZA7wj4kMPAUUc6NsjsboFBFzU0SUycHUg2kUK0BiNA==
   dependencies:
-    parse-unit "^1.0.1"
-    react-lottie-player "^1.1.1"
+    react-lottie-player "^1.4.3"
 
 react-dom@^18.2.0:
   version "18.2.0"
@@ -2843,7 +2837,7 @@ react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lottie-player@^1.1.1:
+react-lottie-player@^1.4.3:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/react-lottie-player/-/react-lottie-player-1.5.4.tgz#8205cc334d11b923d9bac78e1d19bcc0d475d751"
   integrity sha512-eM0g11bAc4EJJuDDfCoNloaAYphfXlIpYnriOt4nRU66PpVmvKhajvP2aif4YflGY2ArAFXhWxs418YzdebK9w==

@@ -14,13 +14,13 @@ interface iViewToggle {
 function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
     return <div
         style={{
-            fontFamily: '"FiraCode", "monospace"'
+            fontFamily: '"Fira Code", "monospace"'
         }}
         className="helperToggle"
         onClick={() => {
             toggleViewState();
         }}
-    >{viewState === ViewState.ADVANCED ? 'Back' : `Developer Mode`}</div>
+    >{viewState === ViewState.ADVANCED ? '<-Back' : `Developer Mode`}</div>
 }
 
 

@@ -12,14 +12,18 @@ export function Project(props: Project) {
         <div
             className="project-card card"
             onMouseLeave={() => setShowMenu(false)}
+            style={{
+                minWidth: moderateScale(200),
+                minHeight: moderateScale(100),
+            }}
         >
             <div className="wrapper"
                 style={{
                     backgroundColor: THEMES.BG_MID_DARK,
                     backgroundImage: ``,
                     backgroundSize: 'contain',
-                    backgroundRepeat: "no-repeat"
-
+                    backgroundRepeat: "no-repeat",
+                    minHeight: moderateScale(100),
                 }}
             >
                 <div className="url"
@@ -38,14 +42,14 @@ export function Project(props: Project) {
                     <div className="content">
                         <h1 className="title"><a href="#"
                             style={{
-                                fontFamily: '"FiraCode", "monospace"',
+                                fontFamily: '"Fira Code", "monospace"',
                                 textDecoration: 'none'
                             }}
                         >{props.title}</a></h1>
                         <p className="text"
                             style={{
                                 color: THEMES.TEXT,
-                                fontFamily: '"FiraCode", "monospace"'
+                                fontFamily: '"Fira Code", "monospace"'
                             }}
                         >{props.description}</p>
                         <label
@@ -70,7 +74,7 @@ export function Project(props: Project) {
                             flexDirection: 'row',
                             justifyContent: "space-around"
                         }}>
-                            {props.languageIconArray?.map(icon => (<li><a href="#"><i
+                            {props.languageIconArray?.map((icon, index) => (<li key={icon}><a href="#"><i
                                 style={{
                                     color: THEMES.TEXT
                                 }}

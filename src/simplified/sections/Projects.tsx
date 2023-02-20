@@ -17,7 +17,7 @@ export function Projects() {
             className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
             style={{
-                paddingTop: isMobile() ? "inherit" : moderateScale(50)
+                // paddingTop: isMobile() ? "inherit" : moderateScale(150)
             }}
         >
             <div >
@@ -41,7 +41,7 @@ export function Projects() {
                             width: moderateScale(isMobile() ? 20 : 500),
                             display: 'flex',
                             flexDirection: 'row',
-                            gap: '3rem',
+                            gap: '3em',
                         }}
                     >
                         {projects.map((p, index) => (

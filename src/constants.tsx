@@ -490,10 +490,10 @@ export const experience: Array<iExperience> = [
     end: "Apr 2020",
   },
   {
-    company: "IT-Hub, Govt. of Goa",
+    company: "IT-Hub, Government. of Goa",
     position: "SDE Intern",
     description:
-      "Worked on govt. projects and education portals for use in local schools with React, NodeJS and MongoDB",
+      "Worked on government. projects and education portals for use in local schools with React, NodeJS and MongoDB",
     location: "Goa",
     start: "May 2019",
     end: "Jun 2019",
