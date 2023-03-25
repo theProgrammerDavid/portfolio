@@ -36,13 +36,13 @@ body {
   position: fixed;
   z-index: 10000;
   border-radius: 5px;
-  top: 2vh;
+  bottom: 2vh;
   left: 1vh;
   margin: 0.5vh;
   cursor: pointer;
   background-color: rgb(102, 102, 102);
   color: white;
-  padding: 0.5em;
+  padding: 0.2em;
 }
 
 html {
@@ -200,7 +200,8 @@ html {
   display: inline-block;
   border-radius: 20%;
 }
-.project-card .menu-button span::after, .project-card .menu-button span::before {
+.project-card .menu-button span::after,
+.project-card .menu-button span::before {
   content: "";
   display: block;
   width: 6px;
@@ -241,4 +242,53 @@ html {
 }
 .project-card .menu-content span {
   top: -10px;
+}
+
+.glowing::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #EA6F83,
+    #D5729B,
+    #C076B3,
+    #AB7ACB,
+    #967DE3,
+    #8181fb, 
+    #6464f8,
+    #3e3ef7
+    
+  );
+  /* background: linear-gradient(
+    45deg,
+    #e8f74d,
+    #ff6600d9,
+    #00ff66,
+    #13ff13,
+    #ad27ad,
+    #bd2681,
+    #6512b9,
+    #ff3300de,
+    #5aabde
+  ); */
+  background-size: 400%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -1;
+  animation: glower 20s linear infinite;
+}
+
+@keyframes glower {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }

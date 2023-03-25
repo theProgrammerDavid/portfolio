@@ -3,7 +3,6 @@ import { NavBar, NavItem } from './index'
 import { navBarData } from '../../constants'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
-import { getTheme, THEMES } from '../../theme';
 import { DarkModeToggle } from "react-dark-mode-toggle-2";
 
 export function MyNavBar() {
@@ -35,22 +34,8 @@ export function MyNavBar() {
                 })
                 }
             >{i.name}</NavItem>))}
-
-            {/* <button
-                className='uk-button'
-                style={{
-                    fontFamily: '"FiraCode", "monospace"',
-                    borderRadius: '0.2vmax',
-                    color: THEMES.TEXT,
-                    backgroundColor: currentTheme === "DARK" ? THEMES.BG_LIGHT : THEMES.BG_DARK
-                }}
-                onClick={() => {
-                    changeTheme(currentTheme === "DARK" ? "LIGHT" : "DARK")
-                    localStorage.setItem("THEME", currentTheme === "DARK" ? "LIGHT" : "DARK");
-                }}
-            >{currentTheme === "DARK" ? "DARK" : "LIGHT"}</button> */}
             <DarkModeToggle
-                speed={2}
+                speed={4}
                 isDarkMode={currentTheme === "DARK"}
                 onChange={(e) => {
                     changeTheme(currentTheme === "DARK" ? "LIGHT" : "DARK")

@@ -4,7 +4,6 @@ import { Slider } from './SliderController';
 import { ContactMe } from './sections/ContactMe';
 import { isMobile } from '../mobile';
 import { navBarData } from '../constants';
-// import BuyMeACoffee from './components/BuyMeACoffee';
 
 interface iSimplifiedViewProps {
 }

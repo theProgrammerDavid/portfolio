@@ -18,6 +18,9 @@ export function Publications() {
             // height={'90vh'}
             className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
+            style={{
+                paddingTop: isMobile() ? moderateScale(200) : "inherit",
+            }}
         >
             <div >
                 <h1 className="uk-heading-large"

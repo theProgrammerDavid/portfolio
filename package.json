@@ -38,6 +38,6 @@
     "styled-components": "^5"
   },
   "engines": {
-    "node": "^19"
+    "node": "^18"
   }
 }

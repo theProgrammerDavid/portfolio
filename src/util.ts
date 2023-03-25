@@ -1,3 +1,4 @@
+import { isMobile } from "./mobile";
 import {
   Folder,
   Other,
@@ -86,7 +87,8 @@ export function buildProject(
   title: string,
   description: string,
   document_url: string,
-  languages?: string[]
+  languages?: string[],
+  pictureUrl?: string
 ): Project {
   return {
     No: projectIndexCounter++,
@@ -94,6 +96,7 @@ export function buildProject(
     description: description,
     document_url: document_url,
     languageIconArray: languages,
+    pictureUrl,
   };
 }
 
@@ -193,6 +196,10 @@ export function debounce<T extends Function>(cb: T, wait = 20) {
 }
 
 export function setupScroll() {
+  if (isMobile()) {
+    return;
+  }
+
   const navBar = document.getElementById("myNavBar")!;
   const navHeight = navBar.offsetHeight;
   document.documentElement.style.setProperty(

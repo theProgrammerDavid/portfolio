@@ -43,6 +43,7 @@ export interface Project {
   description: string;
   document_url: string;
   languageIconArray?: string[];
+  pictureUrl?: string;
 }
 
 export interface Achievement {

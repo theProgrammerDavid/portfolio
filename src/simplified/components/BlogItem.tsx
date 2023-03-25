@@ -7,7 +7,7 @@ import { moderateScale } from '../../util'
 export function BlogItem(props: iBlog) {
     return (
         <ul
-            // onClick={() => window.open(props.url)}
+            onClick={() => window.open(props.url)}
             style={{
                 border: `1px solid ${THEMES.BORDER_COLOR}`,
                 padding: moderateScale(isMobile() ? 5 : 5),

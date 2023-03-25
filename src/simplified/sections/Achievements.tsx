@@ -85,6 +85,15 @@ export function Achievements() {
                             className="">
                             <ul className="uk-slideshow-nav uk-dotnav"></ul>
                         </div>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: THEMES.BG_HEADING,
+                            fontFamily: '"Fira Code", "monospace"',
+                        }} >
+                            <p>Click to Enlarge</p>
+                        </div>
                     </div>
                 </div>
             </div>
