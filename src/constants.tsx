@@ -117,13 +117,14 @@ export const projects = [
     "PostBaby",
     "Postman alternative. A cross platform C++ native app to test HTTP endpoints, available for Windows, Linux and Mac ",
     renderLink("https://github.com/theProgrammerDavid/PostBaby", "PostBaby"),
-    ["c++"]
+    ["c++"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678536395/portfolio/postbaby_preview_zkxwoc.png"
   ),
   buildProject(
     "HasherDB",
     "My own implementation of an in-memory NoSQL Database written in C++",
     renderLink("https://github.com/theProgrammerDavid/MyDB", "HasherDB"),
-    ["c++", "js"]
+    ["c++", "js"],
   ),
   buildProject(
     "ThreeJs Playground",
@@ -132,24 +133,30 @@ export const projects = [
       "https://theprogrammerdavid.github.io/three-js-samples",
       "Playground"
     ),
-    ["js", "html5", "css3"]
+    ["js", "html5", "css3"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678536838/portfolio/threejs_preview_gwoefz.png"
+
   ),
   buildProject(
     "Portfolio Website",
     "My own portfolio website built with Jquery and Snowpack",
     renderLink("https://github.com/theProgrammerDavid/portfolio", "Portfolio"),
-    ["js", "html5", "css3"]
+    ["js", "html5", "css3"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678536946/portfolio/image_xbgfaz.png"
   ),
   buildProject(
     "CP and Cheat Sheets",
     "Collection of Competitive programming practice questions and language cheat sheet",
-    renderLink("https://cheatsheet.davidvelho.tech/", "Cheat Sheets")
+    renderLink("https://cheatsheet.davidvelho.tech/", "Cheat Sheets"),
+    ["js", "c++"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537011/portfolio/image_fcakwo.png"
   ),
   buildProject(
     "Unify PDF Merger",
     "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
     renderLink("https://unify.davidvelho.tech/", "Unify PDF Merger"),
-    ["js", "html5", "css3"]
+    ["js", "html5", "css3"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537255/portfolio/image_ao9iwt.png"
   ),
   buildProject(
     "Dicer Framework",
@@ -157,6 +164,20 @@ export const projects = [
     renderLink("https://github.com/theProgrammerDavid/dicer/tree/dev", "DICER"),
     ["js", "node-js"]
   ),
+  buildProject(
+    "Website Search",
+    "Customizable search engine with typo tolerance with BFS indexing web crawlers, configurable manually or through Apache Airflow",
+    renderLink("https://github.com/theProgrammerDavid/ps1_drop_table", "NAME"),
+    ["python", "rust", "html5", "css3", "js", "docker"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537409/portfolio/image_ofmmhu.png"
+  ),
+  buildProject(
+    "Thank you ISS",
+    "A thank you website for my first company - ISS Governance",
+    renderLink("http://thank-you-iss.davidvelho.tech/", "#"),
+    ["js", "html5", "css3"],
+    "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537680/portfolio/image_vsz78a.png"
+  )
 ];
 
 export const achievements: Array<Achievement> = [
@@ -355,6 +376,11 @@ export const frameworks = [
     "Experienced"
   ),
   buildFramework(
+    "Angular",
+    "https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white",
+    "Beginner"
+  ),
+  buildFramework(
     "OpenGL",
     "https://img.shields.io/badge/OpenGL%20-%23FFFFFF.svg?&style=for-the-badge&logo=opengl",
     "Beginner"
@@ -428,7 +454,6 @@ export const navBarData: Array<iNavBarData> = [
     name: "About Me",
     idTag: "aboutMe",
     component: <AboutMe />
-
   },
   {
     name: "Work Experience",
@@ -464,18 +489,26 @@ export const navBarData: Array<iNavBarData> = [
 
 export const experience: Array<iExperience> = [
   {
+    company: "Newfold Digital",
+    position: "Software Engineer",
+    description: "Worked on refactoring a legacy web application to modern industry standards, complete with E2E testing.",
+    location: "Remote",
+    start: "Feb 2023",
+  },
+  {
     company: "ISS Governance",
     position: "Junior Analyst",
     description:
-      "Working with React, NodeJS and Spring boot in the DataDesk team as a full stack developer, responsible for maintaining multiple cutting edge microservices along with legacy applications.",
+      "Working with React, NodeJS and Spring boot in the DataDesk team as a full stack developer, responsible for maintaining multiple cutting edge microservices along with legacy applications. Seamlessly migrated the team's projects, CI/CD pipelines, packages and registries when changing version control software.",
     location: "Mumbai",
     start: "Jun 2022",
+    end: "Feb 2023"
   },
   {
     company: "Samsung PRISM",
     position: "Student Research Project",
     description:
-      "Worked with NodeJS, Java android and SQL for On Device Ambient Temperature Estimation without the use of external specialized hardware for future generations of SAMSUNG phones ",
+      "Worked with NodeJS, Java android and SQL for On Device Ambient Temperature Estimation without the use of external specialized hardware for future generations of SAMSUNG phones. Built software to collect data from SAMSUNG phones to create a dataset for model training. ",
     location: "VIT Vellore, Remote",
     start: "Dec 2019",
     end: "Aug 2020",
@@ -484,7 +517,7 @@ export const experience: Array<iExperience> = [
     company: "Camcann Smart Systems",
     position: "SDE Intern",
     description:
-      "Develop computer vision  systems using C++, CMake, Python, OpenVino and the Intel NCS 2",
+      "Developed computer vision technologies for the company's product, along with packaging and deploying the solution to an edge device. Worked in C++, CMake, Python, OpenVino and tested software using the Intel NCS 2.",
     location: "VIT Vellore Incubator",
     start: "Dec 2019",
     end: "Apr 2020",
@@ -493,7 +526,7 @@ export const experience: Array<iExperience> = [
     company: "IT-Hub, Government. of Goa",
     position: "SDE Intern",
     description:
-      "Worked on government. projects and education portals for use in local schools with React, NodeJS and MongoDB",
+      "Worked on state education and exam portals for use in schools in Goa in React, NodeJS and MongoDB",
     location: "Goa",
     start: "May 2019",
     end: "Jun 2019",
@@ -501,7 +534,7 @@ export const experience: Array<iExperience> = [
   {
     company: "TVS Pilot Project",
     position: "Student Developer",
-    description: "Developed a Proof-of-Concept system that can detect defects in the manufacturing process of TVS motor vehicles on the assembly line, using Computer Vision and Machine Learning.",
+    description: "Developed a Proof-of-Concept system that can detect defects in the manufacturing process of TVS motor vehicles on the assembly line in real time, using Computer Vision and Machine Learning.",
     location: "VIT Vellore",
     start: "Jan 2019",
     end: "Mar 2019",

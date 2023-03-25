@@ -16,11 +16,20 @@ function ViewToggle({ viewState, toggleViewState }: iViewToggle) {
         style={{
             fontFamily: '"Fira Code", "monospace"'
         }}
-        className="helperToggle"
+        className="helperToggle glowing"
         onClick={() => {
             toggleViewState();
         }}
-    >{viewState === ViewState.ADVANCED ? '<-Back' : `Developer Mode`}</div>
+    >
+        <div className=""
+        style={{
+            backgroundColor: "rgb(102, 102, 102)",
+            padding: '10px'
+        }}
+        >
+            {viewState === ViewState.ADVANCED ? '<-Back' : `Developer Mode`}
+        </div>
+    </div>
 }
 
 

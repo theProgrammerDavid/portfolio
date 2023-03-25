@@ -20,8 +20,8 @@ export function Project(props: Project) {
             <div className="wrapper"
                 style={{
                     backgroundColor: THEMES.BG_MID_DARK,
-                    backgroundImage: ``,
-                    backgroundSize: 'contain',
+                    backgroundImage: `url(${props.pictureUrl})`,
+                    backgroundSize: 'auto',
                     backgroundRepeat: "no-repeat",
                     minHeight: moderateScale(100),
                 }}
@@ -38,9 +38,14 @@ export function Project(props: Project) {
                         }}
                         className="fab fa-github"></i></a>
                 </div>
-                <div className="data">
-                    <div className="content">
-                        <h1 className="title"><a href="#"
+                <div className="data"
+                    style={{
+                        backdropFilter: 'blur(5px)'
+                    }}
+                >
+                    <div className="content"
+                    >
+                        <h1 className="title"><a href={getUrlLinkFromCert(props.document_url)}
                             style={{
                                 fontFamily: '"Fira Code", "monospace"',
                                 textDecoration: 'none'
@@ -72,13 +77,15 @@ export function Project(props: Project) {
                         <div style={{
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: "space-around"
+                            justifyContent: "space-around",
                         }}>
-                            {props.languageIconArray?.map((icon, index) => (<li key={icon}><a href="#"><i
-                                style={{
-                                    color: THEMES.TEXT
-                                }}
-                                className={`fab fa-${icon === "c++" ? "cuttlefish" : icon}`}>{icon === "c++" ? "++" : ""}</i></a></li>))}
+                            {props.languageIconArray?.map((icon, index) => (<li
+                                style={{ backgroundColor: 'transparent' }}
+                                key={icon}><a href="#"><i
+                                    style={{
+                                        color: THEMES.TEXT
+                                    }}
+                                    className={`fab fa-${icon === "c++" ? "cuttlefish" : icon}`}>{icon === "c++" ? "++" : ""}</i></a></li>))}
                         </div>
                     </ul>
                 </div>

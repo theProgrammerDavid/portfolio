@@ -1,12 +1,11 @@
 import React from 'react'
-import { achievements, experience, experienceColorArray, projects, publications } from '../../constants'
+import { achievements } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
-import { Achievement, iContext } from '../../models';
+import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { getUrlLinkFromCert, moderateScale } from '../../util';
-import { ExperienceItem, MySection, Project } from '../components'
-import { PublicationItem } from '../components/PublicationItem';
+import { MySection } from '../components'
 
 // declare var convertPdfToImageString: any;
 
@@ -84,6 +83,15 @@ export function Achievements() {
                             }}
                             className="">
                             <ul className="uk-slideshow-nav uk-dotnav"></ul>
+                        </div>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: THEMES.BG_HEADING,
+                            fontFamily: '"Fira Code", "monospace"',
+                        }} >
+                            <p>Click to Enlarge</p>
                         </div>
                     </div>
                 </div>

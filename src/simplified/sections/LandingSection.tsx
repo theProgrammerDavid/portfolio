@@ -1,10 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import { MySection, IntroText, MyChip, MarkdownBadge } from '../components'
-import { socials } from '../../constants'
+import { MySection } from '../components'
 import { ThemeContext } from '../../context'
 import { iContext } from '../../models'
-import { getTheme, THEMES } from '../../theme'
+import { getTheme } from '../../theme'
 import { moderateScale } from '../../util'
 
 

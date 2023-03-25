@@ -17,7 +17,7 @@ export function WorkExperience() {
             className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
             style={{
-                paddingTop: isMobile() ? "inherit" : moderateScale(80)
+                paddingTop: isMobile() ? moderateScale(350): moderateScale(80)
             }}
         >
             <div >
@@ -39,7 +39,7 @@ export function WorkExperience() {
                     }}
                 >
                     {experience.map((e, index) => (<ExperienceItem
-                        key={index}
+                        key={e.company}
                         company={e.company}
                         description={e.description}
                         location={e.location}

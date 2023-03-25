@@ -1,11 +1,11 @@
 import React from 'react'
-import { experience, experienceColorArray, projects, publications } from '../../constants'
+import { publications } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { moderateScale } from '../../util';
-import { ExperienceItem, MySection, Project } from '../components'
+import { MySection } from '../components'
 import { PublicationItem } from '../components/PublicationItem';
 
 export function Publications() {
@@ -18,6 +18,9 @@ export function Publications() {
             // height={'90vh'}
             className="section uk-section"
             backgroundColor={getTheme(currentTheme)}
+            style={{
+                paddingTop: isMobile() ? moderateScale(200) : "inherit",
+            }}
         >
             <div >
                 <h1 className="uk-heading-large"
