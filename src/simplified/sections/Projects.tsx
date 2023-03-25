@@ -1,11 +1,11 @@
 import React from 'react'
-import { experience, experienceColorArray, projects } from '../../constants'
+import { projects } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { moderateScale } from '../../util';
-import { ExperienceItem, MySection, Project } from '../components'
+import { MySection, Project } from '../components'
 
 export function Projects() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;

@@ -1,7 +1,5 @@
 import React from 'react'
 import { MySection, MyNavBar } from './components'
-import { Slider } from './SliderController';
-import { ContactMe } from './sections/ContactMe';
 import { isMobile } from '../mobile';
 import { navBarData } from '../constants';
 
@@ -16,19 +14,6 @@ function Simplified({ }: iSimplifiedViewProps) {
                 if (i.hide) return <></>
                 else return i.component
             })}
-            {/* <LandingSection />
-            <AboutMe />
-            <WorkExperience />
-            <Projects />
-            <Publications />
-            <Achievements />
-            <Blgos /> */}
-            {/* <ContactMe /> */}
-            {/* <MySection className="section">
-                <div className="section__heading">Smooth scrolling</div>
-            </MySection> */}
-
-            {/* <BuyMeACoffee /> */}
 
         </div>
     )

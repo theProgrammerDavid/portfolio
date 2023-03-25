@@ -1,11 +1,11 @@
 import React from 'react'
-import { experience, experienceColorArray, projects, publications } from '../../constants'
+import { publications } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { moderateScale } from '../../util';
-import { ExperienceItem, MySection, Project } from '../components'
+import { MySection } from '../components'
 import { PublicationItem } from '../components/PublicationItem';
 
 export function Publications() {

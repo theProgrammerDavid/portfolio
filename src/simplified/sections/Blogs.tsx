@@ -4,7 +4,7 @@ import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { BlogItem, MySection } from '../components'
-import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import { XMLParser } from 'fast-xml-parser'
 
 export function Blgos() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;

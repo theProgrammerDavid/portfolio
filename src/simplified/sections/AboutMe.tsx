@@ -4,8 +4,8 @@ import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import { moderateScale, scale, verticalScale } from '../../util';
-import { ChipsRow, MarkdownBadge, MyChip, MySection } from '../components'
+import { moderateScale } from '../../util';
+import { ChipsRow, MarkdownBadge, MySection } from '../components'
 import BuyMeACoffee from '../components/BuyMeACoffee';
 
 export function AboutMe() {

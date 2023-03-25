@@ -1,12 +1,11 @@
 import React from 'react'
-import { achievements, experience, experienceColorArray, projects, publications } from '../../constants'
+import { achievements } from '../../constants'
 import { ThemeContext } from '../../context';
 import { isMobile } from '../../mobile';
-import { Achievement, iContext } from '../../models';
+import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
 import { getUrlLinkFromCert, moderateScale } from '../../util';
-import { ExperienceItem, MySection, Project } from '../components'
-import { PublicationItem } from '../components/PublicationItem';
+import { MySection } from '../components'
 
 // declare var convertPdfToImageString: any;
 

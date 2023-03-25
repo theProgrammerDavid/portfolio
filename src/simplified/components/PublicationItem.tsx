@@ -1,6 +1,6 @@
 import React from 'react'
 import { isMobile } from '../../mobile'
-import { iBlog, Publication } from '../../models'
+import { Publication } from '../../models'
 import { THEMES } from '../../theme'
 import { moderateScale } from '../../util'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeContext } from '../../context';
 import { iContext } from '../../models';
 import { getTheme, THEMES } from '../../theme';
-import { BlogItem, ExperienceItem, MySection } from '../components'
+import { MySection } from '../components'
 
 export function ContactMe() {
     const { changeTheme, currentTheme } = React.useContext(ThemeContext) as iContext;
