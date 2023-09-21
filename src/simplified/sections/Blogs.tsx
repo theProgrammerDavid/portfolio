@@ -11,7 +11,7 @@ export function Blgos() {
     const [blogData, setBlogData] = React.useState<Array<any>>([]);
 
     async function loadBlogDataFromRSS() {
-        const result = await fetch("https://blog.davidvelho.tech/index.xml");
+        const result = await fetch("https://blog.davidvelho.com/index.xml");
         const data = await result.text();
 
         const parser = new XMLParser();

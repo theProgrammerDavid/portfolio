@@ -147,14 +147,14 @@ export const projects = [
   buildProject(
     "CP and Cheat Sheets",
     "Collection of Competitive programming practice questions and language cheat sheet",
-    renderLink("https://cheatsheet.davidvelho.tech/", "Cheat Sheets"),
+    renderLink("https://cheatsheet.davidvelho.com/", "Cheat Sheets"),
     ["js", "c++"],
     "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537011/portfolio/image_fcakwo.png"
   ),
   buildProject(
     "Unify PDF Merger",
     "Client side PDF merger and save as compressed zip. No file uploads. All compression done in browser.",
-    renderLink("https://unify.davidvelho.tech/", "Unify PDF Merger"),
+    renderLink("https://unify.davidvelho.com/", "Unify PDF Merger"),
     ["js", "html5", "css3"],
     "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537255/portfolio/image_ao9iwt.png"
   ),
@@ -174,7 +174,7 @@ export const projects = [
   buildProject(
     "Thank you ISS",
     "A thank you website for my first company - ISS Governance",
-    renderLink("http://thank-you-iss.davidvelho.tech/", "#"),
+    renderLink("http://thank-you-iss.davidvelho.com/", "#"),
     ["js", "html5", "css3"],
     "https://res.cloudinary.com/dkgduqw0c/image/upload/v1678537680/portfolio/image_vsz78a.png"
   )
